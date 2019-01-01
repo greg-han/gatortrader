@@ -1,17 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< HEAD
-var db_username="gsds";
-var db_password="password";
-var db_name="Website";
-var db_host="localhost";
-=======
 var db_username = 'root';
 var db_password ='password';
 var db_name = 'Website';
 var db_host = 'localhost';
->>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
 
 async function dbcheck(username){
     const mysql = require('mysql2/promise');
@@ -182,24 +175,12 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             };
             let buyerid = buyers[i].UserId;
             users = await dbfinduser(buyers[i].UserId);
-<<<<<<< HEAD
-            let messageinfo = await dbfindmessagebyitem(itemid);
-            
-            
-=======
-            console.log("myuserid",myuserid);
-            console.log("buyerid",buyerid);
             let messageinfo = await dbfindmessage(myuserid,buyerid);
             console.log("messageinfo",messageinfo);
->>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
             if(messageinfo[0].length>0){
               let message = messageinfo[0][0].MessageBody;
               let timestamp = new Date(message[0][0].TimeStamp);
               let messageid = message[0][0].Id;
-<<<<<<< HEAD
-=======
-              console.log("message", messageinfo[0][0].MessageBody);
->>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
               if(users && message) {
                 userobject.name = users[0][0].Name;
                 userobject.message = message;
