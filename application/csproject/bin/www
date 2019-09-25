@@ -4,6 +4,10 @@
  * Module dependencies.
  */
 
+/*You realyl don't need to worry about all of this stuff. It creates the server, and runs it on the port.
+notice that we import (require() function) app.js that's our main entry point, and it all gets esrved up here.
+There are some things for 404 errors and what not (nice thing that came with express-generator) -Greg
+*/
 var app = require('../app');
 var debug = require('debug')('csproject:server');
 var http = require('http');

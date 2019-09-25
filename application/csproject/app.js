@@ -8,20 +8,30 @@ var hbs = require('hbs');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+/*App.js is the main entry point of the app this is where everything gets set up.
+App.use detremines what routing files we use (look in routes folder) when get get http requests.
+eg. '/' means root url (oursite.com/) and when we go there, we will use indexRouter -Greg
+*/
 var app = express();
 
-// view engine setup
-//this adds all of the hbs files to the project
+//This is where "views" and handlebars gets set up -Greg
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+//partials are just snippets of re-usable code. -Greg
 hbs.registerPartials(__dirname + '/views/partials');
 
+//This is all necessary stuff to parse things like JSON objects, metadata, etc. between client and server -Greg
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+/*
+ This is where we tell express that all of our static files (in public) are going to be in /public
+ that way, we can access them later. Look in the public directory I left a readme. -Greg
+*/
 app.use(express.static(path.join(__dirname, 'public')));
 
+//This is the entry point of the app. Notice that above it goes to index.js inside of routes -Greg
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

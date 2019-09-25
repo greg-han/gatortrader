@@ -1,11 +1,16 @@
 <!DOCTYPE html>
+<!-- This is the main "Layout" and entry point of the app. The main "view"  This is what we see when we access the app -Greg -->>
 <html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
+<!-- This is a partial found in the partials folder-->>
   {{>navbar}}
+<!-- body will be replaced by the various .hbs files that are in the views folder it starts with index.hbs and when you go to a new route eg. /route
+     it will replace body with that .hbs file. This is basically a single page app.
+-->>
   {{{body}}}  
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
