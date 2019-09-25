@@ -8,15 +8,27 @@
 # Below is a list of items required. Missing items will causes points to be deducted from multiple milestone submissions.
 
 1. Server URL or IP
+
+ec2-18-188-166-67.us-east-2.compute.amazonaws.com
+
 2. SSH username
+
+"ubuntu"
+
 3. SSH password or key.
     <br> If a ssh key is used please upload the key to the credentials folder.
+    Team14.pem is uploaded into the folder.
+    
 4. Database URL or IP and port used.
     <br><strong> NOTE THIS DOES NOT MEAN YOUR DATABASE NEEDS A PUBLIC FACING PORT.</strong> But knowing the IP and port number will help with SSH tunneling into the database. The default port is more than sufficient for this class.
 5. Database username
 6. Database password
 7. Database name (basically the name that contains all your tables)
+
 8. Instructions on how to use the above information.
+To connect to the server, put the pem file in your .ssh folder. Once that is done you can connect using the following command:
+
+ssh -i "Path to Team 14.pem" ubuntu@ec2-18-188-166-67.us-east-2.compute.amazonaws.com
 
 # Most important things to Remember
 ## These values need to kept update to date throughout the semester. <br>
