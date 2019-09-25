@@ -12,6 +12,18 @@ router.get('/suraj',function(req, res, next) {
   res.render('suraj', { title: 'I am suraj' });
 });
 
+router.get('/shubham',function(req, res, next) {
+  res.render('shubham', { title: 'I am shubham' });
+});
+
+router.get('/michael',function(req, res, next) {
+  res.render('michael', { title: 'I am michael' });
+});
+
+router.get('/greg',function(req, res, next) {
+  res.render('greg', { title: 'I am greg' });
+});
+
 
 
 module.exports = router;
