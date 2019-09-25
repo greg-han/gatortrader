@@ -1,2 +1,0 @@
-attempt 1: added greg to git config
-attempt 2: removed user from git settings
