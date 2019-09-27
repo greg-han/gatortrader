@@ -8,6 +8,7 @@ var hbs = require('hbs');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//intellij check
 /*App.js is the main entry point of the app this is where everything gets set up.
 App.use detremines what routing files we use (look in routes folder) when get get http requests.
 eg. '/' means root url (oursite.com/) and when we go there, we will use indexRouter -Greg
