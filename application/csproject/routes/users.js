@@ -20,24 +20,34 @@ connection.connect();
 
 /* GET users listing. */
 //this is totally separtae from main routes and will be used later when we add users -Greg
+router.post('/loggedin' , function(req, res, next){
+  var user = req.body.username;
+  console.log(req);
+  let error = "";
+  //remember that this console.log goes to the server
+  let mysqlquery = 'SELECT * FROM `user` WHERE username = "Mike"';
+  let html = "";
+  connection.query(mysqlquery,function(error, results, fields){
+      if(error) throw error;
+      console.log(results);
+      if(results.length < 1) {
+          html = "Please Sign Up";
+      }
+      else{
+          html =  "";
+      }
+  });
+  res.send("You're in login page");
+});
+
+router.post('/register' , function(req, res, next){
+  res.send("You're in register page");
+});
+
 router.get('/login', function(req, res, next) {
-    var user = req.body.username;
-    let error = "";
-    //remember that this console.log goes to the server
-    let mysqlquery = 'SELECT * FROM `user` WHERE username = "Mike"';
-    let html = "";
-    connection.query(mysqlquery,function(error, results, fields){
-     if(error) throw error;
-     console.log(results);
-     if(results.length < 1){
-       html = "Please Sign Up";
-     }
-     else{
-       html =  "";
-     }
-     res.send(html);
-     //console.log('test' + results[0].test);
-    });
+   res.render('login.hbs');
+   //res.send(html);
+   //console.log('test' + results[0].test);
 });
 
 module.exports = router;
