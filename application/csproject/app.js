@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser= require('body-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 
@@ -23,8 +24,13 @@ hbs.registerPartials(__dirname + '/views/partials');
 
 //This is all necessary stuff to parse things like JSON objects, metadata, etc. between client and server -Greg
 app.use(logger('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 app.use(cookieParser());
 /*
  This is where we tell express that all of our static files (in public) are going to be in /public
