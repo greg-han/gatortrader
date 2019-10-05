@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser= require('body-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+//this is mozillas persistent session app
+var session = require('client-sessions');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -39,6 +41,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //This is the entry point of the app. Notice that above it goes to index.js inside of routes -Greg
+app.use(session({
+  cookieName : 'session',
+  secret: 'balh!!',
+  duration: 30*60*1000,
+  activeDuration: 5*50*1000,
+}));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

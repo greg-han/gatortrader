@@ -46,9 +46,10 @@ router.post('/loggedin' , async function(req, res, next){
           });
       if (resultbody.length < 1) {
           html = "user does not exist";
-      } else if(resultbody.password === pass){
+      } else if(resultbody[0].password === pass){
           html = "You are logged in!";
-      } else if (resultbody.password != pass){
+          req.session.user = user;
+      } else if (resultbody[0].password != pass){
           html = "Incorrect Password";
       }
       res.send(html);
@@ -56,6 +57,12 @@ router.post('/loggedin' , async function(req, res, next){
   else{
     res.send("Username Taken");
   }
+});
+
+router.post('/logout' , async function(req, res, next){
+   var session = require('client-sessions');
+   req.session.reset();
+   res.redirect('/');
 });
 
 router.post('/register' , async function(req, res, next){
