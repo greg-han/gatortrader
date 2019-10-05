@@ -29,19 +29,35 @@ router.get('/', function(req, res, next) {
 })
 
 router.get('/suraj',function(req, res, next) {
-  res.render('suraj', { title: 'I am suraj' });
+  let user = '';
+  if(req.session.user != undefined){
+    user = req.session.user;
+  }
+  res.render('suraj', { title: 'I am suraj', user : user });
 });
 
 router.get('/shubham',function(req, res, next) {
-  res.render('shubham', { title: 'I am shubham' });
+  let user = '';
+  if(req.session.user != undefined){
+    user = req.session.user;
+  }
+  res.render('shubham', { title: 'I am shubham', user : user });
 });
 
 router.get('/michael',function(req, res, next) {
-  res.render('michael', { title: 'I am michael' });
+  let user = '';
+  if(req.session.user != undefined){
+    user = req.session.user;
+  }
+  res.render('michael', { title: 'I am michael', user : user });
 });
 
 router.get('/greg',function(req, res, next) {
-  res.render('greg', { title: 'I am greg' });
+  let user = '';
+  if(req.session.user != undefined){
+    user = req.session.user;
+  }
+  res.render('greg', { title: 'I am greg', user: user });
 });
 
 
