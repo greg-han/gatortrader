@@ -17,11 +17,15 @@ please see handlebar documentation for more info. I hope this makes sense as it'
 router.get('/', function(req, res, next) {
   //some mysql
   let user = '';
+  let signedup = '';
   console.log("req sesh: ",req.session.user);
   if(req.session.user != undefined){
      user = req.session.user;
   }
-  res.render('index', { title: 'About Team 14', user : user});
+  if(req.session.signedup != undefined){
+    signedup = "true";
+  }
+  res.render('index', { title: 'About Team 14', user : user,signedup: signedup });
 })
 
 router.get('/suraj',function(req, res, next) {

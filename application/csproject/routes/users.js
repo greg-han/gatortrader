@@ -38,29 +38,28 @@ router.post('/loggedin' , async function(req, res, next){
       let dbresults = dblogin(user);
       await dbresults.then(function (result) {
           resultbody = result[0];
-          console.log("resultbody", result[0]);
           return result[0];
       })
           .catch(function (error) {
               console.error(error);
           });
       if (resultbody.length < 1) {
-          html = "user does not exist";
+          html = "user does not exist please go back to homepage";
+          res.send(html);
       } else if(resultbody[0].password === pass){
-          html = "You are logged in!";
           req.session.user = user;
+          res.redirect('/');
       } else if (resultbody[0].password != pass){
-          html = "Incorrect Password";
+          html = "Incorrect Password please go back to homepage";
+          res.send(html);
       }
-      res.send(html);
   }
   else{
-    res.send("Username Taken");
+    res.send("Username Taken please go back to homepage");
   }
 });
 
-router.post('/logout' , async function(req, res, next){
-   var session = require('client-sessions');
+router.get('/logout' , async function(req, res, next){
    req.session.reset();
    res.redirect('/');
 });
@@ -69,7 +68,8 @@ router.post('/register' , async function(req, res, next){
   let username = await req.body.username;
   let password = await req.body.password;
   let email = await req.body.email;
-  let dbresults = await dbregister(req.body.username,req.body.password,req.body.email);
+  //Note that if you put an await message here (before dbregister), this is no longer a promise that needs to be resolve but instead becomes a request header object
+  let dbresults = dbregister(req.body.username,req.body.password,req.body.email);
   let found = false;
   let indb = await dbcheck(req.body.username);
   if(indb[0].length > 1) {
@@ -80,16 +80,17 @@ router.post('/register' , async function(req, res, next){
       await dbresults.then(function (result) {
           let temp = [result[0], result[1], result[2]];
           resultbody = [result[0], result[1], result[2]];
-          console.log(resultbody);
           return resultbody;
       })
           .catch(function (error) {
               console.error(error);
           });
-   res.send("You're in register page");
+   req.session.user = username;
+   req.session.signedup = true;
+   res.redirect('/');
   }
   else{
-   res.send("User already exists");
+   res.send("User already exists please navigate back to home page");
   }
 });
 
