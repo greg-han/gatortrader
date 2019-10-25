@@ -3,22 +3,22 @@ var router = express.Router();
 
 async function dbcheck(username){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'users'});
-    const rows = await connection.execute('SELECT * FROM `user` WHERE `username` = ?',[username]);
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
 }
 
 async function dblogin(username) {
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'users'});
-    const rows = await connection.execute('SELECT `password` FROM `user` WHERE `username` = ?',[username]);
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
 }
 
-async function dbregister(username,password,email) {
+async function dbregister(name,username,password,email) {
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'users'});
-    const rows = await connection.execute('INSERT INTO `user` (`username`,`password`, `loggedin`,`email` ) VALUES(?,?,?,?) ',[username,password,0,email]);
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
     return rows;
 }
 
@@ -69,7 +69,7 @@ router.post('/register' , async function(req, res, next){
   let password = await req.body.password;
   let email = await req.body.email;
   //Note that if you put an await message here (before dbregister), this is no longer a promise that needs to be resolve but instead becomes a request header object
-  let dbresults = dbregister(req.body.username,req.body.password,req.body.email);
+  let dbresults = dbregister(req.body.name,req.body.username,req.body.password,req.body.email);
   let found = false;
   let indb = await dbcheck(req.body.username);
   if(indb[0].length > 1) {
@@ -78,13 +78,15 @@ router.post('/register' , async function(req, res, next){
   let resultbody = "";
   if(!found) {
       await dbresults.then(function (result) {
-          let temp = [result[0], result[1], result[2]];
-          resultbody = [result[0], result[1], result[2]];
+          //double check that this users thing is correct
+          let temp = [result[0], result[1], result[2],result[3]];
+          resultbody = [result[0], result[1], result[2],result[3]];
           return resultbody;
       })
           .catch(function (error) {
               console.error(error);
           });
+   //You need to add a check for successful database login here
    req.session.user = username;
    req.session.signedup = true;
    res.redirect('/');
