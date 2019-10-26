@@ -6,6 +6,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Description</th>
@@ -14,6 +15,7 @@
                 <tbody>
                 {{#each results}}
                 <tr>
+                    <td><img src="/images/{{this.Photo}}" style="border-radius: 50px; border-style: solid;"/></td>
                     <td>{{this.Name}}</td>
                     <td>{{this.Price}}</td>
                     <td>{{this.Description}}</td>
