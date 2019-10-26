@@ -32,6 +32,7 @@ router.post('/search', async function(req,res,next){
   var filterMap = new Map();
   filterMap.set('E',"ELECTRONICS");
   filterMap.set('B',"books");
+  filterMap.set('F',"furniture");
   filterMap.set('O',"Others");
 
   var search = await req.body.search;
