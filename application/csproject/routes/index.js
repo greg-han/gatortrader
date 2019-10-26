@@ -14,6 +14,41 @@ eg. 'suraj' is being sent { title : 'I am suraj'} You will notice in suraj.hbs, 
 response (res) object, and renders it as text. There are different thigns we can use like {{{}}}}, {}, etc. to render JSON, plaintext, or HTML 
 please see handlebar documentation for more info. I hope this makes sense as it's the main reason why I chose this framework. -Greg
 */
+async function dbsearch(search,filter){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  let likesearch = ("%" + search + "%");
+  if(!filter){
+    rows = await connection.execute('SELECT * FROM `Item` WHERE `Description` LIKE ?' ,[likesearch]);
+  }
+  else{
+    rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ?' ,[filter,likesearch]);
+  }
+  return rows;
+}
+
+router.post('/search', async function(req,res,next){
+  var filterMap = new Map();
+  filterMap.set('E',"ELECTRONICS");
+  filterMap.set('B',"books");
+  filterMap.set('O',"Others");
+
+  var search = await req.body.search;
+  var filter = await req.body.filter;
+
+  filter = filterMap.get(filter);
+  if(filter === "All"){
+    filter = '';
+  }
+
+  let dbsearchresult = await dbsearch(search,filter);
+  //This is how to access returned objects
+  console.log("Result: ", dbsearchresult[0]);
+
+  res.render('searchresults', { results : dbsearchresult[0]});
+});
+
 router.get('/', function(req, res, next) {
   //some mysql
   let user = '';
@@ -26,7 +61,7 @@ router.get('/', function(req, res, next) {
     signedup = "true";
   }
   res.render('index', { title: 'About Team 14', user : user,signedup: signedup });
-})
+});
 
 router.get('/suraj',function(req, res, next) {
   let user = '';

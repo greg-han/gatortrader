@@ -8,8 +8,23 @@
   </head>
   <body>
 <!-- This is a partial found in the partials folder-->
+<!-- name is what express recognizes with bodyparser-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">Team 14</a>
+    <form class="form-inline" method="post" action="search">
+            <div class="form-row">
+                <select class="custom-select" id="dropdown" name="filter">
+                    <option selected>All</option>
+                    <option value="E">Electronics</option>
+                    <option value="B">Books</option>
+                    <option value="O">Other</option>
+                </select>
+            </div>
+          <input name="search" type="text" class="form-control" id="search" placeholder="Find Items">
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+    &nbsp;
+    &nbsp;
     {{#if user}}
         <a class = "navbar-nav ml-auto" href="/users/logout">Logout</a>
     {{else}}
@@ -19,7 +34,7 @@
 <!-- body will be replaced by the various .hbs files that are in the views folder it starts with index.hbs and when you go to a new route eg. /route
      it will replace body with that .hbs file. This is basically a single page app.
 -->
-  {{{body}}}  
+  {{{body}}}
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
