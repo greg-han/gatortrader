@@ -23,6 +23,10 @@ async function dbregister(name,username,password,email) {
 }
 
 /* GET users listing. */
+router.get('/dashboard' , async function(req, res, next){
+    res.render('dashboard');
+});
+
 //this is totally separtae from main routes and will be used later when we add users -Greg
 router.post('/loggedin' , async function(req, res, next){
   var user = await req.body.loginusername;
