@@ -14,6 +14,7 @@ eg. 'suraj' is being sent { title : 'I am suraj'} You will notice in suraj.hbs, 
 response (res) object, and renders it as text. There are different thigns we can use like {{{}}}}, {}, etc. to render JSON, plaintext, or HTML 
 please see handlebar documentation for more info. I hope this makes sense as it's the main reason why I chose this framework. -Greg
 */
+
 async function dbsearch(search,filter){
   const mysql = require('mysql2/promise');
   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
@@ -43,12 +44,14 @@ router.post('/search', async function(req,res,next){
     filter = '';
   }
 
+  console.log("Search",search);
+  console.log("Filter",filter);
   let dbsearchresult = await dbsearch(search,filter);
   //This is how to access returned objects
-  console.log("Result: ", dbsearchresult[0]);
-
-  res.render('searchresults', { results : dbsearchresult[0]});
+  //console.log("Result: ", dbsearchresult[0]);
+  res.render('searchresults', { results : dbsearchresult[0] });
 });
+
 
 router.get('/', function(req, res, next) {
   //some mysql
