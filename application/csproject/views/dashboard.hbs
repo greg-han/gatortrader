@@ -9,91 +9,13 @@
     <link rel="stylesheet"  href="css/main.css"/>
 </head>
 <body>
-<!-- Body Contents -->
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <h2 class = text-white>SFSU 648-848 Fall 2019 Global Team Software Engineering Project</h2>
-    <p class = text-white>For Demonstration purposes only.</p>
-</div>
-<!-- Body Contents -->
-<div class="container-fluid">
-    <div class="row-fluid extraPadding">
-        <div class="col-md-12">
-            <div class="row-fluid ">
-                <div class="col-md-3 rview">
-                    <!-- <img src="img/gator.png" class="img"/> -->
-                    <p class="logo">Gator Trader</p>
-                </div>
-                <div class="col-md-5">
-                    <form action="" method="POST" class="search">
-                        <div class="row-fluid searchBox">
-                            <div class="col-md-3">
-                                <select name="categories" class="categories">
-                                    <option value="">Category 1</option>
-                                    <option value="">Category 2</option>
-                                </select>
-                            </div>
-                            <div class="col-md-7">
-                                <input type="text" name="freetextsearch" class="freetextsearch"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="button" class="searchbtn" name="searchbtn" value="Search"/>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-1 toppad">
-                    <a href="" class="tblack">Login</a>
-                </div>
-                <div class="col-md-1 toppad">
-                    <a href="" class="tblack">Register</a>
-                </div>
-                <div class="col-md-1 toppad">
-                    <div class="dropdown">
-                        <a id="dLabel" data-target="#" href="http://example.com/" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Account
-                            <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            <li><a href="">Upload Products</a></li>
-                            <li><a href="">My Selling Products</a></li>
-                            <li><a href="">My Purchased Products</a></li>
-                            <li><a href="">My wishlist</a></li>
-                            <li><a href="">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <br/><br/><br/><br/>
-            <div class="row-fluid menu">
-                <div class="col-md-2">
-                    <a href="">BOOKS</a>
-                </div>
-                <div class="col-md-2">
-                    <a href="">FURNITURE</a>
-                </div>
-                <div class="col-md-2">
-                    <a href="">ELECTRONICS</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="">MISCELLANEOUS</a>
-                </div>
-                <div class="col-md-2">
-                    <a href="">NOTES</a>
-                </div>
-            </div>
-            <br/><hr/>
-
-            <div>
-
                 <!-- Nav tabs -->
-                <h2>My Dashboard</h2><hr/>
+                <br/><br/>
+                <h2>Dashboard Of: {{user}}</h2><hr/>
                 <ul class="nav nav-tabs tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">My Products</a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">My Transactions</a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">My Messages</a></li>
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Selling</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Buying</a></li>
+                    <li role="presentation"><a href="/" aria-controls="messages" role="tab" data-toggle="tab">My Messages</a></li>
                 </ul>
 
                 <!-- Tab panes -->

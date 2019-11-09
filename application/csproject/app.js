@@ -10,6 +10,8 @@ var session = require('client-sessions');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var searchRouter = require('./routes/search');
+var messagesRouter = require('./routes/messages');
 
 //intellij check
 /*App.js is the main entry point of the app this is where everything gets set up.
@@ -49,6 +51,8 @@ app.use(session({
 }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/search', searchRouter);
+//app.use('/messages', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

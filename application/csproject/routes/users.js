@@ -24,7 +24,8 @@ async function dbregister(name,username,password,email) {
 
 /* GET users listing. */
 router.get('/dashboard' , async function(req, res, next){
-    res.render('dashboard');
+    console.log("In Dashboard: ",req.session.user)
+    res.render('dashboard', { user : req.session.user });
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
