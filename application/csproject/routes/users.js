@@ -46,10 +46,10 @@ router.post('/loggedin' , async function(req, res, next){
       if (resultbody.length < 1) {
           html = "user does not exist please go back to homepage";
           res.send(html);
-      } else if(resultbody[0].password === pass){
+      } else if(resultbody[0].Password === pass){
           req.session.user = user;
           res.redirect('/');
-      } else if (resultbody[0].password != pass){
+      } else if (resultbody[0].Password != pass){
           html = "Incorrect Password please go back to homepage";
           res.send(html);
       }

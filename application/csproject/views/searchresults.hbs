@@ -1,27 +1,102 @@
-<div class="jumbotron text-center">
-   <h2 align="center">Search Results</h2>
-</div>
-<div class="container">
-    <div class="row">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each results}}
-                <tr>
-                    <td><img src="/images/{{this.Photo}}" style="border-radius: 50px; border-style: solid;"/></td>
-                    <td>{{this.Name}}</td>
-                    <td>{{this.Price}}</td>
-                    <td>{{this.Description}}</td>
-                </tr>
-                {{/each}}
-                </tbody>
-            </table>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="css/main.css"/>
+</head>
+<body>
+<br/>
+<br/>
+            <!-- Tabs for the display sections -->
+            <div class="row-fluid tabs">
+                <div class="col-md-3">
+                    <div class="row-fluid">
+                        <div class="col-md-12 filterheader">
+                            &nbsp;&nbsp;&nbsp;<img src="img/menu.png" width="24"/>&nbsp;<strong>Filter Search Results </strong>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 1</a>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 2</a>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 3</a>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 1</a>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 2</a>
+                        </div>
+                        <div class="col-md-12 filterlink">
+                            <a href="">Category 3</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row-fluid tabs" style="height:60px;">
+                        <div class="col-md-2 filterlink">
+                            Image
+                        </div>
+                        <div class="col-md-2 filterlink c-align">
+                            Item Name
+                        </div>
+                        <div class="col-md-2 filterlink c-align">
+                            Category
+                        </div>
+                        <div class="col-md-2 filterlink c-align">
+                            Price
+                        </div>
+                        <div class="col-md-2 filterlink c-align">
+                        </div>
+                    </div>
+                   {{#each results}}
+                    <div class="row-fluid lheight">
+                        <div class="col-md-2">
+                            <img src="/images/{{this.Photo}}" style="border-radius: 50px; border-style: solid;"/>
+                        </div>
+                        <div class="col-md-2 c-align listitem">
+                            {{this.Name}}
+                        </div>
+                        <div class="col-md-2 c-align listitem">
+                            {{this.Categories}}
+                        </div>
+                        <div class="col-md-2  c-align listitem">
+                            <td>{{this.Price}}</td>
+                        </div>
+                        <div class="col-md-2  c-align"><br/>
+                            <a href="" class="buyNow">Buy Now</a>
+                        </div>
+                    </div>
+                   {{/each}}
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+</div>
+<br/><br/>
+<!-- Footer content -->
+<div class="container-fluid footer c-align">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            Copyright &copy; GSDS Project Work, 2019. All rights reserved
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.4.min.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
+
+
+
+
