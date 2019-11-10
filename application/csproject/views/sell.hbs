@@ -12,12 +12,12 @@
             <br/><hr/><br/><br/>
 
             <h1>Upload Product for Sale</h1>
-            <form class="form" method="post" sty>
+            <form class="form" method="post" enctype="multipart/form-data" action="/users/postitem">
                 <div class="row-fluid menu box l-align">
                     <div class="col-md-5 l-align ">
                         <h3>Item Image Upload</h3>
                         <p>Select the images of the product you want to upload here</p>
-                        <input type="file" name="username" placeholder="Username" style="height:220px;background: #eee;" />
+                        <input type="file" name="imgupload" placeholder="upload image" style="height:220px;background: #eee;" />
                         <br/><br/><br/><br/>
                     </div>
                     <div class="col-md-1">
@@ -27,14 +27,14 @@
 
                         <h3>Details</h3>
                         <p>Kindly provide details about the item you want to sell</p>
-                        <input type="text" name="username" placeholder="Item Name"/>
-                        <textarea name="username" >Item details
+                        <input type="text" name="itemname" placeholder="Item Name"/>
+                        <textarea name="itemdescription" >Item details
                                     </textarea>
                         <input type="text" name="price" placeholder="Price"/>
                         <select name="category">
                             <option value="">Category 1</option>
                         </select>
-                        <input type="button" name="register" value="Upload Item" class="gradient_green" />
+                        <input type="submit" name="register" value="Upload Item" class="gradient_green" />
 
                         <br/><br/>
                     </div>
