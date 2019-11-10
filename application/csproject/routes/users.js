@@ -97,24 +97,13 @@ router.post('/register' , async function(req, res, next){
           .catch(function (error) {
               console.error(error);
           });
-      //You need to add a check for successful database login here
-      /*
-      router.get('/item/:id', async function(req,res,next){
-          var user = req.session.user;
-          var item = req.params.id;
-          console.log("In item: ",item);
-          let itemresult = await dbfinditem(item);
-          //This is how to access returned objects
-          console.log("Item Result: ", itemresult[0][0]);
-          res.render('item',{ user : user, item : itemresult[0][0] });
-      });
-       */
       req.session.user = username;
       req.session.signedup = true;
       if(!req.session.cart) {
           res.redirect('/');
       }
       else{
+          //Remember to clear the cart afterwards
           let url = "/item/" + req.session.cart;
           res.redirect(url);
       }
