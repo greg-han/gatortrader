@@ -49,6 +49,8 @@ app.use(session({
   duration: 30*60*1000,
   activeDuration: 5*50*1000,
 }));
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/search', searchRouter);

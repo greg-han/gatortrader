@@ -24,6 +24,12 @@ async function dbregister(name,username,password,email) {
 
 //just use the session in the item id.
 /* GET users listing. */
+
+let upload = require('../services/uploadimage');
+router.post('/postitem', upload().single("img"), async function(req, res, next){
+    console.log("in Sell item");
+    console.log(req.file);
+});
 router.get('/dashboard' , async function(req, res, next){
     //console.log("In Dashboard: ",req.session.user)
     res.render('dashboard', { user : req.session.user });

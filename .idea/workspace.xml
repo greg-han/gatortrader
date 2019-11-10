@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Websitebackup.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/services/dboperations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/services/sessions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/services/uploadimage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/views/layout.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/layout.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="124" column="23" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
+            <state>
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -29,16 +36,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
+            <state relative-caret-position="453">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Website.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-675" />
           </provider>
         </entry>
       </file>
@@ -51,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/csproject/views/login.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="33">
               <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
             </state>
           </provider>
@@ -73,22 +73,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/upload.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="270">
+              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#5383#5389#0#HTML" expanded="true" />
@@ -98,19 +86,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/views/searchresults.hbs">
+        <entry file="file://$PROJECT_DIR$/application/services/uploadimage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/views/layout.hbs">
+        <entry file="file://$PROJECT_DIR$/application/services/dboperations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1170">
-              <caret line="78" column="2" selection-start-line="78" selection-start-column="2" selection-end-line="78" selection-end-column="2" />
+            <state relative-caret-position="15">
+              <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/services/sessions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/csproject/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -142,14 +148,17 @@
         <option value="$PROJECT_DIR$/application/csproject/oldviews/item.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/search.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" />
-        <option value="$PROJECT_DIR$/application/csproject/app.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/item.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/views/login.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/messages.js" />
-        <option value="$PROJECT_DIR$/application/csproject/routes/users.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/sell.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/index.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/layout.hbs" />
+        <option value="$PROJECT_DIR$/application/services/dboperations.js" />
+        <option value="$PROJECT_DIR$/application/csproject/app.js" />
+        <option value="$PROJECT_DIR$/application/services/uploadimage.js" />
+        <option value="$PROJECT_DIR$/application/services/sessions.js" />
+        <option value="$PROJECT_DIR$/application/csproject/routes/users.js" />
       </list>
     </option>
   </component>
@@ -162,7 +171,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="928" />
+    <option name="width" value="1431" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -188,6 +197,12 @@
               <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="csproject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="csc648-fall2019-Team14" type="b2602c69:ProjectViewProjectNode" />
+              <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,7 +278,7 @@
       <workItem from="1573103685386" duration="4813000" />
       <workItem from="1573166559875" duration="1522000" />
       <workItem from="1573250767201" duration="25099000" />
-      <workItem from="1573313651444" duration="30262000" />
+      <workItem from="1573313651444" duration="33876000" />
     </task>
     <task id="LOCAL-00001" summary="Testing intellij git">
       <created>1569558602610</created>
@@ -454,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573364657223</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="commit before pull">
+      <created>1573408732291</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1573408732291</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134525000" />
+    <option name="totallyTimeSpent" value="138139000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -471,6 +493,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1580984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -487,9 +510,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32925585" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.31090724" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32004198" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.5474006" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.53109074" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002764" side_tool="true" weight="0.36187562" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32925585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -538,7 +561,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made basic database logic for mysql npm library." />
     <MESSAGE value="Added login page and some login logic." />
     <MESSAGE value="used mysql2 instead because it has built in JS promises for async." />
     <MESSAGE value="Fixed async issues, database working correctly.&#10;Simply need to add login and register logic.&#10;Don't forget to use something like bcyrpt for the password." />
@@ -563,7 +585,8 @@
     <MESSAGE value="Implemented lazy registration for buying.&#10;Need to implement the ability to upload item and then will do messages." />
     <MESSAGE value="added janky sell item link. Will be adder sell page, and then messaging." />
     <MESSAGE value="Sell page and link updated and implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sell page and link updated and implemented." />
+    <MESSAGE value="commit before pull" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit before pull" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/csproject/node_modules/body-parser/lib/types/json.js">
@@ -721,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/routes/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -749,15 +765,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
+    <entry file="file://$PROJECT_DIR$/Website.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5383#5389#0#HTML" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-675" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/upload.html">
@@ -780,10 +790,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/views/login.hbs">
+    <entry file="file://$PROJECT_DIR$/application/csproject/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        <state relative-caret-position="135">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5383#5389#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/services/dboperations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="10" lean-forward="true" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/services/sessions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/services/uploadimage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -794,23 +850,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/login.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="124" column="23" selection-start-line="124" selection-start-column="23" selection-end-line="124" selection-end-column="23" />
+        <state relative-caret-position="33">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="87" column="16" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Website.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675" />
       </provider>
     </entry>
   </component>
