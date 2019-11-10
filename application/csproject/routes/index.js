@@ -15,6 +15,24 @@ response (res) object, and renders it as text. There are different thigns we can
 please see handlebar documentation for more info. I hope this makes sense as it's the main reason why I chose this framework. -Greg
 */
 
+async function dbfinditem(id){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
+  return rows;
+}
+
+router.get('/item/:id', async function(req,res,next){
+    var user = req.session.user;
+    var item = req.params.id;
+    console.log("In item: ",item);
+    let itemresult = await dbfinditem(item);
+    //This is how to access returned objects
+    console.log("Item Result: ", itemresult[0][0]);
+    res.render('item',{ user : user, item : itemresult[0][0] });
+});
+
 router.get('/', function(req, res, next) {
   //some mysql
   let user = '';

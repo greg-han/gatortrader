@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="css/main.css"/>
+</head>
+<br/>
+<br/>
+<br/>
+<br/>
+            <div class="row-fluid menu">
+
+                <div class="col-md-5 l-align box">
+
+                    <h1>Item Images</h1>
+                    <div class="form row-fluid" method="post">
+                        <div class="col-md-6">
+                            <img src="/images/{{item.Photo}}" height="170"/>
+                        </div>
+                        <!--
+                        <div class="col-md-6">
+                            <img src="img/4.jpg" height="170"/>
+                        </div>
+                        -->
+
+                    </div>
+                    Category: {{item.Categories}} <hr/>
+                    Price: {{item.Price}}<br/>
+                    {{item.Name}}<br/>
+                    {{item.Description}}<br/>
+                    <br/><br/><br/><br/>
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-6 l-align box">
+                    <h1>Message Seller</h1>
+                    <div class="l-align" method="post">
+                        If you want to buy this send a message to the seller below.
+                        Caution: All transactions should be done in person, and all members should meet in the Library. Do not pay for items online or without a formal meet.
+                        <form class="form" method="post">
+                          <textarea name="username" >
+                          </textarea>
+                            <input type="button" name="register" value="Send Message" class="gradient_green" />
+
+                        </form>
+                    </div>
+                    <br/><br/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<br/><br/>
+<!-- Footer content -->
+<div class="container-fluid footer c-align">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            Copyright &copy; GSDS Project Work, 2019. All rights reserved
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.4.min.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>

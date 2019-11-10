@@ -16,6 +16,7 @@ async function dbsearch(search,filter){
 }
 
 router.post('/searches', async function(req,res,next){
+    var user = req.session.user;
     var filterMap = new Map();
     filterMap.set('E',"ELECTRONICS");
     filterMap.set('B',"books");
@@ -34,8 +35,8 @@ router.post('/searches', async function(req,res,next){
     console.log("Filter",filter);
     let dbsearchresult = await dbsearch(search,filter);
     //This is how to access returned objects
-    //console.log("Result: ", dbsearchresult[0]);
-    res.render('searchresults', { results : dbsearchresult[0] });
+    console.log("Result: ", dbsearchresult[0]);
+    res.render('searchresults', { results : dbsearchresult[0], user : user });
 });
 
 module.exports = router;
