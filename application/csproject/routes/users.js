@@ -26,9 +26,15 @@ async function dbregister(name,username,password,email) {
 /* GET users listing. */
 
 let upload = require('../services/uploadimage');
-router.post('/postitem', upload().single("img"), async function(req, res, next){
+router.post('/postitem', upload.single('avatar'), async function(req, res, next){
+    //don't forget to put limits on
+    if(!req.session.user){
+       req.session.itemdescription = req.body.itemdescription;
+       req.session.itemdescription = req.body.itemdescription;
+    }
     console.log("in Sell item");
     console.log(req.file);
+    res.redirect('/');
 });
 router.get('/dashboard' , async function(req, res, next){
     //console.log("In Dashboard: ",req.session.user)
@@ -64,6 +70,10 @@ router.post('/loggedin' , async function(req, res, next) {
                 res.redirect('/');
             } else {
                 let url = "/item/" + req.session.cart;
+                //clear out the cart and everything else in the session
+                let user = req.session.user;
+                req.session.clear();
+                req.session.user = user;
                 res.redirect(url);
             }
         }
@@ -104,13 +114,15 @@ router.post('/register' , async function(req, res, next){
               console.error(error);
           });
       req.session.user = username;
-      req.session.signedup = true;
       if(!req.session.cart) {
           res.redirect('/');
       }
       else{
           //Remember to clear the cart afterwards
           let url = "/item/" + req.session.cart;
+          let user = req.session.user;
+          req.session.clear();
+          req.session.user = user;
           res.redirect(url);
       }
   }
