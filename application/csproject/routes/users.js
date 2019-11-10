@@ -22,6 +22,7 @@ async function dbregister(name,username,password,email) {
     return rows;
 }
 
+//just use the session in the item id.
 /* GET users listing. */
 router.get('/dashboard' , async function(req, res, next){
     //console.log("In Dashboard: ",req.session.user)
@@ -29,37 +30,42 @@ router.get('/dashboard' , async function(req, res, next){
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
-router.post('/loggedin' , async function(req, res, next){
-  var user = await req.body.loginusername;
-  var pass = await req.body.loginpassword;
-  let resultbody = "";
-  let html = "";
-  let found = false;
-  let indb = await dbcheck(user);
-    if(indb[0].length > 1) {
+router.post('/loggedin' , async function(req, res, next) {
+    var user = await req.body.loginusername;
+    var pass = await req.body.loginpassword;
+    let resultbody = "";
+    let html = "";
+    let found = false;
+    let indb = await dbcheck(user);
+    if (indb[0].length > 1) {
         found = true;
-  }
-  if(!found) {
-      let dbresults = dblogin(user);
-      await dbresults.then(function (result) {
-          resultbody = result[0];
-          return result[0];
-      })
-          .catch(function (error) {
-              console.error(error);
-          });
-      if (resultbody.length < 1) {
-          html = "user does not exist please go back to homepage";
-          res.send(html);
-      } else if(resultbody[0].Password === pass){
-          req.session.user = user;
-          res.redirect('/');
-      } else if (resultbody[0].Password != pass){
-          html = "Incorrect Password please go back to homepage";
-          res.send(html);
-      }
-  }
-  else{
+    }
+    if (!found) {
+        let dbresults = dblogin(user);
+        await dbresults.then(function (result) {
+            resultbody = result[0];
+            return result[0];
+        })
+            .catch(function (error) {
+                console.error(error);
+            });
+        if (resultbody.length < 1) {
+            html = "user does not exist please go back to homepage";
+            res.send(html);
+        } else if (resultbody[0].Password === pass) {
+            req.session.user = user;
+            if (!req.session.cart) {
+                res.redirect('/');
+            } else {
+                let url = "/item/" + req.session.cart;
+                res.redirect(url);
+            }
+        }
+    } else if (resultbody[0].Password != pass) {
+        html = "Incorrect Password please go back to homepage";
+        res.send(html);
+    }
+  if(found){
     res.send("Username Taken please go back to homepage");
   }
 });
@@ -92,13 +98,25 @@ router.post('/register' , async function(req, res, next){
               console.error(error);
           });
       //You need to add a check for successful database login here
+      /*
+      router.get('/item/:id', async function(req,res,next){
+          var user = req.session.user;
+          var item = req.params.id;
+          console.log("In item: ",item);
+          let itemresult = await dbfinditem(item);
+          //This is how to access returned objects
+          console.log("Item Result: ", itemresult[0][0]);
+          res.render('item',{ user : user, item : itemresult[0][0] });
+      });
+       */
       req.session.user = username;
       req.session.signedup = true;
-      if (!req.session.cart) {
+      if(!req.session.cart) {
           res.redirect('/');
-      } else {
-          let url = "item/" + req.session.cart;
-          res.render(url);
+      }
+      else{
+          let url = "/item/" + req.session.cart;
+          res.redirect(url);
       }
   }
   else{
@@ -107,7 +125,12 @@ router.post('/register' , async function(req, res, next){
 });
 
 router.get('/login', function(req, res, next) {
-   res.render('login.hbs');
+   if(req.session.cart) {
+       res.render('login.hbs', { message : "Please Login or Register to Sell/Purchase Item"});
+   }
+   else{
+      res.render('login', { message : ""});
+   }
 });
 
 module.exports = router;

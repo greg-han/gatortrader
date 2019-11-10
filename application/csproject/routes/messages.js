@@ -45,6 +45,7 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
      res.redirect('/users/login');
   }
   else{
+     //This will re-direct to messages
      res.redirect('/');
   }
 });
