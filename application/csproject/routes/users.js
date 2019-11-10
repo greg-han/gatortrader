@@ -84,20 +84,25 @@ router.post('/register' , async function(req, res, next){
   if(!found) {
       await dbresults.then(function (result) {
           //double check that this users thing is correct
-          let temp = [result[0], result[1], result[2],result[3]];
-          resultbody = [result[0], result[1], result[2],result[3]];
+          let temp = [result[0], result[1], result[2], result[3]];
+          resultbody = [result[0], result[1], result[2], result[3]];
           return resultbody;
       })
           .catch(function (error) {
               console.error(error);
           });
-   //You need to add a check for successful database login here
-   req.session.user = username;
-   req.session.signedup = true;
-   res.redirect('/');
+      //You need to add a check for successful database login here
+      req.session.user = username;
+      req.session.signedup = true;
+      if (!req.session.cart) {
+          res.redirect('/');
+      } else {
+          let url = "item/" + req.session.cart;
+          res.render(url);
+      }
   }
   else{
-   res.send("User already exists please navigate back to home page");
+    res.send('User Exists, please choose another and navigate back to homepage');
   }
 });
 

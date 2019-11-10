@@ -37,9 +37,18 @@ async function dbsearch(search,filter){
 }
 
 router.post('/sendmessage/:itemid', async function(req, res, next){
-  console.log("well, we made it");
-  res.redirect('/');
+  console.log("well, we made it", req.session.user);
+  let url = "/login";
+  let id = req.params.itemid;
+  if(!req.session.user){
+     req.session.cart = id;
+     res.redirect('/users/login');
+  }
+  else{
+     res.redirect('/');
+  }
 });
+
 
 router.post('checkmessages', async function(req, res, next){
 
