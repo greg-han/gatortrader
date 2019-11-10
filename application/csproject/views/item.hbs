@@ -13,9 +13,7 @@
 <br/>
 <br/>
             <div class="row-fluid menu">
-
                 <div class="col-md-5 l-align box">
-
                     <h1>Item Images</h1>
                     <div class="form row-fluid" method="post">
                         <div class="col-md-6">
@@ -36,7 +34,7 @@
                     <div class="l-align" >
                         If you want to buy this send a message to the seller below.
                         Caution: All transactions should be done in person, and all members should meet in the Library. Do not pay for items online or without a formal meet.
-                        <form class="form" method="post" action="loggedin">
+                        <form class="form" method="post" action="/messages/sendmessage/{{item.Id}}">
                           <textarea name="message" >
                           </textarea>
                             <input type="submit" name="register" value="Send Message" class="gradient_green" />

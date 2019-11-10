@@ -36,11 +36,12 @@ async function dbsearch(search,filter){
     return rows;
 }
 
-router.post('sendmessage', async function(res, req, next){
-
+router.post('/sendmessage/:itemid', async function(req, res, next){
+  console.log("well, we made it");
+  res.redirect('/');
 });
 
-router.post('checkmessages', async function(res, req, next){
+router.post('checkmessages', async function(req, res, next){
 
 });
 
