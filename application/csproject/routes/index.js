@@ -33,6 +33,11 @@ router.get('/item/:id', async function(req,res,next){
     res.render('item',{ user : user, item : itemresult[0][0] });
 });
 
+router.get('/sell', async function(req,res,next){
+  var user = req.session.user;
+  res.render('sell',{ user : user });
+});
+
 router.get('/', function(req, res, next) {
   //some mysql
   let user = '';
