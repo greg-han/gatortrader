@@ -8,20 +8,6 @@ async function dbcheck(username){
     return rows;
 }
 
-async function dblogin(username) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
-    return rows;
-}
-
-async function dbregister(name,username,password,email) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
-    return rows;
-}
-
 async function dbsearch(search,filter){
     const mysql = require('mysql2/promise');
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
@@ -36,15 +22,29 @@ async function dbsearch(search,filter){
     return rows;
 }
 
+async function dbfindsellerbyitem(itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`ItemId`) = ? ',[itemid]);
+    return rows;
+}
+
 router.post('/sendmessage/:itemid', async function(req, res, next){
   console.log("well, we made it", req.session.user);
+  let user = await req.session.user;
   let url = "/login";
-  let id = req.params.itemid;
-  if(!req.session.user){
-     req.session.cart = id;
+  let itemid = await req.params.itemid;
+  let message = await req.body.message;
+  let sellerid = await req.body.sellerid;
+  if(!user){
+     req.session.cart = itemid;
      res.redirect('/users/login');
   }
   else{
+     //this will return the seller table
+     console.log("itemid: ", itemid);
+     console.log("message: ",message);
+     console.log("sellerid: ",sellerid);
      //This will re-direct to messages
      res.redirect('/');
   }

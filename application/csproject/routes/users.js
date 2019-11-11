@@ -41,7 +41,6 @@ async function dbinsertseller(userid,itemid){
 
 let upload = require('../services/uploadimage');
 router.post('/postitem', upload.single('avatar'), async function(req, res, next){
-    console.log("in Sell item");
     var user = req.session.user;
     var filterMap = new Map();
     filterMap.set('E',"ELECTRONICS");
@@ -54,20 +53,12 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     let itemprice = await req.body.price;
     let itemdescription = await req.body.itemdescription;
     let itemphoto = await req.file.filename;
-    console.log("itemname: ", itemname);
-    console.log("itemcategory: ", itemcategory);
-    console.log("itemprice: ", itemprice);
-    console.log("itemdescription: ", itemdescription);
-    console.log("itemphoto: ", itemphoto);
     let itemdb = await dbinsertitem(itemname,itemcategory,itemprice,itemdescription,itemphoto);
-    console.log("Itemdb : ", itemdb);
     let itemid = itemdb[0].insertId;
     //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
     let dbuser = await dbcheck(user);
     let sellerid = dbuser[0][0].Id;
-    console.log("sellerid: ", sellerid);
     let sellerdb = await dbinsertseller(sellerid,itemid);
-    console.log("sellerdb", sellerdb);
     //console.log("reqfile: ",req.file);
     res.redirect('/');
 });
