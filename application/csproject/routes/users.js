@@ -28,14 +28,21 @@ async function dbregister(name,username,password,email) {
 let upload = require('../services/uploadimage');
 router.post('/postitem', upload.single('avatar'), async function(req, res, next){
     //don't forget to put limits on
-    if(!req.session.user){
-       req.session.itemdescription = req.body.itemdescription;
-       req.session.itemdescription = req.body.itemdescription;
-    }
     console.log("in Sell item");
     console.log(req.file);
     res.redirect('/');
 });
+
+router.post('/postitemlazy',async function(req, res, next){
+    if(req.file){
+      req.session.reupload = "Please Re-Upload Image";
+    }
+    console.log("item description: ",req.body.itemdescription);
+    req.session.itemdescription = await req.body.itemdescription;
+    req.session.selllazy = "true";
+    res.redirect('/users/login');
+});
+
 router.get('/dashboard' , async function(req, res, next){
     //console.log("In Dashboard: ",req.session.user)
     res.render('dashboard', { user : req.session.user });
@@ -66,22 +73,33 @@ router.post('/loggedin' , async function(req, res, next) {
             res.send(html);
         } else if (resultbody[0].Password === pass) {
             req.session.user = user;
-            if (!req.session.cart) {
+            if (!req.session.cart && !req.session.selllazy) {
                 res.redirect('/');
-            } else {
+            }
+            if(req.session.selllazy) {
+                if (req.session.selllazy) {
+                    res.redirect('/sell');
+                }
+            }
+            if(req.session.cart){
                 let url = "/item/" + req.session.cart;
                 //clear out the cart and everything else in the session
                 let user = req.session.user;
-                req.session.clear();
+                req.session.destroy();
                 req.session.user = user;
                 res.redirect(url);
-            }
-        }
-    } else if (resultbody[0].Password != pass) {
-        html = "Incorrect Password please go back to homepage";
-        res.send(html);
+             }
+         }
     }
+  if (resultbody[0].Password != pass) {
+    html = "Incorrect Password please go back to homepage";
+    //use template literals for this or look at how to inject html into send
+    //res.send(<a href="/">html</a>);
+    res.send(html);
+  }
   if(found){
+    //use template literals for this or learn how to inject html into send
+    //res.send(<a href="/">"Username Taken please go back to homepage"</a>);
     res.send("Username Taken please go back to homepage");
   }
 });
@@ -118,15 +136,22 @@ router.post('/register' , async function(req, res, next){
           res.redirect('/');
       }
       else{
-          //Remember to clear the cart afterwards
-          let url = "/item/" + req.session.cart;
-          let user = req.session.user;
-          req.session.clear();
-          req.session.user = user;
-          res.redirect(url);
+          if(req.session.selllazy){
+              res.redirect('/sell');
+          }
+          else {
+              //Remember to clear the cart afterwards
+              let url = "/item/" + req.session.cart;
+              let user = req.session.user;
+              req.session.destroy();
+              req.session.user = user;
+              res.redirect(url);
+          }
       }
   }
   else{
+     //use template literals for this or learn how to inject html into send
+    //res.send(<a href="/">'User Exists, please choose another and navigate back to homepage'</a>);
     res.send('User Exists, please choose another and navigate back to homepage');
   }
 });

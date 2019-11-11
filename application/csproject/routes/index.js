@@ -35,7 +35,11 @@ router.get('/item/:id', async function(req,res,next){
 
 router.get('/sell', async function(req,res,next){
   var user = req.session.user;
-  res.render('sell',{ user : user });
+  console.log("in sell: ", req.session.itemdescription);
+  var description = req.session.itemdescription;
+  req.session.destroy();
+  req.session.user = user;
+  res.render('sell',{ user : user, description : description });
 });
 
 router.get('/', function(req, res, next) {

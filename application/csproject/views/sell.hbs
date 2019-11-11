@@ -10,9 +10,12 @@
 </head>
 <body>
             <br/><hr/><br/><br/>
-
             <h1>Upload Product for Sale</h1>
-            <form class="form" method="post" enctype="multipart/form-data" action="/users/postitem">
+            {{#if user}}
+                <form class="form" method="post" enctype="multipart/form-data" action="/users/postitem">
+            {{else}}
+                <form class="form" method="post" action="/users/postitemlazy">
+            {{/if}}
                 <div class="row-fluid menu box l-align">
                     <div class="col-md-5 l-align ">
                         <h3>Item Image Upload</h3>
@@ -24,39 +27,39 @@
 
                     </div>
                     <div class="col-md-6 l-align">
-
-                        <h3>Details</h3>
-                        <p>Kindly provide details about the item you want to sell</p>
+                    <h3>Details</h3>
+                    <p>Kindly provide details about the item you want to sell</p>
                         <input type="text" name="itemname" placeholder="Item Name"/>
-                        <textarea name="itemdescription" >Item details
-                                    </textarea>
-                        <input type="text" name="price" placeholder="Price"/>
-                        <select name="category">
-                            <option value="E">Electronics</option>
-                            <option value="B">Books</option>
-                            <option value="F">Furniture</option>
-                            <option value="O">Other</option>
-                        </select>
-                        <input type="submit" name="register" value="Upload Item" class="gradient_green" />
+                    <textarea name="itemdescription" >{{description}}
+                        </textarea>
+                    <input type="text" name="price" placeholder="Price"/>
+                    <select name="category">
+                        <option value="E">Electronics</option>
+                        <option value="B">Books</option>
+                        <option value="F">Furniture</option>
+                        <option value="O">Other</option>
+                    </select>
+                    <input type="submit" name="register" value="Upload Item" class="gradient_green" />
 
-                        <br/><br/>
+                    <br/><br/>
+                </div>
+              </div>
+            </form>
+            </div>
+            </div>
+            </div>
+                <br/><br/>
+                <!-- Footer content -->
+                <div class="container-fluid footer c-align">
+                    <div class="row-fluid">
+                        <div class="col-md-12">
+                            Copyright &copy; GSDS Project Work, 2019. All rights reserved
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</div>
-<br/><br/>
-<!-- Footer content -->
-<div class="container-fluid footer c-align">
-    <div class="row-fluid">
-        <div class="col-md-12">
-            Copyright &copy; GSDS Project Work, 2019. All rights reserved
-        </div>
-    </div>
-</div>
 
-<script src="js/jquery-1.12.4.min.js" ></script>
-<script src="js/bootstrap.min.js" ></script>
+                <script src="js/jquery-1.12.4.min.js" ></script>
+                <script src="js/bootstrap.min.js" ></script>
 </body>
 </html>
+
