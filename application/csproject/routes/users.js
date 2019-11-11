@@ -22,11 +22,26 @@ async function dbregister(name,username,password,email) {
     return rows;
 }
 
+async function dbinsertitem(name,category,price,description,photo){
+   const mysql = require('mysql2/promise');
+   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+   const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+   return rows;
+}
+
+async function dbinsertseller(userid,itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('INSERT INTO `Seller` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
+    return rows;
+}
+
 //just use the session in the item id.
 /* GET users listing. */
 
 let upload = require('../services/uploadimage');
 router.post('/postitem', upload.single('avatar'), async function(req, res, next){
+    console.log("in Sell item");
     var user = req.session.user;
     var filterMap = new Map();
     filterMap.set('E',"ELECTRONICS");
@@ -34,21 +49,26 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     filterMap.set('F',"furniture");
     filterMap.set('O',"Others");
     //don't forget to put limits on
-    let itemname = await req.body.name;
-    let itemdescription = await req.body.itemdescription;
+    let itemname = await req.body.itemname;
     let itemcategory = await filterMap.get(req.body.category);
     let itemprice = await req.body.price;
-    let photo = await req.file.filename;
-
+    let itemdescription = await req.body.itemdescription;
+    let itemphoto = await req.file.filename;
+    console.log("itemname: ", itemname);
+    console.log("itemcategory: ", itemcategory);
+    console.log("itemprice: ", itemprice);
+    console.log("itemdescription: ", itemdescription);
+    console.log("itemphoto: ", itemphoto);
+    let itemdb = await dbinsertitem(itemname,itemcategory,itemprice,itemdescription,itemphoto);
+    console.log("Itemdb : ", itemdb);
+    let itemid = itemdb[0].insertId;
     //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
     let dbuser = await dbcheck(user);
     let sellerid = dbuser[0][0].Id;
-    //now, update seller table with userid and itemid
-
-    console.log("sellerid: ",sellerid);
-    console.log("in Sell item");
-    console.log("reqfile: ",req.file);
-    console.log("photo: ",photo);
+    console.log("sellerid: ", sellerid);
+    let sellerdb = await dbinsertseller(sellerid,itemid);
+    console.log("sellerdb", sellerdb);
+    //console.log("reqfile: ",req.file);
     res.redirect('/');
 });
 
