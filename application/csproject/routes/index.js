@@ -23,14 +23,35 @@ async function dbfinditem(id){
   return rows;
 }
 
+async function dbfindseller(itemid){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  rows = await connection.execute('SELECT * FROM `Seller` WHERE `ItemId` = ?',[itemid]);
+  return rows;
+}
+
+async function dbfinduser(userid){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
+  return rows;
+}
+
 router.get('/item/:id', async function(req,res,next){
     var user = req.session.user;
     var item = req.params.id;
     console.log("In item: ",item);
     let itemresult = await dbfinditem(item);
+    let sellerresult = await dbfindseller(item);
+    let sellerid = sellerresult[0][0].UserId;
+    let findseller = await dbfinduser(sellerid);
+    let sellername = findseller[0][0].Username;
+    console.log("Seller Result: ", sellerresult);
     //This is how to access returned objects
-    console.log("Item Result: ", itemresult[0][0]);
-    res.render('item',{ user : user, item : itemresult[0][0] });
+    //console.log("Item Result: ", itemresult[0][0]);
+    res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
 });
 
 router.get('/sell', async function(req,res,next){
