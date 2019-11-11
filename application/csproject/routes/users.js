@@ -27,9 +27,28 @@ async function dbregister(name,username,password,email) {
 
 let upload = require('../services/uploadimage');
 router.post('/postitem', upload.single('avatar'), async function(req, res, next){
+    var user = req.session.user;
+    var filterMap = new Map();
+    filterMap.set('E',"ELECTRONICS");
+    filterMap.set('B',"books");
+    filterMap.set('F',"furniture");
+    filterMap.set('O',"Others");
     //don't forget to put limits on
+    let itemname = await req.body.name;
+    let itemdescription = await req.body.itemdescription;
+    let itemcategory = await filterMap.get(req.body.category);
+    let itemprice = await req.body.price;
+    let photo = await req.file.filename;
+
+    //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
+    let dbuser = await dbcheck(user);
+    let sellerid = dbuser[0][0].Id;
+    //now, update seller table with userid and itemid
+
+    console.log("sellerid: ",sellerid);
     console.log("in Sell item");
-    console.log(req.file);
+    console.log("reqfile: ",req.file);
+    console.log("photo: ",photo);
     res.redirect('/');
 });
 
