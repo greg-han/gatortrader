@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/users.js" afterDir="false" />
-    </list>
+    <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="540">
+              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -277,7 +274,7 @@
       <workItem from="1573103685386" duration="4813000" />
       <workItem from="1573166559875" duration="1522000" />
       <workItem from="1573250767201" duration="25099000" />
-      <workItem from="1573313651444" duration="50125000" />
+      <workItem from="1573313651444" duration="50846000" />
     </task>
     <task id="LOCAL-00001" summary="Testing intellij git">
       <created>1569558602610</created>
@@ -503,11 +500,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573433987022</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Item uploads are almost ready to go. &#10;After a few database changes and some insert statements we will be uploading items.">
+      <created>1573444488054</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1573444488054</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154388000" />
+    <option name="totallyTimeSpent" value="155109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -588,7 +592,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Client sessions and login with &quot;state&quot; working correctly.&#10;All systems go on login!&#10;Connect logout code to logout page.&#10;To test, simply login and go to the home page.&#10;You will see the username appear at the top." />
     <MESSAGE value="Integrated login/logout and register smoothly into the page." />
     <MESSAGE value="fixed session bug. Every route needs a session instance for layout." />
     <MESSAGE value="adjusted users.js for new database." />
@@ -613,7 +616,8 @@
     <MESSAGE value="put services in correct folder and changed the form" />
     <MESSAGE value="File uploads working.&#10;Just need to implement lazy registration, and database update for seller." />
     <MESSAGE value="lazy registration for sell page implemented.&#10;need to store data in database now." />
-    <option name="LAST_COMMIT_MESSAGE" value="lazy registration for sell page implemented.&#10;need to store data in database now." />
+    <MESSAGE value="Item uploads are almost ready to go. &#10;After a few database changes and some insert statements we will be uploading items." />
+    <option name="LAST_COMMIT_MESSAGE" value="Item uploads are almost ready to go. &#10;After a few database changes and some insert statements we will be uploading items." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/csproject/node_modules/body-parser/lib/types/json.js">
@@ -882,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="540">
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
         </state>
       </provider>
     </entry>
