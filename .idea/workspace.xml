@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Websitebackup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Websitebackup.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,17 +19,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
+            <state>
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
+        <entry file="file://$PROJECT_DIR$/application/csproject/views/item.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="32" selection-start-column="32" selection-end-column="32" />
+            <state relative-caret-position="345">
+              <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -48,17 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="281">
               <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/views/layout.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -66,21 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/routes/messages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34">
+            <state relative-caret-position="30">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2479#2485#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -88,31 +73,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/services/uploadimage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="240">
               <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/views/searchresults.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="60" column="138" selection-start-line="60" selection-start-column="138" selection-end-line="60" selection-end-column="138" />
+            <state relative-caret-position="1215">
+              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/oldviews/searchresults.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +117,6 @@
         <option value="$PROJECT_DIR$/application/csproject/views/dashboard.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/oldviews/item.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/search.js" />
-        <option value="$PROJECT_DIR$/application/csproject/views/item.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/views/login.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/messages.js" />
         <option value="$PROJECT_DIR$/application/services/dboperations.js" />
@@ -153,10 +125,11 @@
         <option value="$PROJECT_DIR$/application/services/sessions.js" />
         <option value="$PROJECT_DIR$/application/csproject/services/uploadimage.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/layout.hbs" />
-        <option value="$PROJECT_DIR$/application/csproject/routes/index.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/sell.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/users.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" />
+        <option value="$PROJECT_DIR$/application/csproject/routes/index.js" />
+        <option value="$PROJECT_DIR$/application/csproject/views/item.hbs" />
       </list>
     </option>
   </component>
@@ -195,13 +168,6 @@
               <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="csproject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="csc648-fall2019-Team14" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="csproject" type="462c0819:PsiDirectoryNode" />
-              <item name="oldviews" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="csc648-fall2019-Team14" type="b2602c69:ProjectViewProjectNode" />
@@ -288,7 +254,7 @@
       <workItem from="1573103685386" duration="4813000" />
       <workItem from="1573166559875" duration="1522000" />
       <workItem from="1573250767201" duration="25099000" />
-      <workItem from="1573313651444" duration="57334000" />
+      <workItem from="1573313651444" duration="59300000" />
     </task>
     <task id="LOCAL-00001" summary="Testing intellij git">
       <created>1569558602610</created>
@@ -535,11 +501,25 @@
       <option name="project" value="LOCAL" />
       <updated>1573453177301</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Updated wbesite backup sqldump">
+      <created>1573453504233</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1573453504233</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Seller now shows up when clicking on item details.">
+      <created>1573455127257</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1573455127257</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161597000" />
+    <option name="totallyTimeSpent" value="163563000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -554,7 +534,7 @@
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1580984" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1580984" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -563,7 +543,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.37003058" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4997236" visible="true" weight="0.37003058" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3985729" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -620,9 +600,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adjusted users.js for new database." />
-    <MESSAGE value="Search engine is working. Just need to add pictures now." />
-    <MESSAGE value="Added images to search. They are dummy images, and will need to be replaced with a real upload system in the future." />
     <MESSAGE value="Added another image and furniture category." />
     <MESSAGE value="Fixed styling of search bar and login page." />
     <MESSAGE value="Added a logo in the navbar." />
@@ -645,7 +622,10 @@
     <MESSAGE value="Item uploads are almost ready to go. &#10;After a few database changes and some insert statements we will be uploading items." />
     <MESSAGE value="pulling" />
     <MESSAGE value="upload item now fully works with lazy registration.&#10;seller table gets updated with sellerid and itemid, and references item table with foreign key." />
-    <option name="LAST_COMMIT_MESSAGE" value="upload item now fully works with lazy registration.&#10;seller table gets updated with sellerid and itemid, and references item table with foreign key." />
+    <MESSAGE value="Updated wbesite backup" />
+    <MESSAGE value="Updated wbesite backup sqldump" />
+    <MESSAGE value="Seller now shows up when clicking on item details." />
+    <option name="LAST_COMMIT_MESSAGE" value="Seller now shows up when clicking on item details." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/csproject/node_modules/body-parser/lib/types/json.js">
@@ -767,17 +747,6 @@
     <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/itemdetails.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/oldviews/item.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#5670#5676#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/views/dashboard.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -842,59 +811,10 @@
     <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/adminapprovalgrid.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/views/layout.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/services/uploadimage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" selection-start-column="32" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/views/item.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-          <folding>
-            <element signature="e#2071#2077#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2479#2485#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -905,10 +825,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/sell.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
+        <state relative-caret-position="510">
+          <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2479#2485#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -924,11 +848,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/views/searchresults.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="60" column="138" selection-start-line="60" selection-start-column="138" selection-end-line="60" selection-end-column="138" />
+        <state relative-caret-position="1215">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/services/uploadimage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/oldviews/item.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-484">
+          <caret line="82" column="37" selection-start-line="82" selection-start-column="37" selection-end-line="82" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/item.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
         </state>
       </provider>
     </entry>
