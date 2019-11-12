@@ -29,6 +29,21 @@ async function dbfindsellerbyitem(itemid){
     return rows;
 }
 
+async function dbaddbuyer(itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`ItemId`) = ? ',[itemid]);
+    return rows;
+}
+
+async function dbinsertbuyer(userid,itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
+    return rows;
+}
+
+
 router.post('/sendmessage/:itemid', async function(req, res, next){
   console.log("well, we made it", req.session.user);
   let user = await req.session.user;
@@ -42,11 +57,12 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
   }
   else{
      //this will return the seller table
+     let buyer = dbaddbuyer(itemid);
      console.log("itemid: ", itemid);
      console.log("message: ",message);
      console.log("sellerid: ",sellerid);
      //This will re-direct to messages
-     res.redirect('/');
+     res.redirect('/users/dashboard/');
   }
 });
 
