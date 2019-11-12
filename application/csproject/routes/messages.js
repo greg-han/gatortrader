@@ -29,17 +29,17 @@ async function dbfindsellerbyitem(itemid){
     return rows;
 }
 
-async function dbaddbuyer(itemid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`ItemId`) = ? ',[itemid]);
-    return rows;
-}
-
 async function dbinsertbuyer(userid,itemid){
     const mysql = require('mysql2/promise');
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     const rows = await connection.execute('INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
+    return rows;
+}
+
+async function dbinsertmessage(message,userid,senderid,itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('INSERT INTO `Message` (`MessageBody`,`UserID`,`TimeStamp`,`SenderId`,`ItemId`) VALUES(?,?,CURRENT_TIMESTAMP(),?,?) ',[message,userid,senderid,itemid]);
     return rows;
 }
 
@@ -56,13 +56,26 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
      res.redirect('/users/login');
   }
   else{
-     //this will return the seller table
-     let buyer = dbaddbuyer(itemid);
-     console.log("itemid: ", itemid);
-     console.log("message: ",message);
-     console.log("sellerid: ",sellerid);
-     //This will re-direct to messages
-     res.redirect('/users/dashboard/');
+     //find buyerid by username
+     let dbbuyeruser = await dbcheck(user);
+     let buyerid = dbbuyeruser[0][0].Id;
+     //insert buyerid and itemid into buyer table
+     let buyer = await dbinsertbuyer(buyerid,itemid);
+     //find seller by item id to prepare for messaging
+     let seller = await dbfindsellerbyitem(itemid);
+     let sellerid = seller[0][0].UserId;
+     if(buyerid == sellerid) {
+       res.render("Nice try! can't buy what you're selling!");
+     }
+     else {
+         let messageinsert = await dbinsertmessage(message, sellerid, buyerid, itemid);
+         console.log("message insert: ", messageinsert);
+         console.log("itemid: ", itemid);
+         console.log("message: ", message);
+         console.log("sellerid: ", sellerid);
+         //This will re-direct to messages
+         res.redirect('/users/dashboard/');
+     }
   }
 });
 
