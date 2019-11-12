@@ -31,7 +31,7 @@ CREATE TABLE `Buyer` (
   KEY `ItemId` (`ItemId`),
   CONSTRAINT `fk_buyer_item` FOREIGN KEY (`ItemId`) REFERENCES `Item` (`Id`),
   CONSTRAINT `fk_buyer_user` FOREIGN KEY (`UserId`) REFERENCES `Users` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `Buyer` (
 
 LOCK TABLES `Buyer` WRITE;
 /*!40000 ALTER TABLE `Buyer` DISABLE KEYS */;
+INSERT INTO `Buyer` VALUES (6,1,1),(7,3,1);
 /*!40000 ALTER TABLE `Buyer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +94,7 @@ CREATE TABLE `Message` (
   CONSTRAINT `Message_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `Users` (`Id`),
   CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`SenderId`) REFERENCES `Users` (`Id`),
   CONSTRAINT `Message_ibfk_3` FOREIGN KEY (`ItemId`) REFERENCES `Item` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +103,7 @@ CREATE TABLE `Message` (
 
 LOCK TABLES `Message` WRITE;
 /*!40000 ALTER TABLE `Message` DISABLE KEYS */;
+INSERT INTO `Message` VALUES (1,'Hey suraj! I want to buy this book! 600 is very hard!',2,'2019-11-11 18:07:27',1,1),(2,'Hey suraj, this is Gator.\r\nI heard that greg is trying to buy this book from you, but I don\'t like him.\r\nI think that you should be selling this book to me instead.',2,'2019-11-11 18:54:48',3,1);
 /*!40000 ALTER TABLE `Message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +152,7 @@ CREATE TABLE `Users` (
   `Photo` varchar(255) DEFAULT NULL,
   `Post` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +161,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL);
+INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL),(3,'gator','gator','gator@mail.com','password',NULL,NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -172,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-11 17:06:16
+-- Dump completed on 2019-11-11 18:55:02

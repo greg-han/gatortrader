@@ -74,7 +74,7 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
          console.log("message: ", message);
          console.log("sellerid: ", sellerid);
          //This will re-direct to messages
-         res.redirect('/users/dashboard/');
+         res.redirect('/users/dashboard/', { user : user });
      }
   }
 });

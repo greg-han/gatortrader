@@ -74,6 +74,7 @@ router.post('/postitemlazy',async function(req, res, next){
 });
 
 router.get('/dashboard' , async function(req, res, next){
+     //get all items that user is buying for now (selling will come later).
     //console.log("In Dashboard: ",req.session.user)
     res.render('dashboard', { user : req.session.user });
 });
