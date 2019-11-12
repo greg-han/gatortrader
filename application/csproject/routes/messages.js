@@ -80,8 +80,25 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
 });
 
 
-router.post('checkmessages', async function(req, res, next){
+//gives a list of users that are interested in item
+router.get('/checkselling/:itemid', async function(req, res, next){
+    let user = req.session.user;
+     //Remember that you can also do hidden inputs, so data you send from here to handlebars can be a hidden part of a form somewhere
+    res.render('messagebuyers', { user : user});
+});
 
+//once a user is selected, they will be routed here
+router.get('/messagebuyer/:itemid', async function(req, res, next){
+    let user = req.session.user;
+
+   res.render('messagebuy', { user : user });
+});
+
+//just goes straight to messagint he seller of an item that you are buying
+router.get('/checkbuying/:itemid', async function(req, res, next){
+    let user = req.session.user;
+
+    res.render('messageseller', { user : user });
 });
 
 //all messages logic will go here
