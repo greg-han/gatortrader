@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/csproject/public/UI/messagebuy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/csproject/public/UI/messagebuyers.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/csproject/public/UI/messageseller.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/csproject/views/messages.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/csproject/views/messageseller.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/csproject/views/messagebuyers.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/views/item.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/item.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/public/UI/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/public/UI/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/views/dashboard.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/dashboard.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/views/messages.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/messagebuy.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/views/messageseller.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/messageseller.hbs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,47 +49,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messagebuyers.html">
+        <entry file="file://$PROJECT_DIR$/application/csproject/views/messagebuyers.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="101">
+              <caret line="48" column="65" lean-forward="true" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messagebuy.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2484#2490#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messageseller.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2574#2580#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/csproject/views/dashboard.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
+            <state relative-caret-position="-15">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="237" column="24" lean-forward="true" selection-start-line="237" selection-start-column="24" selection-end-line="237" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -108,15 +85,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/csproject/services/uploadimage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -144,7 +112,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/csproject/public/UI/myproducts.html" />
         <option value="$PROJECT_DIR$/application/csproject/views/index.hbs" />
-        <option value="$PROJECT_DIR$/application/csproject/views/dashboard.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/oldviews/item.hbs" />
         <option value="$PROJECT_DIR$/application/csproject/routes/search.js" />
         <option value="$PROJECT_DIR$/application/csproject/views/login.hbs" />
@@ -164,6 +131,11 @@
         <option value="$PROJECT_DIR$/application/csproject/public/UI/messageseller.html" />
         <option value="$PROJECT_DIR$/application/csproject/public/UI/messagebuyers.html" />
         <option value="$PROJECT_DIR$/application/csproject/public/UI/messagebuy.html" />
+        <option value="$PROJECT_DIR$/application/csproject/views/messageseller.hbs" />
+        <option value="$PROJECT_DIR$/application/csproject/views/messagebuy.hbs" />
+        <option value="$PROJECT_DIR$/application/csproject/views/messagebuyers.hbs" />
+        <option value="$PROJECT_DIR$/application/csproject/public/UI/dashboard.html" />
+        <option value="$PROJECT_DIR$/application/csproject/views/dashboard.hbs" />
       </list>
     </option>
   </component>
@@ -224,20 +196,6 @@
               <item name="csproject" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="csc648-fall2019-Team14" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="csproject" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="csc648-fall2019-Team14" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csc648-fall2019-Team14" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="csproject" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -318,7 +276,7 @@
       <workItem from="1573103685386" duration="4813000" />
       <workItem from="1573166559875" duration="1522000" />
       <workItem from="1573250767201" duration="25099000" />
-      <workItem from="1573313651444" duration="72439000" />
+      <workItem from="1573313651444" duration="75388000" />
     </task>
     <task id="LOCAL-00001" summary="Testing intellij git">
       <created>1569558602610</created>
@@ -593,11 +551,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573456130998</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Added seller and buyer html files.&#10;Ready to hook up to the dashboard soon.">
+      <created>1573513453708</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1573513453708</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176702000" />
+    <option name="totallyTimeSpent" value="179651000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -678,7 +643,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added a logo in the navbar." />
     <MESSAGE value="Completed all functionality in original design and connected new UI." />
     <MESSAGE value="Changed gitignore" />
     <MESSAGE value="change user account dropdown." />
@@ -703,7 +667,8 @@
     <MESSAGE value="Seller now shows up when clicking on item details." />
     <MESSAGE value="debugging code for seller display in item.hbs" />
     <MESSAGE value="added await to req. methods. ALWAYS do this when not using ajax requests (fetch)." />
-    <option name="LAST_COMMIT_MESSAGE" value="added await to req. methods. ALWAYS do this when not using ajax requests (fetch)." />
+    <MESSAGE value="Added seller and buyer html files.&#10;Ready to hook up to the dashboard soon." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added seller and buyer html files.&#10;Ready to hook up to the dashboard soon." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/csproject/node_modules/body-parser/lib/types/json.js">
@@ -807,13 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="163" column="13" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/oldviews/partials/item.hbs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -836,17 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2381">
-          <caret line="198" column="56" selection-start-line="198" selection-start-column="56" selection-end-line="198" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#4;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -953,13 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/views/dashboard.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="54" selection-start-line="95" selection-start-column="54" selection-end-line="95" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/bin/www">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -991,17 +931,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messagebuyers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messageseller.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="55" column="22" lean-forward="true" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        <state relative-caret-position="431">
+          <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1010,15 +943,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/messageseller.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="82" column="7" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2484#2490#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/messagebuy.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" column="7" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2484#2490#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messagebuy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+        <state>
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#2484#2490#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/messagebuyers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="50" column="42" lean-forward="true" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/messagebuyers.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="48" column="65" lean-forward="true" selection-start-line="48" selection-start-column="65" selection-end-line="48" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="198" column="56" selection-start-line="198" selection-start-column="56" selection-end-line="198" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#4;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/public/UI/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="237" column="24" lean-forward="true" selection-start-line="237" selection-start-column="24" selection-end-line="237" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/block.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="248" column="16" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/csproject/views/dashboard.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
