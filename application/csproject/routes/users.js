@@ -99,9 +99,9 @@ router.get('/dashboard' , async function(req, res, next){
      //get an array of items that the user is selling
      let sellingdb = await dbfindselling(userid);
      let itemsselling = sellingdb[0];
-     //console.log("itemsbuying: ", itemsbuying);
-     //console.log("itemsselling: ", itemsselling);
-    res.render('dashboard', { user : user , buying : itemsbuying, selling : itemsselling });
+     console.log("itemsbuying: ", itemsbuying);
+     console.log("itemsselling: ", itemsselling);
+     res.render('dashboard', { user : user , buying : itemsbuying, selling : itemsselling });
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
