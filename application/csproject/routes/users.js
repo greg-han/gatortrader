@@ -36,6 +36,20 @@ async function dbinsertseller(userid,itemid){
     return rows;
 }
 
+async function dbfindbuying(userid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`UserId`) = ? ',[userid]);
+    return rows;
+}
+
+async function dbfindselling(userid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`UserId`) = ? ',[userid]);
+    return rows;
+}
+
 //just use the session in the item id.
 /* GET users listing. */
 
@@ -74,9 +88,20 @@ router.post('/postitemlazy',async function(req, res, next){
 });
 
 router.get('/dashboard' , async function(req, res, next){
-     //get all items that user is buying for now (selling will come later).
-    //console.log("In Dashboard: ",req.session.user)
-    res.render('dashboard', { user : req.session.user });
+     //console.log("In Dashboard: ",req.session.user)
+     //get userid from username
+     let user = await req.session.user;
+     let userdb = await dbcheck(user);
+     let userid = userdb[0][0].Id;
+     //get an array of items that the user is buying
+     let buyingdb = await dbfindbuying(userid);
+     let itemsbuying = buyingdb[0];
+     //get an array of items that the user is selling
+     let sellingdb = await dbfindselling(userid);
+     let itemsselling = sellingdb[0];
+     //console.log("itemsbuying: ", itemsbuying);
+     //console.log("itemsselling: ", itemsselling);
+    res.render('dashboard', { user : user , buying : itemsbuying, selling : itemsselling });
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
