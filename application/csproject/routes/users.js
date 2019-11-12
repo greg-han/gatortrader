@@ -50,6 +50,14 @@ async function dbfindselling(userid){
     return rows;
 }
 
+async function dbfinditem(itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
+    return rows;
+}
+
+
 //just use the session in the item id.
 /* GET users listing. */
 
@@ -87,6 +95,16 @@ router.post('/postitemlazy',async function(req, res, next){
     res.redirect('/users/login');
 });
 
+async function asyncArray(itemtables){
+  let itemsarray = [];
+  for(let i = 0; i < itemtables.length; i++){
+      let dbbitem = await dbfinditem(itemtables[i].ItemId);
+      let item = dbbitem[0][0];
+      console.log("item: ", item);
+      itemsarray.push(item);
+  }
+  return itemsarray;
+}
 router.get('/dashboard' , async function(req, res, next){
      //console.log("In Dashboard: ",req.session.user)
      //get userid from username
@@ -96,12 +114,16 @@ router.get('/dashboard' , async function(req, res, next){
      //get an array of items that the user is buying
      let buyingdb = await dbfindbuying(userid);
      let itemsbuying = buyingdb[0];
+     console.log("buyers: ", itemsbuying);
+     let bitems = await asyncArray(itemsbuying);
      //get an array of items that the user is selling
      let sellingdb = await dbfindselling(userid);
      let itemsselling = sellingdb[0];
-     console.log("itemsbuying: ", itemsbuying);
-     console.log("itemsselling: ", itemsselling);
-     res.render('dashboard', { user : user , buying : itemsbuying, selling : itemsselling });
+     console.log("sellers: ", itemsselling);
+     let sitems = await asyncArray(itemsselling);
+     console.log("itemsbuying: ", bitems);
+     console.log("itemsselling: ", sitems);
+     res.render('dashboard', { user : user , buying : bitems, selling : sitems});
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg

@@ -35,31 +35,25 @@
                 Price
             </div>
             <div class="col-md-2 filterlink c-align">
-                Status
-            </div>
-            <div class="col-md-2 filterlink c-align">
                 .
             </div>
         </div>
         {{#each buying}}
         <div class="row-fluid lheight">
             <div class="col-md-2 ">
-                <img src="img/3.jpg" height="80"/>
+                <img src="/images/{{this.Photo}}" height="80"/>
             </div>
             <div class="col-md-2 c-align listitem">
-                Laptop
+                {{this.Name}}
             </div>
             <div class="col-md-2 c-align listitem">
-                Electronics
+                {{this.Categories}}
             </div>
             <div class="col-md-2  c-align listitem">
-                £10.00
-            </div>
-            <div class="col-md-2  c-align listitem">
-                On Sale
+                {{this.Price}}
             </div>
             <div class="col-md-2  c-align"><br/>
-                <a href="" class="buyNow">Buy Now</a>
+                <a href="{{this.Id}}" class="buyNow">Message Seller</a>
             </div>
         </div>
        {{/each}}
@@ -80,7 +74,6 @@
                 Price
             </div>
             <div class="col-md-2 filterlink c-align">
-                Status
             </div>
             <div class="col-md-2 filterlink c-align">
                 .
@@ -89,19 +82,19 @@
         {{#each selling}}
         <div class="row-fluid lheight">
             <div class="col-md-2 ">
-                <img src="img/3.jpg" height="80"/>
+                <img src="/images/{{this.Photo}}" height="80"/>
             </div>
             <div class="col-md-2 c-align listitem">
-                Laptop
+                {{this.Name}}
             </div>
             <div class="col-md-2 c-align listitem">
-                Electronics
+                {{this.Categories}}
             </div>
             <div class="col-md-2  c-align listitem">
-                £10.00
+                {{this.Price}}
             </div>
             <div class="col-md-2  c-align listitem">
-                On Sale
+              <a href="{{this.Id}}" class="buyNow">See Buyers</a>
             </div>
             <div class="col-md-2  c-align"><br/>
             </div>
@@ -119,7 +112,7 @@
 <div class="container-fluid footer c-align">
     <div class="row-fluid">
         <div class="col-md-12">
-            Copyright &copy; GSDS Project Work, 2019. All rights reserved
+            Copyright &copy; GSDS SFSU Project Work, 2019. All rights reserved
         </div>
     </div>
 </div>
