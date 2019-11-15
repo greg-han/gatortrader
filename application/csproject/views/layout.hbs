@@ -10,11 +10,29 @@
       <title>Home</title>
       <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
       <link rel="stylesheet"  href="/stylesheets/main.css"/>
+      <style>
+          .jumbotron{
+              padding: 0.5em 0.6em;
+          h1{
+              font-size:2em;
+              color: white;
+          }
+          p {
+              font-size: 1.2em;
+              color: white;
+          .btn {
+              padding: 0.5em;
+          }
+          }
+          margin-bottom: 0;
+          background-color: green;
+          }
+      </style>
   </head>
   <body>
-  <div class="jumbotron text-center" style="margin-bottom:0">
-      <h2 class = text-black>SFSU 648-848 Fall 2019 Global Team Software Engineering Project</h2>
-      <p class = text-black>For Demonstration purposes only.</p>
+  <div class="jumbotron text-center" >
+      <h2 class = text-white>SFSU 648-848 Fall 2019 Global Team Software Engineering Project</h2>
+      <p class = text-white>For Demonstration purposes only.</p>
   </div>
   <br/>
   <div class="container-fluid">
@@ -43,10 +61,14 @@
                               <div class="col-md-2">
                                   <input type="submit" class="searchbtn" name="searchbtn" value="Search"/>
                               </div>
+
                           </div>
                       </form>
                   </div>
-                  <div class="col-md-1"></div>
+
+                  <div class="col-md-1">
+                      <a href="/sell" type="buttons" class="btn btn-success btn-lg">Sell Item</a>
+                  </div>
                   <div class="col-md-1 toppad">
                   {{#if user}}
                   </div>
@@ -62,9 +84,8 @@
                           </div>
                       </div>
                       {{else}}
-                          <a href="/users/login" class="searchbtn" >Login/Register</a>
+                          <a href="/users/login" type="buttons" class="btn btn-success btn-xs"  >Login/Register</a>
                             <br/>
-                          <a href="/sell" class="searchbtn" height="50" >Sell Item</a>
                       {{/if}}
                   </div>
               </div>
