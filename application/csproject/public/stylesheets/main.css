@@ -195,6 +195,28 @@ background: linear-gradient(135deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
+.gradient_green_btn{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
+color:#FFF;
+display: inline-table;
+background: #62ab00; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #62ab00 0%, #62ab00 50%, #62ab00 51%, #2a7a00 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+.gradient_red_btn{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
+color:#FFF;
+display: inline-table;
+background: #ff0000; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #ff0000 0%, #ff0000 50%, #ff0000 51%, #2a7a00 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #ff0000 0%,#ff0000 50%,#ff0000 51%,#2a7a00 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #ff0000 0%,#ff0000 50%,#ff0000 51%,#2a7a00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
 .carousel{
     height:330px;
     margin-top:10px;
@@ -278,3 +300,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
 .footer div{
     color:#fff;
 }
+
+.alertmsg{
+   background:#DDD ;
+   color: #999;
+   padding:5px;
+   border: #DDD dashed 0px;
+}	

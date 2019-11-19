@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet"  href="css/main.css"/>
+
+</head>
+<body>
+<!-- Nav tabs -->
+<br/><br/><br/><br/>
+<div style="width:100%; height:1px; background:#DDD"> </div>
+
+<div class="container row">
+
+<h2>{{title}}</h2><hr/>
+</div>
+<ul class="nav nav-tabs tabs" role="tablist">
+    <li role="presentation" ><a href="#pend" aria-controls="pend" role="tab" data-toggle="tab">Pending Items</a></li>
+    <li role="presentation"><a href="#approved" aria-controls="approved" role="tab" data-toggle="tab">Approved Items</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+	{{#if display_msg}}
+	<div class="alertmsg">
+		{{message}}
+	</div>
+	{{/if}}
+    <div role="tabpanel" class="tab-pane active" id="pend">
+        <div class="row-fluid tabs" style="height:60px;font-weight:bold; background:#DDD; margin-bottom:10px;">
+           <!-- pending begins -->
+            <div class="col-md-2 filterlink">
+                Image
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Item Name
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Category
+            </div>
+			<div class="col-md-2 filterlink c-align">
+                Description
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Price
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Status
+            </div>
+        </div>
+		{{#if penditems}}
+        {{#each penditems}}
+		
+        <div class="row-fluid lheight">
+            <div class="col-md-2 ">
+                <img src="/images/{{Photo}}" height="80"/>
+            </div>
+            <div class="col-md-2 c-align listitem">
+                {{Name}}
+            </div>
+            <div class="col-md-2 c-align listitem">
+                {{Categories}}
+            </div>
+			<div class="col-md-2 c-align listitem">
+                {{Description}}
+            </div>
+            <div class="col-md-2  c-align listitem">
+                {{Price}}
+            </div>
+            <div class="col-md-2  c-align listitem">
+               		<form class="form" method="post" action="changestatus" title="Click to Approve" style="display: inline-table; margin-top:-40px; border:0px solid">
+                        <input type="hidden" name="newstatus" id="newstatus" value="1"  />
+                        <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
+                        <input type="submit" name="login" value="Approve" class="gradient_green_btn" style="width:70px;display: inline-table;" />
+                    </form>
+					<form class="form" method="post" action="changestatus" title="Click to Disapprove" style="display: inline-table; margin-top:-40px; border:0px solid">
+                        <input type="hidden" name="newstatus" id="newstatus" value="2"  />
+                        <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
+                        <input type="submit" name="login" value="Reject" class="gradient_red_btn" style="width:70px;display: inline-table;" />
+                    </form>
+            </div>
+
+        </div>
+		
+       {{/each}}
+	   {{/if}}
+    </div>
+    <!-- approved begins -->
+    <div role="tabpanel" class="tab-pane" id="approved">
+        <div class="row-fluid tabs" style="height:60px; font-weight:bold; background:#DDD; margin-bottom:10px;">
+           <div class="col-md-2 filterlink">
+                Image
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Item Name
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Category
+            </div>
+			<div class="col-md-2 filterlink c-align">
+                Description
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Price
+            </div>
+            <div class="col-md-2 filterlink c-align">
+                Status11
+            </div>
+        </div>
+		{{#if approveditems}}
+        {{#each approveditems}}
+        <div class="row-fluid lheight">
+            <div class="col-md-2 ">
+                <img src="/images/{{Photo}}" height="80"/>
+            </div>
+            <div class="col-md-2 c-align listitem">
+                {{Name}}
+            </div>
+            <div class="col-md-2 c-align listitem">
+                {{Categories}}
+            </div>
+			<div class="col-md-2 c-align listitem">
+                {{Description}}
+            </div>
+            <div class="col-md-2  c-align listitem">
+                {{Price}}
+            </div>
+            <div class="col-md-2  c-align"><br/>
+
+				<form class="form" method="post" title="Click to Disable" action="changestatus" style="display: inline-table; margin-top:-40px; border:0px solid">
+                        <input type="hidden" name="newstatus" id="newstatus" value="0"  />
+                        <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
+                        <input type="submit" name="login" value="Disable" class="gradient_red_btn" style="width:76px;display: inline-table;" />
+                    </form>
+				 
+            </div>
+           
+        </div>
+        {{/each}}
+	    {{/if}}
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<br/><br/>
+<!-- Footer content -->
+<div class="container-fluid footer c-align">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            Copyright &copy; GSDS SFSU Project Work, 2019. All rights reserved
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.4.min.js" ></script>
+<script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
