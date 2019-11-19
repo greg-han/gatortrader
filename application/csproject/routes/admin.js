@@ -70,12 +70,18 @@ async function asyncArray(itemtables){
 }
 router.get('/admindashboard' , async function(req, res, next){
 	 page_title = "Admin Dashboard";
-
+	 //console.log("Logged User",req.session.a_user);
+	 //check if an admin user is logged in before proceeding
+     if(!req.session.a_user) {
+		//go back to login page with a message
+		req.session.validate = true;
+		res.redirect('a_login');
+	}
      //Logged in user details
      let a_user 	= await req.session.a_user;
 	 let a_userId   = await req.session.a_userId;
 	 let a_userName = await req.session.a_name;
-	 let a_userEmail= await req
+	 let a_userEmail= await req.session.a_email
 	 
      let penditems_result = await dbget_pending_items();
 	     penditems        = penditems_result[0];
