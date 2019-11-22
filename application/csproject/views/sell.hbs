@@ -10,7 +10,9 @@
 </head>
 <body>
             <br/><br/><br/><br/>
-            <h1>Upload Product for Sale</h1>
+            <center><h1>Upload Product for Sale</h1>
+                <small>All fields are mandatory.</small>
+            </center>
             {{#if user}}
                 <form class="form" method="post" enctype="multipart/form-data" action="/users/postitem">
             {{else}}
@@ -26,8 +28,7 @@
                     <h3>Details</h3>
                     <p>Kindly provide details about the item you want to sell</p>
                         <input type="text" name="itemname" placeholder="Item Name"/>
-                    <textarea name="itemdescription" >{{description}}
-                        </textarea>
+                    <textarea name="itemdescription" >{{description}}</textarea>
                     <input type="text" name="price" placeholder="Price"/>
                     <select name="category">
                         <option value="E">Electronics</option>

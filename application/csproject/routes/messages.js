@@ -6,6 +6,7 @@ async function dbcheck(username){
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
+    await connection.end();
 }
 
 async function dbsearch(search,filter){
@@ -20,6 +21,7 @@ async function dbsearch(search,filter){
         rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ?' ,[filter,likesearch]);
     }
     return rows;
+    await connection.end();
 }
 
 async function dbfindsellerbyitem(itemid){
@@ -27,6 +29,7 @@ async function dbfindsellerbyitem(itemid){
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`ItemId`) = ? ',[itemid]);
     return rows;
+    await connection.end();
 }
 
 async function dbinsertbuyer(userid,itemid){
@@ -34,6 +37,7 @@ async function dbinsertbuyer(userid,itemid){
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     const rows = await connection.execute('INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
     return rows;
+    await connection.end();
 }
 
 async function dbinsertmessage(message,userid,senderid,itemid){
@@ -41,6 +45,7 @@ async function dbinsertmessage(message,userid,senderid,itemid){
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     const rows = await connection.execute('INSERT INTO `Message` (`MessageBody`,`UserID`,`TimeStamp`,`SenderId`,`ItemId`) VALUES(?,?,CURRENT_TIMESTAMP(),?,?) ',[message,userid,senderid,itemid]);
     return rows;
+    await connection.end();
 }
 
 

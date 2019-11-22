@@ -1,60 +1,105 @@
 var express = require('express');
 var router = express.Router();
 
+var db_username="root";
+var db_password="password";
+var db_name="Website";
+var db_host="localhost";
+
 async function dbcheck(username){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dblogin(username) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbregister(name,username,password,email) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbinsertitem(name,category,price,description,photo){
-   const mysql = require('mysql2/promise');
-   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-   const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
-   return rows;
+    try {
+     const mysql = require('mysql2/promise');
+     const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+     return rows;
+     await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbinsertseller(userid,itemid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('INSERT INTO `Seller` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('INSERT INTO `Seller` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfindbuying(userid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`UserId`) = ? ',[userid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`UserId`) = ? ',[userid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfindselling(userid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`UserId`) = ? ',[userid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`UserId`) = ? ',[userid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfinditem(itemid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 

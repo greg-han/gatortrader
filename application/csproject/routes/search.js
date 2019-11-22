@@ -12,6 +12,7 @@ async function dbsearch(search,filter){
     else{
         rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ?' ,[filter,likesearch]);
     }
+    await connection.end();
     return rows;
 }
 

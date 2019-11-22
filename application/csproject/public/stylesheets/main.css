@@ -3,15 +3,25 @@ body{
 }
 @font-face{
     font-family: 'light';
-    src:url('fonts/Raleway-Thin.ttf');
+    src:url('../fonts/Raleway-ExtraLight.ttf');
   }
   @font-face{
     font-family: 'thin';
-    src:url('fonts/Raleway-ExtraLight.ttf');
+    src:url('../fonts/Raleway-ExtraLight.ttf');
   }
   @font-face{
     font-family: 'bold';
-    src:url('fonts/Raleway-Medium.ttf');
+    src:url('../fonts/Raleway-Medium.ttf');
+  }
+  a{
+    text-decoration: none !important;
+  }
+  input[type='submit']{
+    font-family: 'bold' !important;
+    color:#fff !important;
+  }
+  h1,h2,h3,h4,h5{
+    font-family: 'bold' !important;
   }
 .lines{
     /* border:1px solid #ccc; */
@@ -60,13 +70,15 @@ strong{
     color:#666;
 }
 .lheight{
-    height:120px;
     margin-bottom:10px;
-    border-bottom:1px solid #ededed;
+    border-top:1px solid #ededed;
 }
 .listitem{
     height:120px;
     padding:20px 0px;
+}
+.paddingHorizontal{
+    padding:20px 0px 20px 0px;
 }
 .freetextsearch{
     height:46px;
@@ -90,8 +102,9 @@ input:focus {outline:none;}
     margin-top:10px;
 }
 .categories{
-    height46px !important;
+    height:46px !important;
     width:100%;
+    float: :left;
     -webkit-appearance: none;
    -moz-appearance: none;
    border-radius:0px;
@@ -241,7 +254,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
     width:auto;
     height:auto;
     background:#62ab00;
-    color:#fff;
+    color:#fff !important;
+    text-decoration: none !important;
     padding:10px 20px;
     border-radius:2px;
 }

@@ -21,6 +21,7 @@ async function dbfinditem(id){
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
   return rows;
+  await connection.end();
 }
 
 async function dbfindseller(itemid){
@@ -29,6 +30,7 @@ async function dbfindseller(itemid){
   let rows;
   rows = await connection.execute('SELECT * FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   return rows;
+  await connection.end();
 }
 
 async function dbfinduser(userid){
@@ -37,6 +39,7 @@ async function dbfinduser(userid){
   let rows;
   rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
   return rows;
+  await connection.end();
 }
 
 router.get('/item/:id', async function(req,res,next){
