@@ -83,10 +83,13 @@
                               <a class="dropdown-item" href="/users/logout">Logout</a>
                           </div>
                       </div>
-                      {{else}}
-                          <a href="/users/login" type="buttons" class="btn btn-success btn-xs"  >Login/Register</a>
-                            <br/>
-                      {{/if}}
+
+                      <div class="col-md-1 toppad">
+                        {{else}}
+                            <a href="/users/login" type="buttons" class="btn btn-success btn-xs linkPadding"  >Login/Register</a>
+                              <br/>
+                        {{/if}}
+                      </div>
                   </div>
               </div>
   {{{body}}}

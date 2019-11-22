@@ -9,7 +9,7 @@
     <link rel="stylesheet"  href="css/main.css"/>
 </head>
 <body>
-            <br/><hr/><br/><br/>
+            <br/><br/><br/><br/>
             <h1>Upload Product for Sale</h1>
             {{#if user}}
                 <form class="form" method="post" enctype="multipart/form-data" action="/users/postitem">
@@ -17,16 +17,12 @@
                 <form class="form" method="post" action="/users/postitemlazy">
             {{/if}}
                 <div class="row-fluid menu box l-align">
-                    <div class="col-md-5 l-align ">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 l-align">
                         <h3>Item Image Upload</h3>
                         <p>Select the images of the product you want to upload here</p>
-                        <input type="file" name="avatar" placeholder="upload image" style="height:220px;background: #eee;" />
-                        <br/><br/><br/><br/>
-                    </div>
-                    <div class="col-md-1">
+                        <input type="file" name="avatar" placeholder="upload image" style="height:40px;background: #eee;" />
 
-                    </div>
-                    <div class="col-md-6 l-align">
                     <h3>Details</h3>
                     <p>Kindly provide details about the item you want to sell</p>
                         <input type="text" name="itemname" placeholder="Item Name"/>
@@ -43,6 +39,7 @@
 
                     <br/><br/>
                 </div>
+                <div class="col-md-3"></div>
               </div>
             </form>
             </div>
