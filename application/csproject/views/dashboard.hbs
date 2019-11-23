@@ -53,7 +53,7 @@
                 {{this.Price}}
             </div>
             <div class="col-md-2  c-align"><br/>
-                <a href="/messages/checkbuying/{{this.Id}}" class="buyNow">Message Seller</a>
+                <a href="/messages/checkbuying/{{this.Id}}" class="buyNow">See Message</a>
             </div>
         </div>
        {{/each}}
@@ -94,7 +94,9 @@
                 {{this.Price}}
             </div>
             <div class="col-md-2  c-align listitem">
-              <a href="/messages/checkselling/{{this.Id}}" class="buyNow">See Buyers</a>
+              <a href="/messages/checkselling/{{this.Id}}" class="buyNow">See Buyer Message</a>
+                <br/><br/>
+              <a href="/messages/checkselling/{{this.Id}}" class="buyNow" style="background: #ff5854">Delete Message</a>
             </div>
             <div class="col-md-2  c-align"><br/>
             </div>
@@ -102,7 +104,6 @@
         {{/each}}
     </div>
 </div>
-
 </div>
 </div>
 </div>

@@ -57,6 +57,13 @@ async function dbfinditem(itemid){
     return rows;
 }
 
+async function dbfindbuyerbyid(itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`ItemId`) = ? ',[itemid]);
+    return rows;
+}
+
 
 //just use the session in the item id.
 /* GET users listing. */
