@@ -162,20 +162,25 @@ router.get('/dashboard' , async function(req, res, next){
      //get userid from username
      let user = await req.session.user;
      let userdb = await dbcheck(user);
-     let userid = userdb[0][0].Id;
-     //get an array of items that the user is buying
-     let buyingdb = await dbfindbuying(userid);
-     let itemsbuying = buyingdb[0];
-     console.log("buyers: ", itemsbuying);
-     let bitems = await asyncArray(itemsbuying);
-     //get an array of items that the user is selling
-     let sellingdb = await dbfindselling(userid);
-     let itemsselling = sellingdb[0];
-     console.log("sellers: ", itemsselling);
-     let sitems = await asyncArray(itemsselling);
-     console.log("itemsbuying: ", bitems);
-     console.log("itemsselling: ", sitems);
-     res.render('dashboard', { user : user , buying : bitems, selling : sitems});
+     if(user){
+       let userid = userdb[0][0].Id;
+       //get an array of items that the user is buying
+       let buyingdb = await dbfindbuying(userid);
+       let itemsbuying = buyingdb[0];
+       console.log("buyers: ", itemsbuying);
+       let bitems = await asyncArray(itemsbuying);
+       //get an array of items that the user is selling
+       let sellingdb = await dbfindselling(userid);
+       let itemsselling = sellingdb[0];
+       console.log("sellers: ", itemsselling);
+       let sitems = await asyncArray(itemsselling);
+       console.log("itemsbuying: ", bitems);
+       console.log("itemsselling: ", sitems);
+       res.render('dashboard', { user : user , buying : bitems, selling : sitems});
+     }
+     else{
+       res.redirect('login');
+     }
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg

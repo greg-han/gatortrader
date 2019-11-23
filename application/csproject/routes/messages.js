@@ -127,6 +127,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
     let buyer = await dbfindbuyerbyitem(itemid);
     //sometimes you won't have a username, and this will be weird
     let myuser = await dbcheck(user);
+    console.log("buyers",buyer[0]);
     let myuserid = myuser[0][0].Id;
     let buyers;
     let users;
