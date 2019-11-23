@@ -148,7 +148,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             let message = messageinfo[0][0].MessageBody;
             let timestamp = message[0][0].TimeStamp;
             console.log("message", messageinfo[0][0].MessageBody);
-            if(users) {
+            if(users && message) {
               userobject.name = users[0][0].Name;
               userobject.message = message;
               userobject.timestamp = timestamp;
