@@ -3,31 +3,32 @@
 <!-- Body Contents -->
 <br/><br/>
 {{message}}
-<div class="container-fluid">
-    <div class="row-fluid extraPadding">
-        <br/><br/>
+<br/><br/>
+    <br/><br/>
+<div class="container">
+    <div class="row ">
         <div class="col-md-12">
-            <div class="row-fluid menu">
+            <div class="row menu">
                 <div class="col-md-5 l-align box">
                     <form class="form" method="post" action="loggedin">
                         <h1>Login</h1>
                         <p>For return users who already have an account.</p>
                         <input type="text" name="loginusername" id="loginusername" placeholder="Username" />
-                        <input type="text" name="loginpassword" id="loginusername" placeholder="Password" />
+                        <input type="password" name="loginpassword" id="loginusername" placeholder="Password" />
                         <input type="submit" name="login" value="Submit" class="gradient_green" />
                     </form>
                     <br/><br/><br/><br/>
                 </div>
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-6 l-align box">
+                <div class="col-md-5 l-align box">
                     <form class="form" method="post" action="register">
                         <h1>Register</h1>
                         <p>For new users without accounts.</p>
                         <input type="text" name="name" placeholder="Full Name"/>
                         <input type="text" name="email" placeholder="E-Mail"/>
                         <input type="text" name="username" placeholder="Username"/>
-                        <input type="text" name="password" placeholder="Password"/>
+                        <input type="password" name="password" placeholder="Password"/>
                         <input type="submit" name="register" value="Submit" class="gradient_green" />
                     </form>
                     <br/><br/>
@@ -36,7 +37,8 @@
 
         </div>
     </div>
-</div>
+    </div>
+  <br/><br/>
 <br/><br/>
 <!-- Footer content -->
 <div class="container-fluid footer c-align">
