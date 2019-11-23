@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Websitebackup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Websitebackup.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Websitebackup.sql" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -303,14 +301,7 @@
       <workItem from="1573842579437" duration="3916000" />
       <workItem from="1574265905860" duration="882000" />
       <workItem from="1574266815483" duration="653000" />
-      <workItem from="1574378784744" duration="37100000" />
-    </task>
-    <task id="LOCAL-00003" summary="Added login page and some login logic.">
-      <created>1570163169760</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1570163169760</updated>
+      <workItem from="1574378784744" duration="37646000" />
     </task>
     <task id="LOCAL-00004" summary="used mysql2 instead because it has built in JS promises for async.">
       <created>1570172159021</created>
@@ -648,11 +639,18 @@
       <option name="project" value="LOCAL" />
       <updated>1574534054053</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="need to backup the database again.">
+      <created>1574539809165</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1574539809165</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235446000" />
+    <option name="totallyTimeSpent" value="235992000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,7 +662,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23327805" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -732,7 +730,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sell page and link updated and implemented." />
     <MESSAGE value="commit before pull" />
     <MESSAGE value="added multer and upload image capabilities. &#10;will hook up to page next." />
     <MESSAGE value="put services in correct folder and changed the form" />
@@ -757,7 +754,8 @@
     <MESSAGE value="Items Selling Dashboard Complete.&#10;Only need to add delete item functionality now." />
     <MESSAGE value="UI is somewhat compliant now." />
     <MESSAGE value="made sure that user is still &quot;in session&quot; before trying to load dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="made sure that user is still &quot;in session&quot; before trying to load dashboard" />
+    <MESSAGE value="need to backup the database again." />
+    <option name="LAST_COMMIT_MESSAGE" value="need to backup the database again." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/csproject/node_modules/body-parser/lib/types/json.js">
