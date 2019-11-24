@@ -43,6 +43,7 @@ async function dbfinduser(userid){
 }
 
 router.get('/item/:id', async function(req,res,next){
+    console.log("hello");
     var user = await req.session.user;
     var item = await req.params.id;
     let itemresult = await dbfinditem(item);
