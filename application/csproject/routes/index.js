@@ -52,13 +52,11 @@ router.get('/item/:id', async function(req,res,next){
     let findseller = await dbfinduser(sellerid);
     let sellername = findseller[0][0].Username;
     //This is how to access returned objects
-    //console.log("Item Result: ", itemresult[0][0]);
     res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
 });
 
 router.get('/sell', async function(req,res,next){
   var user = req.session.user;
-  console.log("in sell: ", req.session.itemdescription);
   var description = req.session.itemdescription;
   req.session.destroy();
   req.session.user = user;

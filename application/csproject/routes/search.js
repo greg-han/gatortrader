@@ -31,12 +31,11 @@ router.post('/searches', async function(req,res,next){
     if(filter === "All"){
         filter = '';
     }
-
-    console.log("Search",search);
-    console.log("Filter",filter);
+    // console.log("Search",search);
+    // console.log("Filter",filter);
     let dbsearchresult = await dbsearch(search,filter);
     //This is how to access returned objects
-    console.log("Result: ", dbsearchresult[0]);
+    //console.log("Result: ", dbsearchresult[0]);
     res.render('searchresults', { results : dbsearchresult[0], user : user });
 });
 
