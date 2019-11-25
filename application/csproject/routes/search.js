@@ -34,9 +34,10 @@ router.post('/searches', async function(req,res,next){
     // console.log("Search",search);
     // console.log("Filter",filter);
     let dbsearchresult = await dbsearch(search,filter);
+    let numitems = dbsearchresult[0].length;
     //This is how to access returned objects
     //console.log("Result: ", dbsearchresult[0]);
-    res.render('searchresults', { results : dbsearchresult[0], user : user });
+    res.render('searchresults', { results : dbsearchresult[0], user : user, itemcount : numitems});
 });
 
 module.exports = router;
