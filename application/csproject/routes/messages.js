@@ -80,7 +80,6 @@ async function dbfindmessage(userid, senderid){
 }
 
 router.post('/sendmessage/:itemid', async function(req, res, next){
-  console.log("well, we made it", req.session.user);
   let user = await req.session.user;
   let url = "/login";
   let itemid = await req.params.itemid;
@@ -104,10 +103,10 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
      }
      else {
          let messageinsert = await dbinsertmessage(message, sellerid, buyerid, itemid);
-         console.log("message insert: ", messageinsert);
-         console.log("itemid: ", itemid);
-         console.log("message: ", message);
-         console.log("sellerid: ", sellerid);
+         //console.log("message insert: ", messageinsert);
+         //console.log("itemid: ", itemid);
+         //console.log("message: ", message);
+         //console.log("sellerid: ", sellerid);
          //This will re-direct to messages
          res.redirect('/users/dashboard/');
      }
@@ -125,7 +124,7 @@ async function dbfinditem(id){
 
 //gives a list of users that are interested in item
 router.get('/checkselling/:itemid', async function(req, res, next){
-    let user = req.session.user;
+    let user = await req.session.user;
      //Remember that you can also do hidden inputs, so data you send from here to handlebars can be a hidden part of a form somewhere
     let itemid = await req.params.itemid;
     let itemresult = await dbfinditem(itemid);
@@ -166,6 +165,32 @@ router.get('/checkselling/:itemid', async function(req, res, next){
     res.render('messagebuyers', { user : user, buyers : usersarray, item : item });
 });
 
+async function dbfindmessage(userid,itemid){
+    const mysql = require('mysql2/promise');
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    let rows;
+    rows = await connection.execute('SELECT * FROM `Message` WHERE `SenderId` = ? AND `ItemId` = ?',[userid,itemid]);
+    await connection.end();
+    return rows;
+}
+router.get('/checkmessage/:itemid', async function(req, res, next) {
+   let user = await req.session.user;
+   let itemid = await req.params.itemid;
+   let itemresult = await dbfinditem(itemid);
+   let item = itemresult[0][0];
+   let userrow = await dbcheck(user);
+   let userid = userrow[0][0].Id;
+   let sellerdb = await dbfindsellerbyitem(itemid);
+   let sellerid = sellerdb[0][0].UserId;
+   let sellernamedb = await dbfinduser(sellerid);
+   let sellername = sellernamedb[0][0].Name;
+   //may or may not include
+   //let sellerusername = sellernamedb[0][0].Username;
+   let messagedb = await dbfindmessage(userid,itemid);
+   let message = messagedb[0][0].MessageBody;
+   res.render('sentmessage', { user : user, message : message, item : item, seller : sellername });
+});
+
 async function dbitemdelete(itemid){
   const mysql = require('mysql2/promise');
   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
@@ -173,12 +198,11 @@ async function dbitemdelete(itemid){
   await connection.execute('DELETE FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Buyer` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Item` WHERE `Id` = ?',[itemid]);
+  await connection.end();
   //maybe maket his t/f if for noerror/error
   return true;
-  await connection.end();
 }
 router.get('/deletemessage/:itemid', async function(req, res, next){
-    console.log("Well i'm in here");
     let itemid = await req.params.itemid;
     await dbitemdelete(itemid);
     res.redirect('/users/dashboard');
