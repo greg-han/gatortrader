@@ -1,59 +1,111 @@
 var express = require('express');
 var router = express.Router();
 
+var db_username="root";
+var db_password="password";
+var db_name="Website";
+var db_host="localhost";
+
 async function dbcheck(username){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dblogin(username) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbregister(name,username,password,email) {
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbinsertitem(name,category,price,description,photo){
-   const mysql = require('mysql2/promise');
-   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-   const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
-   return rows;
+    try {
+     const mysql = require('mysql2/promise');
+     const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+     return rows;
+     await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbinsertseller(userid,itemid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('INSERT INTO `Seller` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('INSERT INTO `Seller` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfindbuying(userid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`UserId`) = ? ',[userid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`UserId`) = ? ',[userid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfindselling(userid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`UserId`) = ? ',[userid]);
-    return rows;
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`UserId`) = ? ',[userid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
 }
 
 async function dbfinditem(itemid){
+    try {
+      const mysql = require('mysql2/promise');
+      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
+      const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
+      return rows;
+      await connection.end();
+    }catch(err){
+
+    }
+}
+
+async function dbfindbuyerbyid(itemid){
     const mysql = require('mysql2/promise');
     const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
-    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
+    const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`ItemId`) = ? ',[itemid]);
     return rows;
 }
 
@@ -89,7 +141,7 @@ router.post('/postitemlazy',async function(req, res, next){
     if(req.file){
       req.session.reupload = "Please Re-Upload Image";
     }
-    console.log("item description: ",req.body.itemdescription);
+    //console.log("item description: ",req.body.itemdescription);
     req.session.itemdescription = await req.body.itemdescription;
     req.session.selllazy = "true";
     res.redirect('/users/login');
@@ -110,20 +162,25 @@ router.get('/dashboard' , async function(req, res, next){
      //get userid from username
      let user = await req.session.user;
      let userdb = await dbcheck(user);
-     let userid = userdb[0][0].Id;
-     //get an array of items that the user is buying
-     let buyingdb = await dbfindbuying(userid);
-     let itemsbuying = buyingdb[0];
-     console.log("buyers: ", itemsbuying);
-     let bitems = await asyncArray(itemsbuying);
-     //get an array of items that the user is selling
-     let sellingdb = await dbfindselling(userid);
-     let itemsselling = sellingdb[0];
-     console.log("sellers: ", itemsselling);
-     let sitems = await asyncArray(itemsselling);
-     console.log("itemsbuying: ", bitems);
-     console.log("itemsselling: ", sitems);
-     res.render('dashboard', { user : user , buying : bitems, selling : sitems});
+     if(user){
+       let userid = userdb[0][0].Id;
+       //get an array of items that the user is buying
+       let buyingdb = await dbfindbuying(userid);
+       let itemsbuying = buyingdb[0];
+       //console.log("buyers: ", itemsbuying);
+       let bitems = await asyncArray(itemsbuying);
+       //get an array of items that the user is selling
+       let sellingdb = await dbfindselling(userid);
+       let itemsselling = sellingdb[0];
+       //console.log("sellers: ", itemsselling);
+       let sitems = await asyncArray(itemsselling);
+       //console.log("itemsbuying: ", bitems);
+       //console.log("itemsselling: ", sitems);
+       res.render('dashboard', { user : user , buying : bitems, selling : sitems});
+     }
+     else{
+       res.redirect('login');
+     }
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg

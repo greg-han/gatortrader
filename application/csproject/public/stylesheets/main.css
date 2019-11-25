@@ -3,15 +3,25 @@ body{
 }
 @font-face{
     font-family: 'light';
-    src:url('fonts/Raleway-Thin.ttf');
+    src:url('../fonts/Raleway-ExtraLight.ttf');
   }
   @font-face{
     font-family: 'thin';
-    src:url('fonts/Raleway-ExtraLight.ttf');
+    src:url('../fonts/Raleway-ExtraLight.ttf');
   }
   @font-face{
     font-family: 'bold';
-    src:url('fonts/Raleway-Medium.ttf');
+    src:url('../fonts/Raleway-Medium.ttf');
+  }
+  a{
+    text-decoration: none !important;
+  }
+  input[type='submit']{
+    font-family: 'bold' !important;
+    color:#fff !important;
+  }
+  h1,h2,h3,h4,h5{
+    font-family: 'bold' !important;
   }
 .lines{
     /* border:1px solid #ccc; */
@@ -26,7 +36,7 @@ body{
     text-align: left !important;
 }
 .search select{
-    height:52px;
+    height:46px;
 }
 strong{
     font-family: 'bold' !important;
@@ -60,16 +70,18 @@ strong{
     color:#666;
 }
 .lheight{
-    height:120px;
     margin-bottom:10px;
-    border-bottom:1px solid #ededed;
+    border-top:1px solid #ededed;
 }
 .listitem{
     height:120px;
     padding:20px 0px;
 }
+.paddingHorizontal{
+    padding:20px 0px 20px 0px;
+}
 .freetextsearch{
-    height:52px;
+    height:46px;
     border:0px;
     border-top :2px solid #eee;
     border-bottom :2px solid #eee;
@@ -90,8 +102,9 @@ input:focus {outline:none;}
     margin-top:10px;
 }
 .categories{
-    height:52px !important;
+    height:46px !important;
     width:100%;
+    float: :left;
     -webkit-appearance: none;
    -moz-appearance: none;
    border-radius:0px;
@@ -103,9 +116,15 @@ input:focus {outline:none;}
    border:0px;
    color:#fff;
 }
+.linkPadding{
+    padding:8px;
+    margin-left:10px;
+    margin-top:-10px;
+    font-size:18px;
+}
 
 .searchbtn{
-    height:52px;
+    height:46px;
     border:none;
     border-top-right-radius:3px;
     border-bottom-right-radius:3px;
@@ -235,7 +254,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
     width:auto;
     height:auto;
     background:#62ab00;
-    color:#fff;
+    color:#fff !important;
+    text-decoration: none !important;
     padding:10px 20px;
     border-radius:2px;
 }
@@ -277,4 +297,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
 
 .footer div{
     color:#fff;
+}
+
+@media (min-width: 576px) {  
+ 
+}
+
+@media only screen and (max-width: 576px) {
+  .linkPadding,.searchbtn {
+    width:100%;
+    padding:8px;
+    margin-top:10px;
+    margin-left:0px;
+    font-size:18px;
+}
+    .sellbtn{
+        width:100%;
+        margin-top:10px;
+    }
 }

@@ -10,18 +10,68 @@
 </head>
 <body>
 <!-- Nav tabs -->
-<div class="container row">
-<h2>My Dashboard</h2><hr/>
+<div class="container">
+    <div class="row">
+    <h2>My Dashboard</h2><hr/>
+    </div>
 </div>
 <ul class="nav nav-tabs tabs" role="tablist">
-    <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Items Buying</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Items Selling</a></li>
+    <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Items Selling</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Items Buying</a></li>
 </ul>
 <!-- Tab panes -->
+<div class="container-fluid">
 <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
-        <div class="row-fluid tabs" style="height:60px;">
-           <!-- buying begins -->
+        <!-- Selling begins -->
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="row-fluid tabs" style="height:60px;">
+                <div class="col-md-2 filterlink">
+                    Image
+                </div>
+                <div class="col-md-2 filterlink c-align">
+                    Item Name
+                </div>
+                <div class="col-md-2 filterlink c-align">
+                    Category
+                </div>
+                <div class="col-md-2 filterlink c-align">
+                    Price
+                </div>
+                <div class="col-md-2 filterlink c-align">
+                </div>
+                <div class="col-md-2 filterlink c-align">
+                </div>
+            </div>
+            {{#each selling}}
+                <div class="container-fluid">
+                    <div class="row-fluid lheight">
+                        <div class="col-md-2 c-align listitem">
+                            <img src="/images/{{this.Photo}}" height="80"/>
+                        </div>
+                        <div class="col-md-2 c-align listitem">
+                            {{this.Name}}
+                        </div>
+                        <div class="col-md-2 c-align listitem">
+                            {{this.Categories}}
+                        </div>
+                        <div class="col-md-2  c-align listitem">
+                            {{this.Price}}
+                        </div>
+                        <div class="col-md-2  c-align">
+                            <a href="/messages/checkselling/{{this.Id}}" class="buyNow">See Buyer Message</a>
+                            <!-- Probably not the best to have this right next to the view message
+                    <a href="/messages/checkselling/{{this.Id}}" class="buyNow" style="background: #ff5854">Delete Message</a>
+                    -->
+                        </div>
+                        <div class="col-md-2  c-align"><br/>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <!-- buying begins -->
+            <div class="row-fluid tabs" style="height:60px;">
             <div class="col-md-2 filterlink">
                 Image
             </div>
@@ -34,89 +84,42 @@
             <div class="col-md-2 filterlink c-align">
                 Price
             </div>
-            <div class="col-md-2 filterlink c-align">
-                .
+                <div class="col-md-2  c-align"><br/>
+                </div>
             </div>
-        </div>
-        {{#each buying}}
-        <div class="row-fluid lheight">
-            <div class="col-md-2 ">
-                <img src="/images/{{this.Photo}}" height="80"/>
+            {{#each buying}}
+            <div class="row-fluid lheight">
+                <div class="col-md-2 ">
+                    <img src="/images/{{this.Photo}}" height="80"/>
+                </div>
+                <div class="col-md-2 c-align listitem">
+                    {{this.Name}}
+                </div>
+                <div class="col-md-2 c-align listitem">
+                    {{this.Categories}}
+                </div>
+                <div class="col-md-2  c-align listitem">
+                    {{this.Price}}
+                </div>
+                <div class="col-md-2  c-align"><br/>
+                    <a href="/messages/checkmessage/{{this.Id}}" class="buyNow">See Message</a>
+                </div>
+                <div class="col-md-2  c-align"><br/>
+                </div>
             </div>
-            <div class="col-md-2 c-align listitem">
-                {{this.Name}}
-            </div>
-            <div class="col-md-2 c-align listitem">
-                {{this.Categories}}
-            </div>
-            <div class="col-md-2  c-align listitem">
-                {{this.Price}}
-            </div>
-            <div class="col-md-2  c-align"><br/>
-                <a href="/messages/checkbuying/{{this.Id}}" class="buyNow">Message Seller</a>
-            </div>
-        </div>
-       {{/each}}
-    </div>
-    <!-- Selling begins -->
-    <div role="tabpanel" class="tab-pane" id="profile">
-        <div class="row-fluid tabs" style="height:60px;">
-            <div class="col-md-2 filterlink">
-                Image
-            </div>
-            <div class="col-md-2 filterlink c-align">
-                Item Name
-            </div>
-            <div class="col-md-2 filterlink c-align">
-                Category
-            </div>
-            <div class="col-md-2 filterlink c-align">
-                Price
-            </div>
-            <div class="col-md-2 filterlink c-align">
-            </div>
-            <div class="col-md-2 filterlink c-align">
-                .
-            </div>
-        </div>
-        {{#each selling}}
-        <div class="row-fluid lheight">
-            <div class="col-md-2 ">
-                <img src="/images/{{this.Photo}}" height="80"/>
-            </div>
-            <div class="col-md-2 c-align listitem">
-                {{this.Name}}
-            </div>
-            <div class="col-md-2 c-align listitem">
-                {{this.Categories}}
-            </div>
-            <div class="col-md-2  c-align listitem">
-                {{this.Price}}
-            </div>
-            <div class="col-md-2  c-align listitem">
-              <a href="/messages/checkselling/{{this.Id}}" class="buyNow">See Buyers</a>
-            </div>
-            <div class="col-md-2  c-align"><br/>
-            </div>
-        </div>
-        {{/each}}
-    </div>
-</div>
-
-</div>
-</div>
+          {{/each}}
+       </div>
 </div>
 </div>
 <br/><br/>
 <!-- Footer content -->
-<div class="container-fluid footer c-align">
+<div class="container-fluid footer">
     <div class="row-fluid">
         <div class="col-md-12">
             Copyright &copy; GSDS SFSU Project Work, 2019. All rights reserved
         </div>
     </div>
 </div>
-
 <script src="js/jquery-1.12.4.min.js" ></script>
 <script src="js/bootstrap.min.js" ></script>
 </body>
