@@ -12,6 +12,7 @@ async function dbsearch(search,filter){
     else{
         rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ?' ,[filter,likesearch]);
     }
+    await connection.end();
     return rows;
 }
 
@@ -30,13 +31,13 @@ router.post('/searches', async function(req,res,next){
     if(filter === "All"){
         filter = '';
     }
-
-    console.log("Search",search);
-    console.log("Filter",filter);
+    // console.log("Search",search);
+    // console.log("Filter",filter);
     let dbsearchresult = await dbsearch(search,filter);
+    let numitems = dbsearchresult[0].length;
     //This is how to access returned objects
-    console.log("Result: ", dbsearchresult[0]);
-    res.render('searchresults', { results : dbsearchresult[0], user : user });
+    //console.log("Result: ", dbsearchresult[0]);
+    res.render('searchresults', { results : dbsearchresult[0], user : user, itemcount : numitems});
 });
 
 module.exports = router;

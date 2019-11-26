@@ -11,12 +11,13 @@
 <body>
 <br/>
 <br/>
+<div class="container">
             <!-- Tabs for the display sections -->
             <div class="row-fluid tabs">
                 <div class="col-md-3">
                     <div class="row-fluid">
                         <div class="col-md-12 filterheader">
-                            &nbsp;&nbsp;&nbsp;<img src="img/menu.png" width="24"/>&nbsp;<strong>Filter Search Results </strong>
+                            &nbsp;&nbsp;&nbsp;<img src="/img/menu.png" width="24"/>&nbsp;<strong>Filter Search Results </strong>
                         </div>
                         <div class="col-md-12 filterlink">
                             <a href="">Category 1</a>
@@ -38,8 +39,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="row-fluid tabs" style="height:60px;">
+                <div class="col-md-9" style="border:1px solid #eee;">
+                    <div class="row" style="background:#62ab00;color:#fff;text-transform: uppercase;">
                         <div class="col-md-2 filterlink">
                             Image
                         </div>
@@ -52,13 +53,32 @@
                         <div class="col-md-2 filterlink c-align">
                             Price
                         </div>
-                        <div class="col-md-2 filterlink c-align">
+                        <div class="col-md-4 filterlink c-align">
+                            Action
+                        </div>
+                    </div>
+                    <div class="row" style="text-transform: uppercase;">
+                        <div class="col-md-12 filterlink">
+                            <small><i>Displaying {{itemcount}} of {{itemcount}}</i></small>
                         </div>
                     </div>
                    {{#each results}}
-                    <div class="row-fluid lheight">
+                   <div class="row lheight d-block d-sm-none d-xs-none">
+                        <div class="col-xs-6">
+                            <br/>
+                            <img src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                        </div>
+                        <div class="col-xs-6 listitem">
+                            <br/>
+                            {{this.Name}}<br/>
+                            {{this.Categories}}<br/>
+                            {{this.Price}}<br/><br/>
+                            <a href="/item/{{this.Id}}" class="buyNow">Message Seller</a><br/><br/>
+                        </div>
+                   </div>
+                    <div class="row lheight  d-none d-md-block d-xs-none d-sm-none">
                         <div class="col-md-2">
-                            <img src="/images/{{this.Photo}}" style="border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                            <img src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
                         </div>
                         <div class="col-md-2 c-align listitem">
                             {{this.Name}}
@@ -69,18 +89,16 @@
                         <div class="col-md-2  c-align listitem">
                             <td>{{this.Price}}</td>
                         </div>
-                        <div class="col-md-2  c-align"><br/>
+                        <div class="col-md-4  c-align listitem"><br/>
+                            <br/><br/>
                             <a href="/item/{{this.Id}}" class="buyNow">Message Seller</a>
                         </div>
                     </div>
+
                    {{/each}}
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
-</div>
+</div> 
 <br/><br/>
 <!-- Footer content -->
 <div class="container-fluid footer c-align">

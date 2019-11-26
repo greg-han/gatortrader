@@ -21,6 +21,7 @@ async function dbfinditem(id){
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
   return rows;
+  await connection.end();
 }
 
 async function dbfindseller(itemid){
@@ -29,6 +30,7 @@ async function dbfindseller(itemid){
   let rows;
   rows = await connection.execute('SELECT * FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   return rows;
+  await connection.end();
 }
 
 async function dbfinduser(userid){
@@ -37,9 +39,11 @@ async function dbfinduser(userid){
   let rows;
   rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
   return rows;
+  await connection.end();
 }
 
 router.get('/item/:id', async function(req,res,next){
+    console.log("hello");
     var user = await req.session.user;
     var item = await req.params.id;
     let itemresult = await dbfinditem(item);
@@ -48,13 +52,11 @@ router.get('/item/:id', async function(req,res,next){
     let findseller = await dbfinduser(sellerid);
     let sellername = findseller[0][0].Username;
     //This is how to access returned objects
-    //console.log("Item Result: ", itemresult[0][0]);
     res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
 });
 
 router.get('/sell', async function(req,res,next){
   var user = req.session.user;
-  console.log("in sell: ", req.session.itemdescription);
   var description = req.session.itemdescription;
   req.session.destroy();
   req.session.user = user;

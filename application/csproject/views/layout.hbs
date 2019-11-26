@@ -10,43 +10,69 @@
       <title>Home</title>
       <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
       <link rel="stylesheet"  href="/stylesheets/main.css"/>
+      <style>
+          .jumbotron{
+              padding: 0.5em 0.6em;
+          h1{
+              font-size:2em;
+              color: white;
+          }
+          p {
+              font-size: 1.2em;
+              color: white;
+          .btn {
+              padding: 0.5em;
+          }
+          }
+          margin-bottom: 0;
+          background:#62ab00;
+          }
+      </style>
   </head>
   <body>
-  <div class="jumbotron text-center" style="margin-bottom:0">
-      <h2 class = text-black>SFSU 648-848 Fall 2019 Global Team Software Engineering Project</h2>
-      <p class = text-black>For Demonstration purposes only.</p>
+  <div class="jumbotron text-center" >
+      <h2 class = text-white>SFSU 648-848 Fall 2019 Global Team Software Engineering Project</h2>
+      <p class = text-white>For Demonstration purposes only.</p>
   </div>
   <br/>
+
   <div class="container-fluid">
-      <div class="row-fluid extraPadding">
-          <div class="col-md-12">
-              <div class="row-fluid ">
-                  <div class="col-md-3 rview">
+      <div class="row-fluid">
+          <div >
+              <div class="row-fluid" style="display: flex; flex-flow: row wrap;">
+                  <div class="col-md-4">
                       <!-- <img src="img/gator.png" class="img"/> -->
                       <p class="logo"><a href="/">Gator Trader</a></p>
                   </div>
-                  <div class="col-md-5">
+                  <div class="col-md-5" >
                       <form action="/search/searches" method="POST" class="search">
-                          <div class="row-fluid searchBox">
+                          <div class="row-fluid searchBox" style="display: flex">
                               <div class="col-md-3">
-                                  <select class="categories" id="dropdown" name="filter">
+                                  <select class="categories dropdown-toggle" id="dropdown" name="filter">
                                       <option selected>All</option>
                                       <option value="E">Electronics</option>
                                       <option value="B">Books</option>
                                       <option value="F">Furniture</option>
                                       <option value="O">Other</option>
                                   </select>
+                                </div>
+                                <div class="col-md-1 d-none d-md-block d-xs-none d-sm-none" style="background:#62ab00;height:32px;line-height:32px;">
+                                   <img src="/img/arrow.png" width="12"/>
                               </div>
-                              <div class="col-md-7">
+                              <div class="col-md-6">
                                   <input type="text" name="search" class="freetextsearch"/>
                               </div>
                               <div class="col-md-2">
                                   <input type="submit" class="searchbtn" name="searchbtn" value="Search"/>
                               </div>
+
                           </div>
                       </form>
                   </div>
-                  <div class="col-md-1"></div>
+
+                  <div class="col-md-1 toppad">
+                      <a href="/sell" type="buttons" class="btn btn-success btn-lg linkPadding ">Sell Item</a>
+                  </div>
                   <div class="col-md-1 toppad">
                   {{#if user}}
                   </div>
@@ -61,13 +87,19 @@
                               <a class="dropdown-item" href="/users/logout">Logout</a>
                           </div>
                       </div>
-                      {{else}}
-                          <a href="/users/login" class="searchbtn" >Login/Register</a>
-                            <br/>
-                          <a href="/sell" class="searchbtn" height="50" >Sell Item</a>
-                      {{/if}}
+
+                      <div class="col-md-1 toppad">
+                        {{else}}
+                            <a href="/users/login" type="buttons" class="btn btn-success btn-xs linkPadding"  >Login/Register</a>
+                              <br/>
+                        {{/if}}
+                      </div>
                   </div>
               </div>
+
+            </div>
+          </div>
+        </div>
   {{{body}}}
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
