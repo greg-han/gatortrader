@@ -54,24 +54,30 @@
         </div>
 		{{#if penditems}}
         {{#each penditems}}
-		
         <div class="row-fluid lheight">
             <div class="col-md-2 " style="background: white;">
-                <img src="/images/{{Photo}}" height="80"/>
+                <img src="/images/{{this.Photo}}" height="80"/>
             </div>
             <div class="col-md-2 c-align listitem" style="background: white;">
-                {{Name}}
+                {{this.Name}}
             </div>
             <div class="col-md-2 c-align listitem" style="background: white;">
-                {{Categories}}
+                {{this.Categories}}
             </div>
 			<div class="col-md-2 c-align listitem" style="background: white;">
-                {{Description}}
+                {{this.Description}}
             </div>
             <div class="col-md-2  c-align listitem" style="background: white;">
-                {{Price}}
+                {{this.Price}}
             </div>
             <div class="col-md-2  c-align listitem" style="background: white;">
+                <div class="col-md-2  c-align"><br/>
+                    <a href="/admin/changestatus/{{this.Id}}" class="gradient_green_btn">Approve</a>
+                </div>
+                <div class="col-md-2  c-align"><br/>
+                    <a href="/messages/deleteitem/{{this.Id}}" class="gradient_red_btn">Delete</a>
+                </div>
+                <!--
                		<form class="form" method="post" action="changestatus" title="Click to Approve" style="display: inline-table; margin-top:-40px; border:0px solid">
                         <input type="hidden" name="newstatus" id="newstatus" value="1"  />
                         <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
@@ -81,10 +87,10 @@
                         <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
                         <input type="submit" name="login" value="Delete" class="gradient_red_btn" style="width:70px;display: inline-table;" />
                     </form>
+                    -->
             </div>
 
         </div>
-		
        {{/each}}
 	   {{/if}}
     </div>

@@ -11,47 +11,47 @@ const database= 'Website';
 async function dbcheck(username){
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-    const rows 		 = await connection.execute('SELECT * FROM `users` WHERE `Username` = ?',[username]);
+    const rows 		 = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
 }
 
 async function dblogin(username) {
-    const rows = await connection.execute('SELECT `Password` FROM `users` WHERE `Username` = ?',[username]);
+    const rows = await connection.execute('SELECT `Password` FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
 }
 
 async function dbregister(name,username,password,email) {
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-    const rows = await connection.execute('INSERT INTO `users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
+    const rows = await connection.execute('INSERT INTO `Users` (`Name`,`Username`,`Password`,`Email` ) VALUES(?,?,?,?) ',[name,username,password,email]);
     return rows;
 }
 
 async function dbget_pending_items(){
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-    const rows = await connection.execute('SELECT * FROM `item` WHERE (`Status`) = ? ',[0]);
+    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ',[0]);
     return rows;
 }
 
 async function dbget_approved_items(){
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-    const rows = await connection.execute('SELECT * FROM `item` WHERE (`Status`) = ? ',[1]);
+    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ',[1]);
     return rows;
 }
 
 async function dbfind_item(itemid){
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-    const rows = await connection.execute('SELECT * FROM `item` WHERE (`Id`) = ? ',[itemid]);
+    const rows = await connection.execute('SELECT * FROM `Item` WHERE (`Id`) = ? ',[itemid]);
     return rows;
 }
 
 async function dbupdate_item(itemid,nstatus){
 	const mysql      = require('mysql2/promise');
 	const connection = await mysql.createConnection({ host: host, user: user, password: password, database: database});
-	var   sql        = "UPDATE `item` SET `Status` =? WHERE `Id` = ?";
+	var   sql        = "UPDATE `Item` SET `Status` =? WHERE `Id` = ?";
     const rows = await connection.execute(sql, [nstatus, itemid]);
     return rows;
 }
@@ -62,7 +62,7 @@ async function dbdelete_item(itemid){
     await connection.execute('DELETE FROM `Message` WHERE `ItemId` = ?',[itemid]);
     await connection.execute('DELETE FROM `Seller` WHERE `ItemId` = ?',[itemid]);
     await connection.execute('DELETE FROM `Buyer` WHERE `ItemId` = ?',[itemid]);
-	var   sql        = "DELETE FROM `item` WHERE `Id` = ?";
+	var   sql        = "DELETE FROM `Item` WHERE `Id` = ?";
     const rows = await connection.execute(sql, [itemid]);
     return rows;
 }
@@ -147,19 +147,19 @@ router.post('/req-admin-login' , async function(req, res, next) {
         req.session.a_name   = resultbody[0].Name;
         req.session.a_email  = resultbody[0].Email;
         let url = "admindashboard";
-        res.redirect(url);
+        res.redirect("/admin/" + url);
         
     }else{
       //Incorrect Username please go back to login
 	  req.session.wrong_user = true;
-	  res.redirect('a_login');
+      res.redirect("/admin/" + 'a_login');
    }
 });
 
 //logout
 router.get('/logout' , async function(req, res, next){
    req.session.reset();
-   res.redirect('a_login');
+   res.redirect("/admin/" + 'a_login');
 });
 
 
@@ -182,37 +182,36 @@ router.get('/a_login', function(req, res, next) {
 });
 
 //this will handle Item Approval and Rejection by Admin - Femi
-router.post('/changestatus' , async function(req, res, next) {
-    var newstatus = await req.body.newstatus;
-    var itemid    = await req.body.itemid;
-
+router.get('/changestatus/:itemid' , async function(req, res, next) {
+    var newstatus = 1;
+    var itemid    = await req.params.itemid;
+    console.log("Itemid",itemid);
     let dbresults = dbupdate_item(itemid,newstatus);
 
     if (dbresults) {
-
        let url = "admindashboard";
-       res.redirect(url);
+       res.redirect("/admin/" + url);
         
     }else{
       let url = "admindashboard";
-      res.redirect(url);
+      res.redirect("/admin/" + url);
    }
 });
 
 //this will handle Item deletion by Admin - Femi
-router.post('/deleteitem' , async function(req, res, next) {
-    var itemid    = await req.body.itemid;
+router.get('/deleteitem/:itemid' , async function(req, res, next) {
+    var itemid    = await req.params.itemid;
 
     let dbresults = dbdelete_item(itemid);
 
     if (dbresults) {
 
        let url = "admindashboard";
-       res.redirect(url);
+       res.redirect("/admin/" + url);
         
     }else{
       let url = "admindashboard";
-      res.redirect(url);
+      res.redirect("/admin/" + url);
    }
 });
 
