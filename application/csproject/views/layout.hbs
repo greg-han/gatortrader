@@ -7,7 +7,13 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Home</title>
+      <title>
+	  {{#if title}}
+	  {{title}}
+	  {{else}}
+        Home                  
+      {{/if}}
+	  </title>
       <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
       <link rel="stylesheet"  href="/stylesheets/main.css"/>
       <style>
@@ -85,6 +91,16 @@
                               <a class="dropdown-item" href="/sell">Upload/Sell Item</a>
                               <a class="dropdown-item" href="/users/dashboard">Dashboard</a>
                               <a class="dropdown-item" href="/users/logout">Logout</a>
+                          </div>
+                    </div>
+					  {{else if a_user}}
+                          <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Welcome, {{a_userName}}
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                               <a class="dropdown-item" href="admindashboard">Admin Dashboard</a>
+                              <a class="dropdown-item" href="logout">Logout</a>
                           </div>
                       </div>
 
