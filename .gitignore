@@ -2,3 +2,4 @@ node_modules/
 .idea
 .idea/misc.xml
 .idea/workspace.xml
+*.xml
