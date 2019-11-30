@@ -20,7 +20,6 @@
     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Items Buying</a></li>
 </ul>
 <!-- Tab panes -->
-<div class="container-fluid">
 <div class="tab-content">
         <!-- Selling begins -->
         <div role="tabpanel" class="tab-pane active" id="home">
@@ -36,8 +35,6 @@
                 </div>
                 <div class="col-md-2 filterlink c-align">
                     Price
-                </div>
-                <div class="col-md-2 filterlink c-align">
                 </div>
                 <div class="col-md-2 filterlink c-align">
                 </div>
@@ -57,11 +54,9 @@
                         <div class="col-md-2  c-align listitem">
                             {{this.Price}}
                         </div>
-                        <div class="col-md-2  c-align">
-                            <a href="/messages/checkselling/{{this.Id}}" class="buyNow">See Buyer Message</a>
-                            <!-- Probably not the best to have this right next to the view message
-                    <a href="/messages/checkselling/{{this.Id}}" class="buyNow" style="background: #ff5854">Delete Message</a>
-                    -->
+                        <div class="col-md-2  c-align ">
+                            <br/><br/>
+                            <a href="/messages/checkselling/{{this.Id}}" style="margin-top: 50px" class="buyNow">See Buying</a>
                         </div>
                         <div class="col-md-2  c-align"><br/>
                         </div>
@@ -88,6 +83,7 @@
                 </div>
             </div>
             {{#each buying}}
+            <div class="container-fluid">
             <div class="row-fluid lheight">
                 <div class="col-md-2 ">
                     <img src="/images/{{this.Photo}}" height="80"/>
@@ -107,9 +103,9 @@
                 <div class="col-md-2  c-align"><br/>
                 </div>
             </div>
+            </div>
           {{/each}}
        </div>
-</div>
 </div>
 <br/><br/>
 <!-- Footer content -->

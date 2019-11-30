@@ -7,10 +7,10 @@ async function dbsearch(search,filter){
     let rows;
     let likesearch = ("%" + search + "%");
     if(!filter){
-        rows = await connection.execute('SELECT * FROM `Item` WHERE `Description` LIKE ?' ,[likesearch]);
+        rows = await connection.execute('SELECT * FROM `Item` WHERE `Description` LIKE ? AND Status = ?' ,[likesearch,1]);
     }
     else{
-        rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ?' ,[filter,likesearch]);
+        rows = await connection.execute('SELECT * FROM `Item` WHERE `Categories` = ? and `Description` LIKE ? AND Status= ?' ,[filter,likesearch,1]);
     }
     await connection.end();
     return rows;

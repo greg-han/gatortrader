@@ -36,7 +36,7 @@ body{
     text-align: left !important;
 }
 .search select{
-    height:46px;
+    height:32px;
 }
 strong{
     font-family: 'bold' !important;
@@ -81,7 +81,7 @@ strong{
     padding:20px 0px 20px 0px;
 }
 .freetextsearch{
-    height:46px;
+    height:33px;
     border:0px;
     border-top :2px solid #eee;
     border-bottom :2px solid #eee;
@@ -90,6 +90,7 @@ strong{
     padding-left:10px;
     padding-right:10px;
     font-family: 'bold' !important;
+
 }
 input:focus {outline:none;}
 .searchBox div{
@@ -102,9 +103,9 @@ input:focus {outline:none;}
     margin-top:10px;
 }
 .categories{
-    height:46px !important;
+    height:32px !important;
     width:100%;
-    float: :left;
+    float: left;
     -webkit-appearance: none;
    -moz-appearance: none;
    border-radius:0px;
@@ -124,14 +125,13 @@ input:focus {outline:none;}
 }
 
 .searchbtn{
-    height:46px;
+    height:32px;
     border:none;
     border-top-right-radius:3px;
     border-bottom-right-radius:3px;
     border-left:0px;
     background:#62ab00;
     color:#fff;
-    padding:0px 20px;
     font-weight:bold;
 }
 .logo{
@@ -140,7 +140,6 @@ input:focus {outline:none;}
     line-height: 24px;
     font-family: 'bold' !important;
     padding-top:20px;
-    position:absolute;
     text-shadow: 0px 0px 10px #62ab00;
 }
 .img{
@@ -214,6 +213,30 @@ background: linear-gradient(135deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
 }
+
+.gradient_green_btn{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
+color:#FFF;
+display: inline-table;
+background: #62ab00; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #62ab00 0%, #62ab00 50%, #62ab00 51%, #2a7a00 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #62ab00 0%,#62ab00 50%,#62ab00 51%,#2a7a00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+.gradient_red_btn{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
+color:#FFF;
+display: inline-table;
+background: #ff0000; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #ff0000 0%, #ff0000 50%, #ff0000 51%, #2a7a00 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  #ff0000 0%,#ff0000 50%,#ff0000 51%,#2a7a00 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  #ff0000 0%,#ff0000 50%,#ff0000 51%,#2a7a00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#2a7a00',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
 .carousel{
     height:330px;
     margin-top:10px;
@@ -233,6 +256,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
     padding:50px 0px;
     background:#222 !important;
 }
+
+.alertmsg{
+    background:#DDD ;
+    color: #999;
+    padding:5px;
+    border: #DDD dashed 0px;
+ }
+ 
 .nav-tabs li a{
     color:#62ab00;
     font-family: 'thin' !important;
@@ -307,7 +338,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
   .linkPadding,.searchbtn {
     width:100%;
     padding:8px;
-    margin-top:10px;
+
     margin-left:0px;
     font-size:18px;
 }
