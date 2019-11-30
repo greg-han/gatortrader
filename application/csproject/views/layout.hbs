@@ -75,43 +75,46 @@
                           </div>
                       </form>
                   </div>
+                  {{#ifEquals user "admin"}}
 
+                  {{else}}
                   <div class="col-md-1 toppad">
                       <a href="/sell" type="buttons" class="btn btn-success btn-lg linkPadding ">Sell Item</a>
                   </div>
-                  <div class="col-md-1 toppad">
+                  {{/ifEquals}}
                   {{#if user}}
-                  </div>
                   <div class="col-md-1 toppad">
-                      <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             {{user}} Account
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="/sell">Upload/Sell Item</a>
-                              <a class="dropdown-item" href="/users/dashboard">Dashboard</a>
-                              <a class="dropdown-item" href="/users/logout">Logout</a>
-                          </div>
-                    </div>
-					  {{else if a_user}}
-                          <div class="dropdown">
-                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             Welcome, {{a_userName}}
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                               <a class="dropdown-item" href="admindashboard">Admin Dashboard</a>
-                              <a class="dropdown-item" href="logout">Logout</a>
-                          </div>
-                      </div>
-
-                      <div class="col-md-1 toppad">
-                        {{else}}
-                            <a href="/users/login" type="buttons" class="btn btn-success btn-xs linkPadding"  >Login/Register</a>
-                              <br/>
-                        {{/if}}
-                      </div>
-                  </div>
+                      {{#ifEquals user "admin"}}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  {{user}} Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/admin/admindashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/admin/analytics">Analytics</a> 
+                                <a class="dropdown-item" href="/admin/logout">Logout</a>
+                            </div>
+                        </div>
+					  {{else}}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{user}} Account
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/sell">Upload/Sell Item</a>
+                                <a class="dropdown-item" href="/users/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/users/logout">Logout</a>
+                            </div>
+                        </div>  
+                      {{/ifEquals}}
+                 </div>
+                {{else}} 
+                <div class="col-md-1 toppad">
+                    <a href="/users/login" type="buttons" class="btn btn-success btn-lg linkPadding ">Login/Register</a>
+                </div>
+                {{/if}}
               </div>
+            </div>
 
             </div>
           </div>

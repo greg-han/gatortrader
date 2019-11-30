@@ -24,6 +24,12 @@ var app = express();
 //This is where "views" and handlebars gets set up -Greg
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+//Register helper to use equality operators with if condition
+hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
+  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
 //partials are just snippets of re-usable code. -Greg
 hbs.registerPartials(__dirname + '/views/partials');
 
