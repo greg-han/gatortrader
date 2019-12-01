@@ -25,12 +25,12 @@ router.post('/searches', async function(req,res,next){
     filterMap.set('O',"Others");
 
     var search = await req.body.search;
-    var filter = await req.body.filter;
-
-    filter = filterMap.get(filter);
     if(filter === "All"){
         filter = '';
     }
+    //Store these in the session for price filtering, we will need to match the search
+    req.session.currentcategory = filter;
+    req.session.search = search;
     // console.log("Search",search);
     // console.log("Filter",filter);
     let dbsearchresult = await dbsearch(search,filter);
@@ -40,4 +40,17 @@ router.post('/searches', async function(req,res,next){
     res.render('searchresults', { results : dbsearchresult[0], user : user, itemcount : numitems});
 });
 
+router.post('/pricefilter', async function(req,res,next) {
+   let user = req.session.user;
+   let filter = req.session.currentcategory;
+   let search = req.session.search;
+    /*
+     Write a db query has <= or >= price filter. if mysql doesn't offer the option, sort from low to high.
+     return result, and return page like in search above with results.
+    * */
+   //remember to clear it out aftewards
+   req.session.filter = '';
+   req.session.search = '';
+   //res.render('searchresults', { results : dbsearchresult[0], user : user, itemcount : numitems});
+});;
 module.exports = router;
