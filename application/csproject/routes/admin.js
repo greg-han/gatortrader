@@ -99,9 +99,29 @@ router.get('/admindashboard' , async function(req, res, next){
 
 	 let approveditems_result  = await dbget_approved_items();
 		 approveditems         = approveditems_result[0];
-	 console.log("Items: ", penditems);
+	 //console.log("Items: ", penditems);
   
-     res.render('admindashboard',{ message: "", title: page_title, display_msg: false, penditems: penditems, approveditems: approveditems, a_user: a_user, a_userName: a_userName});
+     res.render('admindashboard',{ message: "", title: page_title, display_msg: false, penditems: penditems, approveditems: approveditems, a_user: a_user, user: a_user, a_userName: a_userName});
+});
+//Analytics
+router.get('/analytics' , async function(req, res, next){
+    page_title = "Analytics";
+    //console.log("Logged User",req.session.a_user);
+    //check if an admin user is logged in before proceeding
+    if(!req.session.a_user) {
+       //go back to login page with a message
+       req.session.validate = true;
+       res.redirect('a_login');
+   }
+    //Logged in user details
+    let a_user 	   = await req.session.a_user;
+    let a_userId   = await req.session.a_userId;
+    let a_userName = await req.session.a_name;
+    let a_userEmail= await req.session.a_email
+    
+
+ 
+    res.render('analytics',{ message: "", title: page_title, display_msg: false, a_user: a_user, user: a_user, a_userName: a_userName});
 });
 
 //this will handle Admin User Login - Femi
@@ -146,6 +166,7 @@ router.post('/req-admin-login' , async function(req, res, next) {
         req.session.a_userId = resultbody[0].Id;
         req.session.a_name   = resultbody[0].Name;
         req.session.a_email  = resultbody[0].Email;
+        req.session.user     = user; //to persist admin also in the app
         let url = "admindashboard";
         res.redirect("/admin/" + url);
         
@@ -180,6 +201,14 @@ router.get('/a_login', function(req, res, next) {
       res.render('a_login', { message: "Hello", title: page_title, display_msg: false});
    }
 });
+
+//Redirect root admin route to dashboard
+router.get('/', function(req, res, next) {
+   
+       //Redirect to dashboard
+		res.redirect('/admin/admindashboard');
+   
+ });
 
 //this will handle Item Approval and Rejection by Admin - Femi
 router.get('/changestatus/:itemid' , async function(req, res, next) {

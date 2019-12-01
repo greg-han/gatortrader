@@ -29,7 +29,6 @@
                     <br/><br/><br/><br/>
                 </div>
                 <div class="col-md-1">
-
                 </div>
                 <div class="col-md-6 l-align box">
                     <h1>Message Seller</h1>
@@ -38,7 +37,7 @@
                         Caution: All transactions should be done in person, and all members should meet in the Library. Do not pay for items online or without a formal meet.
                         <form class="form" method="post" action="/messages/sendmessage/{{item.Id}}">
                             <input type="hidden" value="{{seller}}" name="sellerid" />
-                            <textarea name="message" ></textarea>
+                            <textarea name="message" required></textarea>
                             <input type="submit" name="register" value="Send Message" class="gradient_green" />
                         </form>
                     </div>
