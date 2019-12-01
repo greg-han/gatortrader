@@ -54,6 +54,7 @@
         </div>
 		{{#if penditems}}
         {{#each penditems}}
+        <div class="container-fluid">
         <div class="row-fluid lheight">
             <div class="col-md-2 " style="background: white;">
                 <img src="/images/{{this.Photo}}" height="80"/>
@@ -77,19 +78,8 @@
                 <div class="col-md-2  c-align"><br/>
                     <a href="/messages/deleteitem/{{this.Id}}" class="gradient_red_btn">Delete</a>
                 </div>
-                <!--
-               		<form class="form" method="post" action="changestatus" title="Click to Approve" style="display: inline-table; margin-top:-40px; border:0px solid">
-                        <input type="hidden" name="newstatus" id="newstatus" value="1"  />
-                        <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
-                        <input type="submit" name="login" value="Approve" class="gradient_green_btn" style="width:70px;display: inline-table;" />
-                    </form>
-					<form class="form"  onsubmit="return confirm('Do really want to delete this Item?');" method="post" action="deleteitem" title="Click to Delete Item" style="display: inline-table; margin-top:-40px; border:0px solid">
-                        <input type="hidden" name="itemid" id="itemid" value="{{Id}}"/>
-                        <input type="submit" name="login" value="Delete" class="gradient_red_btn" style="width:70px;display: inline-table;" />
-                    </form>
-                    -->
             </div>
-
+        </div>
         </div>
        {{/each}}
 	   {{/if}}
@@ -118,6 +108,7 @@
         </div>
 		{{#if approveditems}}
         {{#each approveditems}}
+        <div class="container-fluid">
         <div class="row-fluid lheight">
             <div class="col-md-2 " style="background: white;">
                 <img src="/images/{{Photo}}" height="80"/>
@@ -143,7 +134,7 @@
                     </form>
 				 
             </div>
-           
+        </div>
         </div>
         {{/each}}
 	    {{/if}}
