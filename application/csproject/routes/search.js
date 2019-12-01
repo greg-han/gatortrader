@@ -19,13 +19,18 @@ async function dbsearch(search,filter){
 router.post('/searches', async function(req,res,next){
     var user = req.session.user;
     var filterMap = new Map();
+    let filterparam = await req.body.filter;
+    filterMap.set('A', "All");
     filterMap.set('E',"ELECTRONICS");
     filterMap.set('B',"books");
     filterMap.set('F',"furniture");
     filterMap.set('O',"Others");
-
+    console.log(filterparam);
+    let filter = filterMap.get(filterparam);
     var search = await req.body.search;
+    console.log(filter);
     if(filter === "All"){
+        console.log("I'm in here");
         filter = '';
     }
     //Store these in the session for price filtering, we will need to match the search
