@@ -42,6 +42,15 @@ async function dbfinduser(userid){
   await connection.end();
 }
 
+async function dbrecentitem(){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  rows = await connection.execute('SELECT * FROM `Item` ORDER BY `Date`');
+  return rows;
+  await connection.end();
+}
+
 router.get('/item/:id', async function(req,res,next){
     console.log("hello");
     var user = await req.session.user;
@@ -53,6 +62,14 @@ router.get('/item/:id', async function(req,res,next){
     let sellername = findseller[0][0].Username;
     //This is how to access returned objects
     res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
+});
+
+router.get('/recent', async function (req,res,next) {
+  console.log("recent");
+  var user = await req.session.user;
+  let dbrecentitems = await dbrecentitem();
+  console.log("Result: ", dbrecentitems[0]);
+  res.render('index', {results : dbrecentitems[0], user : user});
 });
 
 router.get('/sell', async function(req,res,next){
