@@ -24,13 +24,13 @@
                     <div class="col-md-6 l-align">
                         <h3>Item Image Upload</h3>
                         <p>Select the images of the product you want to upload here</p>
-                        <input type="file" name="avatar" placeholder="upload image" style="height:40px;background: #eee;" />
+                        <input type="file" name="avatar" placeholder="upload image" style="height:40px;background: #eee;" required />
 
                     <h3>Details</h3>
                     <p>Kindly provide details about the item you want to sell</p>
-                        <input type="text" name="itemname" placeholder="Item Name"/>
-                    <textarea name="itemdescription" >{{description}}</textarea>
-                    <input type="text" name="price" placeholder="Price"/>
+                        <input type="text" name="itemname" placeholder="Item Name" required/>
+                    <textarea name="itemdescription" required>{{description}}</textarea>
+                    <input type="text" name="price" placeholder="Price" required/>
                     <select name="category">
                         <option value="E">Electronics</option>
                         <option value="B">Books</option>
