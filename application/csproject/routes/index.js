@@ -46,7 +46,7 @@ async function dbrecentitem(){
   const mysql = require('mysql2/promise');
   const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
-  rows = await connection.execute('SELECT * FROM `Item` ORDER BY `Date`');
+  rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Date`',[1]);
   return rows;
   await connection.end();
 }
@@ -64,7 +64,7 @@ router.get('/item/:id', async function(req,res,next){
     res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
 });
 
-router.get('/recent', async function (req,res,next) {
+router.get('/', async function (req,res,next) {
   console.log("recent");
   var user = await req.session.user;
   let dbrecentitems = await dbrecentitem();
