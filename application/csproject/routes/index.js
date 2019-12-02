@@ -51,6 +51,15 @@ async function dbrecentitem(){
   await connection.end();
 }
 
+async function dbcheapestitem(){
+  const mysql = require('mysql2/promise');
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  let rows;
+  rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Price` ASC',[1]);
+  return rows;
+  await connection.end();
+}
+
 router.get('/item/:id', async function(req,res,next){
     console.log("hello");
     var user = await req.session.user;
@@ -65,11 +74,14 @@ router.get('/item/:id', async function(req,res,next){
 });
 
 router.get('/', async function (req,res,next) {
-  console.log("recent");
+  console.log("lowest");
   var user = await req.session.user;
+  let dbcheapestitems = await dbcheapestitem();
+
+  console.log("recent");
   let dbrecentitems = await dbrecentitem();
-  console.log("Result: ", dbrecentitems[0]);
-  res.render('index', {results : dbrecentitems[0], user : user});
+
+  res.render('index', {cheapestdb : dbcheapestitems[0], recentdb : dbrecentitems[0], user : user});
 });
 
 router.get('/sell', async function(req,res,next){
@@ -93,12 +105,12 @@ router.get('/', function(req, res, next) {
   res.render('index', {title: 'About Team 14', user: user, signedup: signedup});
 });
 
-router.get('/suraj',function(req, res, next) {
+router.get('/root',function(req, res, next) {
   let user = '';
   if(req.session.user != undefined){
     user = req.session.user;
   }
-  res.render('suraj', { title: 'I am suraj', user : user });
+  res.render('root', { title: 'I am root', user : user });
 });
 
 router.get('/shubham',function(req, res, next) {
@@ -124,7 +136,5 @@ router.get('/greg',function(req, res, next) {
   }
   res.render('greg', { title: 'I am greg', user: user });
 });
-
-
 
 module.exports = router;
