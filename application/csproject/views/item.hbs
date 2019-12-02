@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet"  href="css/main.css"/>
 </head>
 <br/>
 <br/>
@@ -18,7 +16,7 @@
                     <h1>Item Images</h1>
                     <div class="form row-fluid" method="post">
                         <div class="col-md-6">
-                            <img src="/images/{{item.Photo}}" height="170"/>
+                            <img onclick="popup()" id="img" value="{{item.Photo}}" src="/images/{{item.Photo}}"  height="170"/>
                         </div>
                     </div>
                     Seller : {{seller}} <br/>
@@ -55,8 +53,6 @@
         </div>
     </div>
 </div>
-
-<script src="js/jquery-1.12.4.min.js" ></script>
-<script src="js/bootstrap.min.js" ></script>
+<script src="/scripts/imagepopup.js">
 </body>
 </html>
