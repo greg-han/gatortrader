@@ -24,6 +24,8 @@ var app = express();
 //This is where "views" and handlebars gets set up -Greg
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+//use this to access node module so that it is not exposed
+app.use('/scripts', express.static(__dirname + '/public/js'));
 
 //Register helper to use equality operators with if condition
 hbs.registerHelper('ifEquals', function(arg1, arg2, options) {

@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet"  href="css/main.css"/>
 </head>
 <body>
 <br/>
@@ -17,7 +15,7 @@
                 <div class="col-md-3">
                     <div class="row-fluid">
                         <div class="col-md-12 filterheader">
-                            &nbsp;&nbsp;&nbsp;<img src="/img/menu.png" width="24"/>&nbsp;<strong>Filter Search Results </strong>
+                            &nbsp;&nbsp;&nbsp;<img src="/img/menu.png" width="24"/>&nbsp;<strong>Filter Results By Price </strong>
                         </div>
                         <div class="col-md-12 filterlink">
                             <a href="">Category 1</a>
@@ -66,7 +64,7 @@
                    <div class="row lheight d-block d-sm-none d-xs-none">
                         <div class="col-xs-6">
                             <br/>
-                            <img src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                              <img src="/images/{{this.Photo}}" onclick="popup(this)" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
                         </div>
                         <div class="col-xs-6 listitem">
                             <br/>
@@ -78,7 +76,7 @@
                    </div>
                     <div class="row lheight  d-none d-md-block d-xs-none d-sm-none">
                         <div class="col-md-2">
-                            <img src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                              <img onclick="popup()" id="img" value="{{this.Photo}}" src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
                         </div>
                         <div class="col-md-2 c-align listitem">
                             {{this.Name}}
@@ -94,7 +92,6 @@
                             <a href="/item/{{this.Id}}" class="buyNow">Message Seller</a>
                         </div>
                     </div>
-
                    {{/each}}
                 </div>
             </div>
@@ -108,9 +105,8 @@
         </div>
     </div>
 </div>
-
-<script src="js/jquery-1.12.4.min.js" ></script>
-<script src="js/bootstrap.min.js" ></script>
+<script src="/scripts/imagepopup.js">
+</script>
 </body>
 </html>
 

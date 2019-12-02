@@ -59,6 +59,7 @@ CREATE TABLE `Item` (
   `Description` text,
   `Photo` varchar(255) DEFAULT NULL,
   `Status` int(11) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -69,7 +70,7 @@ CREATE TABLE `Item` (
 
 LOCK TABLES `Item` WRITE;
 /*!40000 ALTER TABLE `Item` DISABLE KEYS */;
-INSERT INTO `Item` VALUES (2,'Umbrella','Others',10,'Hello, I am selling this Umbrella because I bought a rainsuit instead.\r\n                        ','umbrella_tn.jpg',0),(3,'Iphone','ELECTRONICS',320,'Selling Iphone. I like to mod my phones, so I\'m switching to android.\r\nGreat for music.                        ','iphone_tn.jpg',0),(4,'gator','Others',100,'Hello, I am selling this gator.\r\nDon\'t ask about it just buy it.                        ','gator.png',0),(5,'couch','furniture',20,'I don\'t want this couch anymore because I never use it and I bought a bunch of beanbags instead.                        \r\n                        ','couch_tn.jpg',0);
+INSERT INTO `Item` VALUES (2,'Umbrella','Others',10,'Hello, I am selling this Umbrella because I bought a rainsuit instead.\r\n                        ','umbrella_tn.jpg',1,'2019-12-01 08:01:59'),(3,'Iphone','ELECTRONICS',320,'Selling Iphone. I like to mod my phones, so I\'m switching to android.\r\nGreat for music.                        ','iphone_tn.jpg',0,'2019-12-01 08:01:59'),(4,'gator','Others',100,'Hello, I am selling this gator.\r\nDon\'t ask about it just buy it.                        ','gator.png',1,'2019-12-01 08:01:59'),(5,'couch','furniture',20,'I don\'t want this couch anymore because I never use it and I bought a bunch of beanbags instead.                        \r\n                        ','couch_tn.jpg',1,'2019-12-01 08:01:59');
 /*!40000 ALTER TABLE `Item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +153,7 @@ CREATE TABLE `Users` (
   `Photo` varchar(255) DEFAULT NULL,
   `Post` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +162,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL),(3,'gator','gator','gator@mail.com','password',NULL,NULL);
+INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL),(3,'gator','gator','gator@mail.com','password',NULL,NULL),(4,'','','','',NULL,NULL),(5,'admin','admin','admin@email.com','password',NULL,NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -174,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-25 10:33:04
+-- Dump completed on 2019-12-01 16:53:50

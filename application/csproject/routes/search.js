@@ -25,10 +25,8 @@ router.post('/searches', async function(req,res,next){
     filterMap.set('B',"books");
     filterMap.set('F',"furniture");
     filterMap.set('O',"Others");
-    console.log(filterparam);
     let filter = filterMap.get(filterparam);
     var search = await req.body.search;
-    console.log(filter);
     if(filter === "All"){
         console.log("I'm in here");
         filter = '';
@@ -49,6 +47,8 @@ router.post('/pricefilter', async function(req,res,next) {
    let user = req.session.user;
    let filter = req.session.currentcategory;
    let search = req.session.search;
+   //let lowlimit = req.body.low;
+    //let highlimit = req.body.high;
     /*
      Write a db query has <= or >= price filter. if mysql doesn't offer the option, sort from low to high.
      return result, and return page like in search above with results.
