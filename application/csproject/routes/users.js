@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var db_username="root";
+var db_username="gsds";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";
@@ -256,39 +256,53 @@ router.post('/register' , async function(req, res, next){
     found = true;
   }
   let resultbody = "";
-  if(!found) {
-      await dbresults.then(function (result) {
-          //double check that this users thing is correct
-          let temp = [result[0], result[1], result[2], result[3]];
-          resultbody = [result[0], result[1], result[2], result[3]];
-          return resultbody;
-      })
-          .catch(function (error) {
-              console.error(error);
-          });
-      req.session.user = username;
-      if(!req.session.cart) {
-          res.redirect('/');
-      }
-      else{
-          if(req.session.selllazy){
-              res.redirect('/sell');
-          }
-          else {
-              //Remember to clear the cart afterwards
-              let url = "/item/" + req.session.cart;
-              let user = req.session.user;
-              req.session.destroy();
-              req.session.user = user;
-              res.redirect(url);
-          }
-      }
+
+  console.log(email);
+  let emailSplit = email.split("@");
+  console.log(emailSplit[0]);
+  console.log(emailSplit[1]);
+  if(emailSplit[1]!=="mail.sfsu.edu"){
+    res.render('login.hbs', { registermessage : "Only sfsu student are allowed to register"});
+  }else{
+    if(!found) {
+        await dbresults.then(function (result) {
+            //double check that this users thing is correct
+            let temp = [result[0], result[1], result[2], result[3]];
+            resultbody = [result[0], result[1], result[2], result[3]];
+            return resultbody;
+        })
+            .catch(function (error) {
+                console.error(error);
+            });
+        req.session.user = username;
+        if(!req.session.cart) {
+            res.redirect('/');
+        }
+        else{
+            if(req.session.selllazy){
+                res.redirect('/sell');
+            }
+            else {
+                //Remember to clear the cart afterwards
+                let url = "/item/" + req.session.cart;
+                let user = req.session.user;
+                req.session.destroy();
+                req.session.user = user;
+                res.redirect(url);
+            }
+        }
+    }
+    else{
+       //use template literals for this or learn how to inject html into send
+      //res.send(<a href="/">'User Exists, please choose another and navigate back to homepage'</a>);
+      res.render('login.hbs', { registermessage : 'User Exists, please choose another and navigate back to homepage'});
+     
+    }
   }
-  else{
-     //use template literals for this or learn how to inject html into send
-    //res.send(<a href="/">'User Exists, please choose another and navigate back to homepage'</a>);
-    res.send('User Exists, please choose another and navigate back to homepage');
-  }
+});
+
+router.get('/register', function(req, res, next) {
+   res.render('login', { message : ""});
 });
 
 router.get('/login', function(req, res, next) {
