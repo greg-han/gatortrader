@@ -17,7 +17,7 @@ please see handlebar documentation for more info. I hope this makes sense as it'
 
 async function dbfinditem(id){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
   return rows;
@@ -26,7 +26,7 @@ async function dbfinditem(id){
 
 async function dbfindseller(itemid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
   rows = await connection.execute('SELECT * FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   return rows;
@@ -35,7 +35,7 @@ async function dbfindseller(itemid){
 
 async function dbfinduser(userid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
   rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
   return rows;
@@ -44,7 +44,7 @@ async function dbfinduser(userid){
 
 async function dbrecentitem(){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Date`',[1]);
   return rows;
@@ -53,7 +53,7 @@ async function dbrecentitem(){
 
 async function dbcheapestitem(){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Price` ASC',[1]);
   return rows;

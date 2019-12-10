@@ -3,7 +3,7 @@ var router = express.Router();
 
 async function dbsearchs(search,filter,order){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     let rows;
     let likesearch = ("%" + search + "%");
     console.log(order);
@@ -24,7 +24,7 @@ async function dbsearchs(search,filter,order){
 
 async function dbsearch(search,filter){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     let rows;
     let likesearch = ("%" + search + "%");
     if(!filter){
@@ -39,7 +39,7 @@ async function dbsearch(search,filter){
 
 async function dbPriceFilter(search,order){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'gsds', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     let rows;
     let likesearch = ("%" + search + "%");
     if(order==0){
