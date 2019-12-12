@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 var express = require('express');
 var router = express.Router();
 
@@ -206,30 +207,38 @@ router.post('/loggedin' , async function(req, res, next) {
         if (resultbody.length < 1) {
             html = "user does not exist please go back to homepage";
             res.send(html);
-        } else if (resultbody[0].Password === pass) {
-            req.session.user = user;
-            if (!req.session.cart && !req.session.selllazy) {
-                res.redirect('/');
-            }
-            if(req.session.selllazy) {
-                if (req.session.selllazy) {
-                    res.redirect('/sell');
+        } else 
+            bcrypt.compare(pass, resultbody[0].password, function(err, res) {
+            if (res) {
+                req.session.user = user;
+                if (!req.session.cart && !req.session.selllazy) {
+                    res.redirect('/');
+                }
+                if(req.session.selllazy) {
+                    if (req.session.selllazy) {
+                        res.redirect('/sell');
+                    }
+                }
+                if(req.session.cart){
+                    let url = "/item/" + req.session.cart;
+                    //clear out the cart and everything else in the session
+                    let user = req.session.user;
+                    req.session.destroy();
+                    req.session.user = user;
+                    res.redirect(url);
                 }
             }
-            if(req.session.cart){
-                let url = "/item/" + req.session.cart;
-                //clear out the cart and everything else in the session
-                let user = req.session.user;
-                req.session.destroy();
-                req.session.user = user;
-                res.redirect(url);
-             }
-         }
+            else {
+                html = "Incorrect Password please go back to homepage";
+                //use template literals for this or look at how to inject html into send
+                //res.send(<a href="/">html</a>);
+                res.send(html);
+            }
+        });
     }
   if (resultbody[0].Password != pass) {
     html = "Incorrect Password please go back to homepage";
-    //use template literals for this or look at how to inject html into send
-    //res.send(<a href="/">html</a>);
+    
     res.send(html);
   }
   if(found){
@@ -249,7 +258,16 @@ router.post('/register' , async function(req, res, next){
   let password = await req.body.password;
   let email = await req.body.email;
   //Note that if you put an await message here (before dbregister), this is no longer a promise that needs to be resolve but instead becomes a request header object
-  let dbresults = dbregister(req.body.name,req.body.username,req.body.password,req.body.email);
+  bcrypt.hash(password, 10, function(err, hash) {
+    if(err){
+        console.error(err);
+    }
+    else{
+    // If no err store hash in database
+        dbresults = dbregister(req.body.name,req.body.username,req.body.password,req.body.email);
+    }
+  });
+  //let dbresults = dbregister(req.body.name,req.body.username,req.body.password,req.body.email);
   let found = false;
   let indb = await dbcheck(req.body.username);
   if(indb[0].length > 1) {
