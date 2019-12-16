@@ -1,4 +1,5 @@
 var express = require('express');
+const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
 var db_username="root";
@@ -185,7 +186,20 @@ router.get('/dashboard' , async function(req, res, next){
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
-router.post('/loggedin' , async function(req, res, next) {
+router.post('/loggedin', [
+  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
+  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+ ] , async function(req, res, next) {
+  //Pass Input Validations as array parameter as shown above
+  //Handle validation error if any
+  const errors = validationResult(req);
+  console.log("Login Error",errors.array());
+  if (!errors.isEmpty()) {
+    //res.render('login', { message : ""});
+    console.log("I dey get error");
+    res.render('login', { message: errors.array()[0]['msg'] });
+    //if api caller return res.status(422).json({ errors: errors.array() });
+   }else{
     var user = await req.body.loginusername;
     var pass = await req.body.loginpassword;
     let resultbody = "";
@@ -238,6 +252,7 @@ router.post('/loggedin' , async function(req, res, next) {
     //res.send(<a href="/">"Username Taken please go back to homepage"</a>);
     res.send("Username Taken please go back to homepage");
   }
+ }
 });
 
 router.get('/logout' , async function(req, res, next){
@@ -245,7 +260,24 @@ router.get('/logout' , async function(req, res, next){
    res.redirect('/');
 });
 
-router.post('/register' , async function(req, res, next){
+router.post('/register', [
+  check('name', 'Name cannot be empty and must be at least 5 characters').not().isEmpty().trim().escape().isLength({ min: 5 }),
+  check('username', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
+  check('email', "Invalid email").not().isEmpty().trim().escape().isEmail(),
+  check('password', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+ ] , async function(req, res, next){
+ //Pass Input Validations as array parameter as shown above
+//Handle validation error if any
+const errors = validationResult(req);
+console.log("Register Error",errors.array());
+if (!errors.isEmpty()) {
+  //res.render('login', { message : ""});
+  console.log("I dey get error");
+  res.render('login', { message: errors.array()[0]['msg'] });
+  //if api caller return res.status(422).json({ errors: errors.array() });
+}
+else{
+	  
   let username = await req.body.username;
   let password = await req.body.password;
   let email = await req.body.email;
@@ -302,6 +334,7 @@ router.post('/register' , async function(req, res, next){
      
     }
   }
+ }
 });
 
 router.get('/register', function(req, res, next) {
