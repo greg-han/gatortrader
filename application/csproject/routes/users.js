@@ -157,6 +157,7 @@ async function asyncArray(itemtables){
   }
   return itemsarray;
 }
+
 router.get('/dashboard' , async function(req, res, next){
      //console.log("In Dashboard: ",req.session.user)
      //get userid from username
@@ -205,7 +206,7 @@ router.post('/loggedin' , async function(req, res, next) {
             });
         if (resultbody.length < 1) {
             html = "user does not exist please go back to homepage";
-            res.send(html);
+            res.render('login.hbs', { message : html});
         } else if (resultbody[0].Password === pass) {
             req.session.user = user;
             if (!req.session.cart && !req.session.selllazy) {
@@ -230,12 +231,12 @@ router.post('/loggedin' , async function(req, res, next) {
     html = "Incorrect Password please go back to homepage";
     //use template literals for this or look at how to inject html into send
     //res.send(<a href="/">html</a>);
-    res.send(html);
+    res.render('login.hbs', { message : html});
   }
   if(found){
     //use template literals for this or learn how to inject html into send
     //res.send(<a href="/">"Username Taken please go back to homepage"</a>);
-    res.send("Username Taken please go back to homepage");
+    res.render('login.hbs', { message : "Username Taken please go back to homepage"});
   }
 });
 
