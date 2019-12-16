@@ -115,7 +115,7 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
 
 async function dbfinditem(id){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'gdsd', password: 'password', database: 'Website'});
     let rows;
     rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
     return rows;
@@ -167,7 +167,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
 
 async function dbfindmessage(userid,itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'gdsd', password: 'password', database: 'Website'});
     let rows;
     rows = await connection.execute('SELECT * FROM `Message` WHERE `SenderId` = ? AND `ItemId` = ?',[userid,itemid]);
     await connection.end();
@@ -193,7 +193,7 @@ router.get('/checkmessage/:itemid', async function(req, res, next) {
 
 async function dbitemdelete(itemid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: 'gdsd', password: 'password', database: 'Website'});
   await connection.execute('DELETE FROM `Message` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Buyer` WHERE `ItemId` = ?',[itemid]);
