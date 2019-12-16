@@ -46,7 +46,7 @@ async function dbinsertitem(name,category,price,description,photo){
     try {
      const mysql = require('mysql2/promise');
      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
-     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo`,`Status`,`Date`) VALUES(?,?,?,?,?,?,NOW()) ',[name,category,price,description,photo,0]);
      return rows;
      await connection.end();
     }catch(err){
@@ -128,6 +128,7 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     let itemdescription = await req.body.itemdescription;
     let itemphoto = await req.file.filename;
     let itemdb = await dbinsertitem(itemname,itemcategory,itemprice,itemdescription,itemphoto);
+    console.log("itemdb",itemdb);
     let itemid = itemdb[0].insertId;
     //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
     let dbuser = await dbcheck(user);
