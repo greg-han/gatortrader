@@ -47,7 +47,7 @@ async function dbinsertitem(name,category,price,description,photo){
     try {
      const mysql = require('mysql2/promise');
      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
-     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo`,`Status`,`Date`) VALUES(?,?,?,?,?,?,NOW()) ',[name,category,price,description,photo,0]);
      return rows;
      await connection.end();
     }catch(err){
@@ -129,6 +129,7 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     let itemdescription = await req.body.itemdescription;
     let itemphoto = await req.file.filename;
     let itemdb = await dbinsertitem(itemname,itemcategory,itemprice,itemdescription,itemphoto);
+    console.log("itemdb",itemdb);
     let itemid = itemdb[0].insertId;
     //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
     let dbuser = await dbcheck(user);
@@ -293,8 +294,10 @@ else{
   let emailSplit = email.split("@");
   console.log(emailSplit[0]);
   console.log(emailSplit[1]);
+  req.session.wrongemail = "";
   if(emailSplit[1]!=="mail.sfsu.edu"){
-    res.render('login.hbs', { registermessage : "Only sfsu student are allowed to register"});
+    req.session.wrongemail = "Only SFSU students may register.";
+    res.redirect('/users/login');
   }else{
     if(!found) {
         await dbresults.then(function (result) {
@@ -338,12 +341,13 @@ router.get('/register', function(req, res, next) {
    res.render('login', { message : ""});
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', async function(req, res, next) {
    if(req.session.cart) {
        res.render('login.hbs', { message : "Please Login or Register to Sell/Purchase Item"});
    }
    else{
-      res.render('login', { message : ""});
+       let message = await req.session.wrongemail;
+      res.render('login', { message : message});
    }
 });
 
