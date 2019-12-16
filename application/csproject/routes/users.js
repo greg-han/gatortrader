@@ -261,8 +261,10 @@ router.post('/register' , async function(req, res, next){
   let emailSplit = email.split("@");
   console.log(emailSplit[0]);
   console.log(emailSplit[1]);
+  req.session.wrongemail = "";
   if(emailSplit[1]!=="mail.sfsu.edu"){
-    res.render('login.hbs', { registermessage : "Only sfsu student are allowed to register"});
+    req.session.wrongemail = "Only SFSU students may register.";
+    res.redirect('/users/login');
   }else{
     if(!found) {
         await dbresults.then(function (result) {
@@ -305,12 +307,13 @@ router.get('/register', function(req, res, next) {
    res.render('login', { message : ""});
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', async function(req, res, next) {
    if(req.session.cart) {
        res.render('login.hbs', { message : "Please Login or Register to Sell/Purchase Item"});
    }
    else{
-      res.render('login', { message : ""});
+       let message = await req.session.wrongemail;
+      res.render('login', { message : message});
    }
 });
 
