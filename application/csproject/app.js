@@ -32,20 +32,12 @@ hbs.registerHelper('ifEquals', function(arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
 
-
 // Run "npm install helmet" to get the Helmet package.
 const helmet = require('helmet');
 
 // Sets "X-XSS-Protection: 1; mode=block".
 app.use(helmet.xssFilter()); //to prevent reflected XSS attacks.
 app.disable('x-powered-by'); //if enabled, Attackers can use this header (which is enabled by default) to detect apps running Express and then launch specifically-targeted attacks.
-
-hbs.registerHelper('ifStatus', function(arg1, arg2, options) {
-  console.log("arg1", arg1);
-  console.log("arg2", arg2);
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
-});
-
 
 //partials are just snippets of re-usable code. -Greg
 hbs.registerPartials(__dirname + '/views/partials');
