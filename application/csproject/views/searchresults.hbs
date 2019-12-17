@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+    <script src="/scripts/imagepopup.js"></script>
 </head>
 <body>
 <br/>
@@ -52,7 +53,7 @@
                    <div class="row lheight d-block d-sm-none d-xs-none">
                         <div class="col-xs-6">
                             <br/>
-                              <img src="/images/{{this.Photo}}" onclick="popup(this)" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                              <img src="/images/{{this.Photo}}" name="{{this.Photo}} onclick="popup(String({{this.Photo}}))" value="{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
                         </div>
                         <div class="col-xs-6 listitem">
                             <br/>
@@ -64,7 +65,7 @@
                    </div>
                     <div class="row lheight  d-none d-md-block d-xs-none d-sm-none">
                         <div class="col-md-2">
-                              <img onclick="popup()" id="img" value="{{this.Photo}}" src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
+                              <img onclick="popup(String({{this.Photo}}))" name="{{this.Photo}}" id="img" value="{{this.Photo}}" src="/images/{{this.Photo}}" style="margin:10px 0px;border-radius: 50px; border-style: solid;" width="100px" height="100px"/>
                         </div>
                         <div class="col-md-2 c-align listitem">
                             {{this.Name}}
@@ -93,8 +94,6 @@
         </div>
     </div>
 </div>
-<script src="/scripts/imagepopup.js">
-</script>
 </body>
 </html>
 

@@ -54,7 +54,7 @@ async function dbPriceFilter(search,order){
 }
 
 router.post('/searches', [
-    check('search', "Invalid Search Phrase").not().isEmpty().trim().escape().isLength({ min: 3 }).isLength({ max: 100 })
+    check('search', "Invalid Search Phrase").isLength({ max: 40})
    ], async function(req,res,next){
   //Pass Input Validations as array parameter as shown above
   //Handle validation error if any
