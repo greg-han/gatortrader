@@ -136,8 +136,8 @@ router.get('/sendmessage/:itemid', async function(req, res, next){
 
 async function dbfinditem(id){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
-    let rows=[];
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    let rows;
     rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
     return rows;
 }

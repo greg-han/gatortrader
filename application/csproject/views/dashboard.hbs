@@ -56,7 +56,11 @@
                         </div>
                         <div class="col-md-2  c-align ">
                             <br/><br/>
+                            {{#ifStatus this.Status '1'}}
                             <a href="/messages/checkselling/{{this.Id}}" style="margin-top: 50px" class="buyNow">See Buying</a>
+                            {{else}}
+                            <a  style="margin-top: 50px; background: red;" class="buyNow">Awaiting Approval</a>
+                            {{/ifStatus}}
                         </div>
                         <div class="col-md-2  c-align"><br/>
                         </div>

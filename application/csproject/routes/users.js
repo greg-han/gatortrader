@@ -1,4 +1,5 @@
 var express = require('express');
+const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
 var db_username="root";
@@ -46,7 +47,7 @@ async function dbinsertitem(name,category,price,description,photo){
     try {
      const mysql = require('mysql2/promise');
      const connection = await mysql.createConnection({ host: db_host,user: db_username, password: db_password, database: db_name});
-     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo` ) VALUES(?,?,?,?,?) ',[name,category,price,description,photo]);
+     const rows = await connection.execute('INSERT INTO `Item` (`Name`,`Categories`,`Price`,`Description`,`Photo`,`Status`,`Date`) VALUES(?,?,?,?,?,?,NOW()) ',[name,category,price,description,photo,0]);
      return rows;
      await connection.end();
     }catch(err){
@@ -128,6 +129,7 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     let itemdescription = await req.body.itemdescription;
     let itemphoto = await req.file.filename;
     let itemdb = await dbinsertitem(itemname,itemcategory,itemprice,itemdescription,itemphoto);
+    console.log("itemdb",itemdb);
     let itemid = itemdb[0].insertId;
     //after putting the item in the database with all of this data, get the item id and the user id of the person selling.
     let dbuser = await dbcheck(user);
@@ -185,7 +187,20 @@ router.get('/dashboard' , async function(req, res, next){
 });
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
-router.post('/loggedin' , async function(req, res, next) {
+router.post('/loggedin', [
+  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
+  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+ ] , async function(req, res, next) {
+  //Pass Input Validations as array parameter as shown above
+  //Handle validation error if any
+  const errors = validationResult(req);
+  console.log("Login Error",errors.array());
+  if (!errors.isEmpty()) {
+    //res.render('login', { message : ""});
+    console.log("I dey get error");
+    res.render('login', { message: errors.array()[0]['msg'] });
+    //if api caller return res.status(422).json({ errors: errors.array() });
+   }else{
     var user = await req.body.loginusername;
     var pass = await req.body.loginpassword;
     let resultbody = "";
@@ -238,6 +253,7 @@ router.post('/loggedin' , async function(req, res, next) {
     //res.send(<a href="/">"Username Taken please go back to homepage"</a>);
     res.render('login.hbs', { message : "Username Taken please go back to homepage"});
   }
+ }
 });
 
 router.get('/logout' , async function(req, res, next){
@@ -245,7 +261,24 @@ router.get('/logout' , async function(req, res, next){
    res.redirect('/');
 });
 
-router.post('/register' , async function(req, res, next){
+router.post('/register', [
+  check('name', 'Name cannot be empty and must be at least 5 characters').not().isEmpty().trim().escape().isLength({ min: 5 }),
+  check('username', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
+  check('email', "Invalid email").not().isEmpty().trim().escape().isEmail(),
+  check('password', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+ ] , async function(req, res, next){
+ //Pass Input Validations as array parameter as shown above
+//Handle validation error if any
+const errors = validationResult(req);
+console.log("Register Error",errors.array());
+if (!errors.isEmpty()) {
+  //res.render('login', { message : ""});
+  console.log("I dey get error");
+  res.render('login', { message: errors.array()[0]['msg'] });
+  //if api caller return res.status(422).json({ errors: errors.array() });
+}
+else{
+	  
   let username = await req.body.username;
   let password = await req.body.password;
   let email = await req.body.email;
@@ -262,8 +295,10 @@ router.post('/register' , async function(req, res, next){
   let emailSplit = email.split("@");
   console.log(emailSplit[0]);
   console.log(emailSplit[1]);
+  req.session.wrongemail = "";
   if(emailSplit[1]!=="mail.sfsu.edu"){
-    res.render('login.hbs', { registermessage : "Only sfsu student are allowed to register"});
+    req.session.wrongemail = "Only SFSU students may register.";
+    res.redirect('/users/login');
   }else{
     if(!found) {
         await dbresults.then(function (result) {
@@ -300,18 +335,20 @@ router.post('/register' , async function(req, res, next){
      
     }
   }
+ }
 });
 
 router.get('/register', function(req, res, next) {
    res.render('login', { message : ""});
 });
 
-router.get('/login', function(req, res, next) {
+router.get('/login', async function(req, res, next) {
    if(req.session.cart) {
        res.render('login.hbs', { message : "Please Login or Register to Sell/Purchase Item"});
    }
    else{
-      res.render('login', { message : ""});
+       let message = await req.session.wrongemail;
+      res.render('login', { message : message});
    }
 });
 

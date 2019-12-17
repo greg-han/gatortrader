@@ -1,4 +1,5 @@
 var express = require('express');
+const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
 var db_username="root";
@@ -69,6 +70,15 @@ router.get('/searches', async function(req,res,next){
 
 
 router.post('/searches', async function(req,res,next){
+  //Pass Input Validations as array parameter as shown above
+  //Handle validation error if any
+  const errors = validationResult(req);
+  console.log("Search Error",errors.array());
+  if (!errors.isEmpty()) {
+   console.log("I dey get error");
+   res.render('searchresults', { message: errors.array()[0]['msg'] });
+   //if api caller return res.status(422).json({ errors: errors.array() });
+  }else{
     var user = req.session.user;
     var filterMap = new Map();
     let filterparam = await req.body.filter;
@@ -95,6 +105,7 @@ router.post('/searches', async function(req,res,next){
     req.session.searchData=search;
     req.session.filterData=filter;
     res.render('searchresults', { search:search,filter:filter,results : dbsearchresult[0], user : user, itemcount : numitems});
+ }
 });
 
 router.get('/pricefilter/:search', async function(req,res,next) {
