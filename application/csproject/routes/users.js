@@ -188,8 +188,8 @@ router.get('/dashboard' , async function(req, res, next){
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
 router.post('/loggedin', [
-  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
-  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 2 }).isLength({ max: 30 }),
+  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 2 })
  ] , async function(req, res, next) {
   //Pass Input Validations as array parameter as shown above
   //Handle validation error if any

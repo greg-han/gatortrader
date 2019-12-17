@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,20 +104,6 @@
       <workItem from="1574266815483" duration="653000" />
       <workItem from="1574378784744" duration="60637000" />
       <workItem from="1575241630278" duration="13889000" />
-    </task>
-    <task id="LOCAL-00021" summary="items now go to item details page. &#10;Messaging is next.">
-      <created>1573349851212</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1573349851212</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Message button now goes to a link.">
-      <created>1573351394244</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1573351394244</updated>
     </task>
     <task id="LOCAL-00023" summary="Hooked up some message logic.">
       <created>1573354210012</created>
@@ -449,7 +434,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576541192629</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post.">
+      <created>1576541618336</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1576541618336</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post.">
+      <created>1576541646496</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1576541646496</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView">
@@ -465,7 +464,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added another buy thing so suraj can figure out table joins." />
     <MESSAGE value="dashboard is ready to populate dashboard page." />
     <MESSAGE value="dashboard almost complete.&#10;Each statements on the panels, just need to find arrays of items on the server side, populate the dashboard, and make messaging buttons." />
     <MESSAGE value="User dashboard complete.&#10;Must hook up buttons to messaging." />
@@ -490,37 +488,42 @@
     <MESSAGE value="Fixed UI issues on admin dashboard." />
     <MESSAGE value="added an explanation for the requirement of logging in twice as admin." />
     <MESSAGE value="added crucial changes to username and search." />
-    <option name="LAST_COMMIT_MESSAGE" value="added crucial changes to username and search." />
+    <MESSAGE value="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="527" y="135" key="CommitChangelistDialog2" timestamp="1576541618268">
+    <state x="65" y="135" key="CommitChangelistDialog2" timestamp="1576541646422">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="527" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541618268" />
+    <state x="65" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541646422" />
     <state x="766" y="267" key="FileChooserDialogImpl" timestamp="1576539891689">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="766" y="267" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1576539891689" />
-    <state width="901" height="234" key="GridCell.Tab.0.bottom" timestamp="1576541623522">
+    <state width="901" height="234" key="GridCell.Tab.0.bottom" timestamp="1576542737954">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576541623522" />
-    <state width="901" height="234" key="GridCell.Tab.0.center" timestamp="1576541623521">
+    <state width="901" height="234" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737954" />
+    <state width="901" height="234" key="GridCell.Tab.0.center" timestamp="1576542737952">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576541623521" />
-    <state width="901" height="234" key="GridCell.Tab.0.left" timestamp="1576541623521">
+    <state width="901" height="234" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737952" />
+    <state width="901" height="234" key="GridCell.Tab.0.left" timestamp="1576542737951">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576541623521" />
-    <state width="901" height="234" key="GridCell.Tab.0.right" timestamp="1576541623522">
+    <state width="901" height="234" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737951" />
+    <state width="901" height="234" key="GridCell.Tab.0.right" timestamp="1576542737953">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576541623522" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576541200764">
+    <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737953" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576542825635">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541200764" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576542825635" />
+    <state x="612" y="332" key="git4idea.merge.GitPullDialog" timestamp="1576542597388">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="612" y="332" key="git4idea.merge.GitPullDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1576542597388" />
   </component>
   <component name="masterDetails">
     <states>
