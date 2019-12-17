@@ -159,6 +159,7 @@ async function asyncArray(itemtables){
   }
   return itemsarray;
 }
+
 router.get('/dashboard' , async function(req, res, next){
      //console.log("In Dashboard: ",req.session.user)
      //get userid from username
@@ -187,8 +188,8 @@ router.get('/dashboard' , async function(req, res, next){
 
 //this is totally separtae from main routes and will be used later when we add users -Greg
 router.post('/loggedin', [
-  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 5 }).isLength({ max: 30 }),
-  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 5 })
+  check('loginusername', "Invalid Username").not().isEmpty().trim().escape().isLength({ min: 2 }).isLength({ max: 30 }),
+  check('loginpassword', "Invalid password").not().isEmpty().trim().escape().isAlphanumeric().isLength({ min: 2 })
  ] , async function(req, res, next) {
   //Pass Input Validations as array parameter as shown above
   //Handle validation error if any
@@ -220,7 +221,7 @@ router.post('/loggedin', [
             });
         if (resultbody.length < 1) {
             html = "user does not exist please go back to homepage";
-            res.send(html);
+            res.render('login.hbs', { message : html});
         } else if (resultbody[0].Password === pass) {
             req.session.user = user;
             if (!req.session.cart && !req.session.selllazy) {
@@ -245,12 +246,12 @@ router.post('/loggedin', [
     html = "Incorrect Password please go back to homepage";
     //use template literals for this or look at how to inject html into send
     //res.send(<a href="/">html</a>);
-    res.send(html);
+    res.render('login.hbs', { message : html});
   }
   if(found){
     //use template literals for this or learn how to inject html into send
     //res.send(<a href="/">"Username Taken please go back to homepage"</a>);
-    res.send("Username Taken please go back to homepage");
+    res.render('login.hbs', { message : "Username Taken please go back to homepage"});
   }
  }
 });

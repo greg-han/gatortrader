@@ -74,7 +74,10 @@ app.use(session({
   activeDuration: 5*50*1000,
 }));
 
-
+function errorHandler (err, req, res, next) {
+  res.status(500)
+  res.redirect('/', { error: err })
+}
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/search', searchRouter);
@@ -82,9 +85,8 @@ app.use('/messages', messagesRouter);
 app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+app.use(errorHandler);
+
 
 // error handler
 app.use(function(err, req, res, next) {

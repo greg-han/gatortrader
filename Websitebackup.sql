@@ -61,7 +61,7 @@ CREATE TABLE `Item` (
   `Status` int(11) NOT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `Item` (
 
 LOCK TABLES `Item` WRITE;
 /*!40000 ALTER TABLE `Item` DISABLE KEYS */;
-INSERT INTO `Item` VALUES (2,'Umbrella','Others',10,'Hello, I am selling this Umbrella because I bought a rainsuit instead.\r\n                        ','umbrella_tn.jpg',1,'2019-12-01 08:01:59'),(3,'Iphone','ELECTRONICS',320,'Selling Iphone. I like to mod my phones, so I\'m switching to android.\r\nGreat for music.                        ','iphone_tn.jpg',0,'2019-12-01 08:01:59'),(4,'gator','Others',100,'Hello, I am selling this gator.\r\nDon\'t ask about it just buy it.                        ','gator.png',1,'2019-12-01 08:01:59'),(5,'couch','furniture',20,'I don\'t want this couch anymore because I never use it and I bought a bunch of beanbags instead.                        \r\n                        ','couch_tn.jpg',1,'2019-12-01 08:01:59');
+INSERT INTO `Item` VALUES (2,'Umbrella','Others',10,'Hello, I am selling this Umbrella because I bought a rainsuit instead.\r\n                        ','umbrella_tn.jpg',1,'2019-12-01 08:01:59'),(3,'Iphone','ELECTRONICS',320,'Selling Iphone. I like to mod my phones, so I\'m switching to android.\r\nGreat for music.                        ','iphone_tn.jpg',0,'2019-12-01 08:01:59'),(4,'gator','Others',100,'Hello, I am selling this gator.\r\nDon\'t ask about it just buy it.                        ','gator.png',1,'2019-12-01 08:01:59'),(5,'couch','furniture',20,'I don\'t want this couch anymore because I never use it and I bought a bunch of beanbags instead.                        \r\n                        ','couch_tn.jpg',1,'2019-12-01 08:01:59'),(6,'heart','Others',10,'creative commons heart. free use.','images.png',1,'2019-12-16 21:54:43');
 /*!40000 ALTER TABLE `Item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `Seller` (
   KEY `ItemId` (`ItemId`),
   CONSTRAINT `Seller_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `Users` (`Id`),
   CONSTRAINT `Seller_ibfk_2` FOREIGN KEY (`ItemId`) REFERENCES `Item` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `Seller` (
 
 LOCK TABLES `Seller` WRITE;
 /*!40000 ALTER TABLE `Seller` DISABLE KEYS */;
-INSERT INTO `Seller` VALUES (2,1,2),(3,1,3),(4,2,4),(5,1,5);
+INSERT INTO `Seller` VALUES (2,1,2),(3,1,3),(4,2,4),(5,1,5),(6,1,6);
 /*!40000 ALTER TABLE `Seller` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +153,7 @@ CREATE TABLE `Users` (
   `Photo` varchar(255) DEFAULT NULL,
   `Post` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL),(3,'gator','gator','gator@mail.com','password',NULL,NULL),(4,'','','','',NULL,NULL),(5,'admin','admin','admin@email.com','password',NULL,NULL);
+INSERT INTO `Users` VALUES (1,'greg','greg','greg@mail.com','password',NULL,NULL),(2,'suraj','suraj','suraj@mail.com','password',NULL,NULL),(3,'gator','gator','gator@mail.com','password',NULL,NULL),(4,'','','','',NULL,NULL),(5,'admin','admin','admin@email.com','password',NULL,NULL),(6,'notagator','notagator','notagator@mail.notgator.edu','password',NULL,NULL),(7,'notgator','notgator','notgator@mail.notgator.edu','password',NULL,NULL),(8,'notgator','notgator','notgator@mail.notgator.edu','asfds',NULL,NULL),(9,'notgator','notgator','notgator@mail.notgator.edu','password',NULL,NULL),(10,'notgator','notgator','notgator@mail.notgator.edu','asdfsdf',NULL,NULL),(11,'notagator','notagator','notagator@mail.notgator.edu','password',NULL,NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-01 16:53:50
+-- Dump completed on 2019-12-16 14:39:52

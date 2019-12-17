@@ -26,6 +26,10 @@ body{
 .lines{
     /* border:1px solid #ccc; */
 }
+.messages{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 .r-align{
     text-align: right;
 }

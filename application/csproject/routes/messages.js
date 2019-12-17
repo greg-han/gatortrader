@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+var db_username="root";
+var db_password="password";
+var db_name="Website";
+var db_host="localhost";
+
 async function dbcheck(username){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('SELECT * FROM `Users` WHERE `Username` = ?',[username]);
     return rows;
     await connection.end();
@@ -11,7 +16,7 @@ async function dbcheck(username){
 
 async function dbsearch(search,filter){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     let likesearch = ("%" + search + "%");
     if(!filter){
@@ -26,7 +31,7 @@ async function dbsearch(search,filter){
 
 async function dbfindsellerbyitem(itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('SELECT * FROM `Seller` WHERE (`ItemId`) = ? ',[itemid]);
     return rows;
     await connection.end();
@@ -34,22 +39,23 @@ async function dbfindsellerbyitem(itemid){
 
 async function dbfindbuyerbyitem(itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`ItemId`) = ? ',[itemid]);
     return rows;
 }
 
 async function dbfindmessagebyitem(itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('SELECT * FROM `Message` WHERE (`ItemId`) = ? ',[itemid]);
+    console.log(rows);
     return rows;
 }
 
 
 async function dbinsertbuyer(userid,itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?) ',[userid,itemid]);
     return rows;
     await connection.end();
@@ -57,7 +63,7 @@ async function dbinsertbuyer(userid,itemid){
 
 async function dbinsertmessage(message,userid,senderid,itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('INSERT INTO `Message` (`MessageBody`,`UserID`,`TimeStamp`,`SenderId`,`ItemId`) VALUES(?,?,CURRENT_TIMESTAMP(),?,?) ',[message,userid,senderid,itemid]);
     return rows;
     await connection.end();
@@ -65,7 +71,7 @@ async function dbinsertmessage(message,userid,senderid,itemid){
 
 async function dbfinduser(userid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
     return rows;
@@ -73,7 +79,7 @@ async function dbfinduser(userid){
 
 async function dbfindmessage(userid, senderid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     rows = await connection.execute('SELECT * FROM `Message` WHERE `UserID` = ? AND `SenderId` = ?',[userid,senderid]);
     return rows;
@@ -99,7 +105,9 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
      let seller = await dbfindsellerbyitem(itemid);
      let sellerid = seller[0][0].UserId;
      if(buyerid == sellerid) {
-       res.render("Nice try! can't buy what you're selling!");
+      req.session.uploadmessage="Nice try! can't buy what you're selling!";
+      res.redirect('/item/'+itemid);
+        // res.redirect(200,'/item/'+itemid,{message: "Nice try! can't buy what you're selling!"});
      }
      else {
          let messageinsert = await dbinsertmessage(message, sellerid, buyerid, itemid);
@@ -112,6 +120,19 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
      }
   }
 });
+
+router.get('/sendmessage', async function(req, res, next){
+  // let user = await req.session.user;
+  res.redirect('/users/dashboard/');
+});
+
+router.get('/sendmessage/:itemid', async function(req, res, next){
+  // let user = await req.session.user;
+  let itemid = await req.params.itemid;
+  res.redirect('/item/'+itemid);
+});
+
+
 
 async function dbfinditem(id){
     const mysql = require('mysql2/promise');
@@ -149,16 +170,19 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             let buyerid = buyers[i].UserId;
             users = await dbfinduser(buyers[i].UserId);
             let messageinfo = await dbfindmessage(myuserid,buyerid);
-            let message = messageinfo[0][0].MessageBody;
-            let timestamp = message[0][0].TimeStamp;
-            let messageid = message[0][0].Id;
-            //console.log("message", messageinfo[0][0].MessageBody);
-            if(users && message) {
-              userobject.name = users[0][0].Name;
-              userobject.message = message;
-              userobject.timestamp = timestamp;
-              userobject.itemid  = itemid;
-              usersarray.push(userobject);
+            
+            if(messageinfo[0].length>0){
+              let message = messageinfo[0][0].MessageBody;
+              let timestamp = message[0][0].TimeStamp;
+              let messageid = message[0][0].Id;
+              //console.log("message", messageinfo[0][0].MessageBody);
+              if(users && message) {
+                userobject.name = users[0][0].Name;
+                userobject.message = message;
+                userobject.timestamp = timestamp;
+                userobject.itemid  = itemid;
+                usersarray.push(userobject);
+              }
             }
         }
     }
@@ -167,7 +191,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
 
 async function dbfindmessage(userid,itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'gdsd', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     rows = await connection.execute('SELECT * FROM `Message` WHERE `SenderId` = ? AND `ItemId` = ?',[userid,itemid]);
     await connection.end();
@@ -187,13 +211,16 @@ router.get('/checkmessage/:itemid', async function(req, res, next) {
    //may or may not include
    //let sellerusername = sellernamedb[0][0].Username;
    let messagedb = await dbfindmessage(userid,itemid);
-   let message = messagedb[0][0].MessageBody;
+   let message=[];
+   if(messagedb[0].length>0){
+       message = messagedb[0][0].MessageBody;
+    }
    res.render('sentmessage', { user : user, message : message, item : item, seller : sellername });
 });
 
 async function dbitemdelete(itemid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'gdsd', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   await connection.execute('DELETE FROM `Message` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   await connection.execute('DELETE FROM `Buyer` WHERE `ItemId` = ?',[itemid]);

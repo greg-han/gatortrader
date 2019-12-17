@@ -2,9 +2,14 @@ var express = require('express');
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
+var db_username="root";
+var db_password="password";
+var db_name="Website";
+var db_host="localhost";
+
 async function dbsearchs(search,filter,order){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     let likesearch = ("%" + search + "%");
     console.log(order);
@@ -25,7 +30,7 @@ async function dbsearchs(search,filter,order){
 
 async function dbsearch(search,filter){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     let likesearch = ("%" + search + "%");
     if(!filter){
@@ -40,7 +45,7 @@ async function dbsearch(search,filter){
 
 async function dbPriceFilter(search,order){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     let likesearch = ("%" + search + "%");
     if(order==0){
@@ -53,8 +58,20 @@ async function dbPriceFilter(search,order){
     return rows;
 }
 
+
+router.get('/searches', async function(req,res,next){
+    var user = req.session.user;
+    
+    let search =req.session.searchData;
+    let filter = req.session.filterData
+    let dbsearchresult = await dbsearch(search,filter);
+    let numitems = dbsearchresult[0].length;
+    res.render('searchresults', { search:search,filter:filter,results : dbsearchresult[0], user : user, itemcount : numitems});
+});
+
+
 router.post('/searches', [
-    check('search', "Invalid Search Phrase").not().isEmpty().trim().escape().isLength({ min: 3 }).isLength({ max: 100 })
+    check('search', "Invalid Search Phrase").isLength({ max: 40})
    ], async function(req,res,next){
   //Pass Input Validations as array parameter as shown above
   //Handle validation error if any

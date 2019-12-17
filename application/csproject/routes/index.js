@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var db_username="root";
+var db_password="password";
+var db_name="Website";
+var db_host="localhost";
+
 /* GET home page. */
 /*
  Here is where all of the http requests will be requested and responded too. 
@@ -17,7 +22,7 @@ please see handlebar documentation for more info. I hope this makes sense as it'
 
 async function dbfinditem(id){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
   return rows;
@@ -26,7 +31,7 @@ async function dbfinditem(id){
 
 async function dbfindseller(itemid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   let rows;
   rows = await connection.execute('SELECT * FROM `Seller` WHERE `ItemId` = ?',[itemid]);
   return rows;
@@ -35,7 +40,7 @@ async function dbfindseller(itemid){
 
 async function dbfinduser(userid){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   let rows;
   rows = await connection.execute('SELECT * FROM `Users` WHERE `Id` = ?',[userid]);
   return rows;
@@ -44,7 +49,7 @@ async function dbfinduser(userid){
 
 async function dbrecentitem(){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Date`',[1]);
   return rows;
@@ -53,7 +58,7 @@ async function dbrecentitem(){
 
 async function dbcheapestitem(){
   const mysql = require('mysql2/promise');
-  const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+  const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
   let rows;
   rows = await connection.execute('SELECT * FROM `Item` WHERE (`Status`) = ? ORDER BY `Price` ASC',[1]);
   return rows;
@@ -61,7 +66,6 @@ async function dbcheapestitem(){
 }
 
 router.get('/item/:id', async function(req,res,next){
-    console.log("hello");
     var user = await req.session.user;
     var item = await req.params.id;
     let itemresult = await dbfinditem(item);
@@ -70,7 +74,8 @@ router.get('/item/:id', async function(req,res,next){
     let findseller = await dbfinduser(sellerid);
     let sellername = findseller[0][0].Username;
     //This is how to access returned objects
-    res.render('item',{ user : user, item : itemresult[0][0], seller : sellername });
+    let uploadmessage = await req.session.uploadmessage;
+    res.render('item',{ uploadmessage:uploadmessage,user : user, item : itemresult[0][0], seller : sellername });
 });
 
 router.get('/', async function (req,res,next) {
