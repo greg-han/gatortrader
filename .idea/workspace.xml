@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Websitebackup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Websitebackup.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/routes/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/csproject/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +105,6 @@
       <workItem from="1574266815483" duration="653000" />
       <workItem from="1574378784744" duration="60637000" />
       <workItem from="1575241630278" duration="13889000" />
-    </task>
-    <task id="LOCAL-00020" summary="Seperated some server side logic.&#10;Will be adding messages soon.">
-      <created>1573341107052</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1573341107052</updated>
     </task>
     <task id="LOCAL-00021" summary="items now go to item details page. &#10;Messaging is next.">
       <created>1573349851212</created>
@@ -455,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575248157576</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="added crucial changes to username and search.">
+      <created>1576541192629</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1576541192629</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView">
@@ -471,7 +465,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user can now message seller after selecting an item." />
     <MESSAGE value="added another buy thing so suraj can figure out table joins." />
     <MESSAGE value="dashboard is ready to populate dashboard page." />
     <MESSAGE value="dashboard almost complete.&#10;Each statements on the panels, just need to find arrays of items on the server side, populate the dashboard, and make messaging buttons." />
@@ -496,9 +489,14 @@
     <MESSAGE value="Deleted unused files, and made all form fields required across all forms in the app." />
     <MESSAGE value="Fixed UI issues on admin dashboard." />
     <MESSAGE value="added an explanation for the requirement of logging in twice as admin." />
-    <option name="LAST_COMMIT_MESSAGE" value="added an explanation for the requirement of logging in twice as admin." />
+    <MESSAGE value="added crucial changes to username and search." />
+    <option name="LAST_COMMIT_MESSAGE" value="added crucial changes to username and search." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="527" y="135" key="CommitChangelistDialog2" timestamp="1576541569163">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="527" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541569163" />
     <state x="766" y="267" key="FileChooserDialogImpl" timestamp="1576539891689">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
@@ -519,6 +517,10 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576541058758" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576541200764">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541200764" />
   </component>
   <component name="masterDetails">
     <states>

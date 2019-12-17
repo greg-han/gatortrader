@@ -269,11 +269,14 @@ router.post('/register', [
  //Pass Input Validations as array parameter as shown above
 //Handle validation error if any
 const errors = validationResult(req);
+req.session.regerror = "";
 console.log("Register Error",errors.array());
 if (!errors.isEmpty()) {
   //res.render('login', { message : ""});
   console.log("I dey get error");
-  res.render('login', { message: errors.array()[0]['msg'] });
+  req.session.regerror = errors.array()[0]['msg'];
+  let message = await req.session.regerror;
+  res.redirect('/users/login'});
   //if api caller return res.status(422).json({ errors: errors.array() });
 }
 else{
@@ -346,8 +349,16 @@ router.get('/login', async function(req, res, next) {
        res.render('login.hbs', { message : "Please Login or Register to Sell/Purchase Item"});
    }
    else{
-       let message = await req.session.wrongemail;
-      res.render('login', { message : message});
+       let wrongemail = await req.session.wrongemail;
+       let wrongusername = await req.session.regerror;
+       let error = "";
+       if(wrongemail != ""){
+          error = wrongemail;
+       }
+       if(wrongusername != ""){
+          error = wrongusername;
+       }
+      res.render('login', { message : error});
    }
 });
 
