@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,13 +106,6 @@
       <workItem from="1574266815483" duration="653000" />
       <workItem from="1574378784744" duration="60637000" />
       <workItem from="1575241630278" duration="13889000" />
-    </task>
-    <task id="LOCAL-00023" summary="Hooked up some message logic.">
-      <created>1573354210012</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1573354210012</updated>
     </task>
     <task id="LOCAL-00024" summary="Redirect to users login and save item id if user is not registered and attempts to buy an item.">
       <created>1573359968081</created>
@@ -448,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576541646496</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="fixed helmet error username min was too large.">
+      <created>1576542851556</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1576542851556</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView">
@@ -464,7 +466,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dashboard is ready to populate dashboard page." />
     <MESSAGE value="dashboard almost complete.&#10;Each statements on the panels, just need to find arrays of items on the server side, populate the dashboard, and make messaging buttons." />
     <MESSAGE value="User dashboard complete.&#10;Must hook up buttons to messaging." />
     <MESSAGE value="Items Selling Dashboard Complete.&#10;Only need to add delete item functionality now." />
@@ -489,37 +490,38 @@
     <MESSAGE value="added an explanation for the requirement of logging in twice as admin." />
     <MESSAGE value="added crucial changes to username and search." />
     <MESSAGE value="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post." />
+    <MESSAGE value="fixed helmet error username min was too large." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed helmet error username min was too large." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="65" y="135" key="CommitChangelistDialog2" timestamp="1576541646422">
+    <state x="65" y="135" key="CommitChangelistDialog2" timestamp="1576542851474">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="65" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576541646422" />
+    <state x="65" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576542851474" />
     <state x="766" y="267" key="FileChooserDialogImpl" timestamp="1576539891689">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="766" y="267" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1576539891689" />
-    <state width="901" height="234" key="GridCell.Tab.0.bottom" timestamp="1576542737954">
+    <state width="901" height="234" key="GridCell.Tab.0.bottom" timestamp="1576545131051">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737954" />
-    <state width="901" height="234" key="GridCell.Tab.0.center" timestamp="1576542737952">
+    <state width="901" height="234" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
+    <state width="901" height="234" key="GridCell.Tab.0.center" timestamp="1576545131051">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737952" />
-    <state width="901" height="234" key="GridCell.Tab.0.left" timestamp="1576542737951">
+    <state width="901" height="234" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
+    <state width="901" height="234" key="GridCell.Tab.0.left" timestamp="1576545131050">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737951" />
-    <state width="901" height="234" key="GridCell.Tab.0.right" timestamp="1576542737953">
+    <state width="901" height="234" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131050" />
+    <state width="901" height="234" key="GridCell.Tab.0.right" timestamp="1576545131051">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576542737953" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576542825635">
+    <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576542856980">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576542825635" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576542856980" />
     <state x="612" y="332" key="git4idea.merge.GitPullDialog" timestamp="1576542597388">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>

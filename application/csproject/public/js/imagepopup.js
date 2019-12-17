@@ -1,6 +1,6 @@
 async function popup(element) {
-    console.log("element",element);
+    let endpoint = await element.name;
     //let endpoint = await document.getElementById("img").getAttribute("value");
-    let url = "/images/" + element;
+    let url = "/images/" + endpoint;
     window.open(url);
 }
