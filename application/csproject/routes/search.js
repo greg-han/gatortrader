@@ -105,7 +105,7 @@ router.post('/searches', async function(req,res,next){
     req.session.searchData=search;
     req.session.filterData=filter;
     res.render('searchresults', { search:search,filter:filter,results : dbsearchresult[0], user : user, itemcount : numitems});
- }
+ } 
 });
 
 router.get('/pricefilter/:search', async function(req,res,next) {
