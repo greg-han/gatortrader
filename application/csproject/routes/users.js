@@ -276,7 +276,7 @@ if (!errors.isEmpty()) {
   console.log("I dey get error");
   req.session.regerror = errors.array()[0]['msg'];
   let message = await req.session.regerror;
-  res.redirect('/users/login'});
+  res.redirect('/users/login');
   //if api caller return res.status(422).json({ errors: errors.array() });
 }
 else{
