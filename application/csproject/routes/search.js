@@ -2,7 +2,7 @@ var express = require('express');
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
-var db_username="gsds";
+var db_username="root";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";

@@ -1,10 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+<<<<<<< HEAD
 var db_username="gsds";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";
+=======
+var db_username = 'root';
+var db_password ='password';
+var db_name = 'Website';
+var db_host = 'localhost';
+>>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
 
 async function dbcheck(username){
     const mysql = require('mysql2/promise');
@@ -78,10 +85,12 @@ async function dbfinduser(userid){
 }
 
 async function dbfindmessage(userid, senderid){
+    console.log("I'm in here2");
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
+    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
     let rows;
     rows = await connection.execute('SELECT * FROM `Message` WHERE `UserID` = ? AND `SenderId` = ?',[userid,senderid]);
+    console.log("rows",rows);
     return rows;
 }
 
@@ -121,16 +130,17 @@ router.post('/sendmessage/:itemid', async function(req, res, next){
   }
 });
 
-router.get('/sendmessage', async function(req, res, next){
-  // let user = await req.session.user;
-  res.redirect('/users/dashboard/');
-});
+//router.get('/sendmessage', async function(req, res, next){
+//  // let user = await req.session.user;
+//  res.redirect('/users/dashboard/');
+//});
 
-router.get('/sendmessage/:itemid', async function(req, res, next){
+/*router.get('/sendmessage/:itemid', async function(req, res, next){
   // let user = await req.session.user;
   let itemid = await req.params.itemid;
   res.redirect('/item/'+itemid);
 });
+*/
 
 
 
@@ -151,6 +161,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
     let itemresult = await dbfinditem(itemid);
     let item = itemresult[0][0];
     let buyer = await dbfindbuyerbyitem(itemid);
+    //console.log("buyer",buyer);
     //sometimes you won't have a username, and this will be weird
     let myuser = await dbcheck(user);
     let myuserid = myuser[0][0].Id;
@@ -159,7 +170,9 @@ router.get('/checkselling/:itemid', async function(req, res, next){
     let buyersarray;
     let usersarray = [];
     if(buyer[0]) {
+        console.log("I'm in here");
         buyers = buyer[0];
+        console.log("buyer",buyer[0]);
         for (let i = 0; i < buyers.length; i++) {
             let userobject = {
                 name : '',
@@ -169,13 +182,24 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             };
             let buyerid = buyers[i].UserId;
             users = await dbfinduser(buyers[i].UserId);
+<<<<<<< HEAD
             let messageinfo = await dbfindmessagebyitem(itemid);
             
             
+=======
+            console.log("myuserid",myuserid);
+            console.log("buyerid",buyerid);
+            let messageinfo = await dbfindmessage(myuserid,buyerid);
+            console.log("messageinfo",messageinfo);
+>>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
             if(messageinfo[0].length>0){
               let message = messageinfo[0][0].MessageBody;
               let timestamp = new Date(message[0][0].TimeStamp);
               let messageid = message[0][0].Id;
+<<<<<<< HEAD
+=======
+              console.log("message", messageinfo[0][0].MessageBody);
+>>>>>>> f9788016c88a325533b4d1b0b307826105bd9d5d
               if(users && message) {
                 userobject.name = users[0][0].Name;
                 userobject.message = message;
@@ -190,14 +214,6 @@ router.get('/checkselling/:itemid', async function(req, res, next){
     res.render('messagebuyers', { user : user, buyers : usersarray, item : item });
 });
 
-async function dbfindmessage(userid,itemid){
-    const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: db_username, password: db_password, database: db_name});
-    let rows;
-    rows = await connection.execute('SELECT * FROM `Message` WHERE `SenderId` = ? AND `ItemId` = ?',[userid,itemid]);
-    await connection.end();
-    return rows;
-}
 router.get('/checkmessage/:itemid', async function(req, res, next) {
    let user = await req.session.user;
    let itemid = await req.params.itemid;

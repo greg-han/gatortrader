@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="582355f3-c678-4880-9d95-231a0b1a791f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/public/js/imagepopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/views/searchresults.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/csproject/routes/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/application/csproject/routes/messages.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +12,9 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="csc648-fall2019-Team14" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -28,7 +30,14 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
+  <component name="ProjectId" id="1V7XQYEeftOxR2W5WdokRW9NFQO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -106,34 +115,7 @@
       <workItem from="1574266815483" duration="653000" />
       <workItem from="1574378784744" duration="60637000" />
       <workItem from="1575241630278" duration="13889000" />
-    </task>
-    <task id="LOCAL-00024" summary="Redirect to users login and save item id if user is not registered and attempts to buy an item.">
-      <created>1573359968081</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1573359968081</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Implemented lazy registration for buying.&#10;Need to implement the ability to upload item and then will do messages.">
-      <created>1573362374196</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1573362374196</updated>
-    </task>
-    <task id="LOCAL-00026" summary="added janky sell item link. Will be adder sell page, and then messaging.">
-      <created>1573362831184</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1573362831184</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Sell page and link updated and implemented.">
-      <created>1573364657223</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1573364657223</updated>
+      <workItem from="1576605099388" duration="5587000" />
     </task>
     <task id="LOCAL-00028" summary="commit before pull">
       <created>1573408732291</created>
@@ -450,7 +432,35 @@
       <option name="project" value="LOCAL" />
       <updated>1576542851556</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="images were not opening in new window. javascript was just capturing the first element in the DOM with id &quot;img&quot;. Fixed it by passing (this) to popup() function, and accessing this.value inside of the function and appending it as an endpoint.">
+      <created>1576545226250</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1576545226251</updated>
+    </task>
+    <task id="LOCAL-00074" summary="images were not opening in new window. javascript was just capturing the first element in the DOM with id &quot;img&quot;. Fixed it by passing (this) to popup() function, and accessing this.value inside of the function and appending it as an endpoint.">
+      <created>1576545232400</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1576545232400</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Made last minute UI fixes to the login/registration page.">
+      <created>1576625792123</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1576625792123</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Added SFSU pics to carousel.">
+      <created>1576626294394</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1576626294394</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView">
@@ -466,9 +476,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dashboard almost complete.&#10;Each statements on the panels, just need to find arrays of items on the server side, populate the dashboard, and make messaging buttons." />
-    <MESSAGE value="User dashboard complete.&#10;Must hook up buttons to messaging." />
-    <MESSAGE value="Items Selling Dashboard Complete.&#10;Only need to add delete item functionality now." />
     <MESSAGE value="UI is somewhat compliant now." />
     <MESSAGE value="made sure that user is still &quot;in session&quot; before trying to load dashboard" />
     <MESSAGE value="need to backup the database again." />
@@ -491,37 +498,44 @@
     <MESSAGE value="added crucial changes to username and search." />
     <MESSAGE value="fixed routing for errors. isntead of rendering login.hbs the errors were saved in a session and if error on login/register page you are sent to the /login route. I also auto-clear the session at the beginning of each form post." />
     <MESSAGE value="fixed helmet error username min was too large." />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed helmet error username min was too large." />
+    <MESSAGE value="images were not opening in new window. javascript was just capturing the first element in the DOM with id &quot;img&quot;. Fixed it by passing (this) to popup() function, and accessing this.value inside of the function and appending it as an endpoint." />
+    <MESSAGE value="Made last minute UI fixes to the login/registration page." />
+    <MESSAGE value="Added SFSU pics to carousel." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added SFSU pics to carousel." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="65" y="135" key="CommitChangelistDialog2" timestamp="1576545226192">
+    <state x="65" y="135" key="CommitChangelistDialog2" timestamp="1576626294285">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="65" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576545226192" />
+    <state x="65" y="135" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1576626294285" />
     <state x="766" y="267" key="FileChooserDialogImpl" timestamp="1576539891689">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="766" y="267" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1576539891689" />
-    <state width="901" height="234" key="GridCell.Tab.0.bottom" timestamp="1576545131051">
+    <state width="1809" height="296" key="GridCell.Tab.0.bottom" timestamp="1576632342569">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
-    <state width="901" height="234" key="GridCell.Tab.0.center" timestamp="1576545131051">
+    <state width="1809" height="296" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1576632342569" />
+    <state width="1809" height="296" key="GridCell.Tab.0.center" timestamp="1576632342568">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
-    <state width="901" height="234" key="GridCell.Tab.0.left" timestamp="1576545131050">
+    <state width="1809" height="296" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1576632342568" />
+    <state width="1809" height="296" key="GridCell.Tab.0.left" timestamp="1576632342567">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131050" />
-    <state width="901" height="234" key="GridCell.Tab.0.right" timestamp="1576545131051">
+    <state width="1809" height="296" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1576632342567" />
+    <state width="1809" height="296" key="GridCell.Tab.0.right" timestamp="1576632342568">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state width="901" height="234" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576545131051" />
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576542856980">
+    <state width="1809" height="296" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1576632342568" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2" timestamp="1576626303409">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
-    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576542856980" />
+    <state x="592" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1576626303409" />
+    <state x="653" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1576605099029">
+      <screen x="65" y="24" width="1855" height="1056" />
+    </state>
+    <state x="653" y="367" key="com.intellij.ide.util.TipDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1576605099029" />
     <state x="612" y="332" key="git4idea.merge.GitPullDialog" timestamp="1576542597388">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
