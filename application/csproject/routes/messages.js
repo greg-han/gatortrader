@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var db_username="root";
+var db_username="gsds";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";
@@ -136,7 +136,7 @@ router.get('/sendmessage/:itemid', async function(req, res, next){
 
 async function dbfinditem(id){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({host: 'localhost', user: db_username, password: db_password, database: db_name});
     let rows;
     rows = await connection.execute('SELECT * FROM `Item` WHERE `Id` = ? ' ,[id]);
     return rows;
@@ -169,13 +169,13 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             };
             let buyerid = buyers[i].UserId;
             users = await dbfinduser(buyers[i].UserId);
-            let messageinfo = await dbfindmessage(myuserid,buyerid);
+            let messageinfo = await dbfindmessagebyitem(itemid);
+            
             
             if(messageinfo[0].length>0){
               let message = messageinfo[0][0].MessageBody;
-              let timestamp = message[0][0].TimeStamp;
+              let timestamp = new Date(message[0][0].TimeStamp);
               let messageid = message[0][0].Id;
-              //console.log("message", messageinfo[0][0].MessageBody);
               if(users && message) {
                 userobject.name = users[0][0].Name;
                 userobject.message = message;
@@ -186,6 +186,7 @@ router.get('/checkselling/:itemid', async function(req, res, next){
             }
         }
     }
+    console.log(usersarray);
     res.render('messagebuyers', { user : user, buyers : usersarray, item : item });
 });
 

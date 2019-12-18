@@ -221,6 +221,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
 .gradient_green_btn{
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
 color:#FFF;
+padding:5px;
+margin:3px;
 display: inline-table;
 background: #62ab00; /* Old browsers */
 background: -moz-linear-gradient(-45deg,  #62ab00 0%, #62ab00 50%, #62ab00 51%, #2a7a00 100%); /* FF3.6-15 */
@@ -233,6 +235,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#62ab00', end
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#62ab00+0,62ab00+50,62ab00+51,2a7a00+100 */
 color:#FFF;
 display: inline-table;
+padding:5px;
+margin:3px;
 background: #ff0000; /* Old browsers */
 background: -moz-linear-gradient(-45deg,  #ff0000 0%, #ff0000 50%, #ff0000 51%, #2a7a00 100%); /* FF3.6-15 */
 background: -webkit-linear-gradient(-45deg,  #ff0000 0%,#ff0000 50%,#ff0000 51%,#2a7a00 100%); /* Chrome10-25,Safari5.1-6 */

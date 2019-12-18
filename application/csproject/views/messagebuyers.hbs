@@ -11,32 +11,26 @@
 <body>
 <!-- Nav tabs -->
 <br/><br/>
-<h2><a href="javascript:history.back()">Back to Dashboard<a/></h2><hr/>
-<div class="container-fluid">
+
+<div class="container">
     <div class="row-fluid menu">
-        <div class="col-md-5 l-align box">
-            <h1>{{item.Name}}</h1>
-            <div class="form row-fluid" method="post">
-                <div class="col-md-6">
+        <h2><a href="javascript:history.back()">Back to Dashboard<a/></h2><hr/>
+            <div class="col-md-6">
                     <img src="/images/{{item.Photo}}" height="170"/>
                 </div>
-            </div>
+        <div class="col-md-6 l-align box">
+            <h1>{{item.Name}}</h1>
+            
             Category: {{item.Category}}<hr/>
             {{item.Name}}<br/>
             {{item.Description}}<br/>
             <br/><br/><br/><br/>
+            <a href="/messages/deletemessage/{{item.Id}}" class="buyNow" style="background: #ff5854">Mark Sold</a>
+            <br/><br/>
         </div>
-    </div>
-</div>
-<div class="container">
-<div class="row">
-<div class="col-md-2" c-align">
-<a href="/messages/deletemessage/{{item.Id}}" class="buyNow" style="background: #ff5854">Mark Sold</a>
-</div>
-</div>
 </div>
 <br/><br/>
-<div class="container-fluid">
+
     <div class="row-fluid">
         <div class="col-md-12 l-align box" >
             <h2>Messages</h2><hr/>
@@ -44,17 +38,17 @@
             <div class="row-fluid tabs" style="height:60px;">
                 {{#if buyers}}
                 {{#each buyers}}
-                    <div class="col-md-1 filterlink c-align">
+                    <div class="col-md-2 filterlink c-align">
                         {{this.name}}
                     </div>
-                    <div class="col-md-3 filterlink c-align">
+                    <div class="col-md-10 filterlink c-align">
                         {{this.message}}
                     </div>
                 </div>
                 </div>
                 {{/each}}
                 {{else}}
-                    <div class="col-md-6 filterlink c-align">
+                    <div class="col-md-12 filterlink c-align">
                        No Buyers Yet.
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var db_username="root";
+var db_username="gsds";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";
@@ -75,7 +75,11 @@ router.get('/item/:id', async function(req,res,next){
     let sellername = findseller[0][0].Username;
     //This is how to access returned objects
     let uploadmessage = await req.session.uploadmessage;
-    res.render('item',{ uploadmessage:uploadmessage,user : user, item : itemresult[0][0], seller : sellername });
+
+    req.session.destroy();
+    req.session.user = user;
+
+    res.render('item',{ user : user,uploadmessage:uploadmessage, item : itemresult[0][0], seller : sellername });
 });
 
 router.get('/', async function (req,res,next) {

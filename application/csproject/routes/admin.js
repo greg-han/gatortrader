@@ -3,7 +3,7 @@ var router  = express.Router();
 
 //database parameters
 const host    = 'localhost';
-const user    = 'root';
+const user    = 'gsds';
 const password= 'password';
 const database= 'Website';
 

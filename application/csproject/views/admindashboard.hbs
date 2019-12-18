@@ -72,13 +72,10 @@
             <div class="col-md-2  c-align listitem" style="background: white;">
                 {{this.Price}}
             </div>
-            <div class="col-md-2  c-align listitem" style="background: white;">
-                <div class="col-md-2  c-align"><br/>
-                    <a href="/admin/changestatus/{{this.Id}}" class="gradient_green_btn">Approve</a>
-                </div>
-                <div class="col-md-2  c-align"><br/>
-                    <a href="/messages/deleteitem/{{this.Id}}" class="gradient_red_btn">Delete</a>
-                </div>
+            <div class="col-md-2  c-align listitem " style="background: white;">
+                <a href="/admin/changestatus/{{this.Id}}" class="gradient_green_btn">Approve</a>
+                <br/>
+                <a href="/admin/deleteitem/{{this.Id}}" class="gradient_red_btn">Delete</a>
             </div>
         </div>
         </div>

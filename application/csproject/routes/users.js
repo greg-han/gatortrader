@@ -2,7 +2,7 @@ var express = require('express');
 const { check, validationResult } = require('express-validator');
 var router = express.Router();
 
-var db_username="root";
+var db_username="gsds";
 var db_password="password";
 var db_name="Website";
 var db_host="localhost";
@@ -105,7 +105,7 @@ async function dbfinditem(itemid){
 
 async function dbfindbuyerbyid(itemid){
     const mysql = require('mysql2/promise');
-    const connection = await mysql.createConnection({ host: 'localhost', user: 'root', password: 'password', database: 'Website'});
+    const connection = await mysql.createConnection({host: db_host,user: db_username, password: db_password, database: db_name});
     const rows = await connection.execute('SELECT * FROM `Buyer` WHERE (`ItemId`) = ? ',[itemid]);
     return rows;
 }
@@ -136,7 +136,7 @@ router.post('/postitem', upload.single('avatar'), async function(req, res, next)
     let sellerid = dbuser[0][0].Id;
     let sellerdb = await dbinsertseller(sellerid,itemid);
     //console.log("reqfile: ",req.file);
-    res.redirect('/');
+    res.redirect('/users/dashboard');
 });
 
 router.post('/postitemlazy',async function(req, res, next){
