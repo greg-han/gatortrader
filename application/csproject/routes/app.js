@@ -244,15 +244,26 @@ router.post('/register', function(req, res, next) {
 					conn.release();
 					res.json({code:1,message:'Sorry unable to access the server at this time'});
 				}else{
-					conn.query("select * from `Users` WHERE username=? AND password =?",[req.body.username,req.body.password] , function (err, rows, fields){
+					conn.query("select * from `Users` WHERE username=? OR email =?",[req.body.username,req.body.email] , function (err, rows, fields){
 						conn.release();
 						if(!!err){
 							res.json({code:1,message:'Sorry unable to access the server at this time'});
 						}else{
-							if(rows.affectedRows===1){
-								res.json({code:0,message:rows});
+							if(rows.length==0){
+								conn.query("INSERT INTO `Users` (Name,Email,Username,Password) VALUES(?,?,?,?)",[req.body.fullname,req.body.email,req.body.username,req.body.password] , function (err, rows, fields){
+									conn.release();
+									if(!!err){
+										res.json({code:1,message:'Sorry unable to access the server at this time'});
+									}else{
+										if(rows.affectedRows===1){
+											res.json({code:0,message:rows});
+										}else{
+											res.json({code:1,message:'Sorry invalid username or password'});
+										}
+									}
+								});
 							}else{
-								res.json({code:1,message:'Sorry invalid username or password'});
+								res.json({code:1,message:'Sorry the email or username is already taken, change and retry'});
 							}
 						}
 					});
