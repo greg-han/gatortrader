@@ -245,8 +245,8 @@ router.post('/register', function(req, res, next) {
 					res.json({code:1,message:'Sorry unable to access the server at this time'});
 				}else{
 					conn.query("select * from `Users` WHERE username=? OR email =?",[req.body.username,req.body.email] , function (err, rows, fields){
-						conn.release();
 						if(!!err){
+							conn.release();
 							res.json({code:1,message:'Sorry unable to access the server at this time'});
 						}else{
 							if(rows.length==0){
@@ -263,6 +263,7 @@ router.post('/register', function(req, res, next) {
 									}
 								});
 							}else{
+								conn.release();
 								res.json({code:1,message:'Sorry the email or username is already taken, change and retry'});
 							}
 						}
