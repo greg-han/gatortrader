@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var db_username = 'root';
-var db_password ='password';
-var db_name = 'Website';
-var db_host = 'localhost';
+var db_username="admin_fulda";
+var db_password="fuldaschool";
+var db_name="admin_fulda";
+var db_host="localhost";
 
 async function dbcheck(username){
     const mysql = require('mysql2/promise');
