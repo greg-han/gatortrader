@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
 var messagesRouter = require('./routes/messages');
 var adminRouter    = require('./routes/admin');
+var appRouter    = require('./routes/app');
 
 //intellij check
 /*App.js is the main entry point of the app this is where everything gets set up.
@@ -83,6 +84,7 @@ app.use('/users', usersRouter);
 app.use('/search', searchRouter);
 app.use('/messages', messagesRouter);
 app.use('/admin', adminRouter);
+app.use('/app', appRouter);
 
 // catch 404 and forward to error handler
 app.use(errorHandler);
