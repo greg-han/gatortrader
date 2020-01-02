@@ -240,11 +240,11 @@ router.post('/register', function(req, res, next) {
 		    res.json({code:1,message:'Only SFSU students may register.'});
 		}else{
 			dbCon.getConnection(function(error, conn){
-				if(!!error){
+				if(!!error){console.log(error);
 					conn.release();
 					res.json({code:1,message:'Sorry unable to access the server at this time'});
 				}else{
-					conn.query("select * from `Users` WHERE username=? OR email =?",[req.body.username,req.body.email] , function (err, rows, fields){
+					conn.query("select * from `Users` WHERE Username = ? OR Email = ?",[req.body.username,req.body.email] , function (err, rows, fields){
 						if(!!err){
 							conn.release();
 							res.json({code:1,message:'Sorry unable to access the server at this time'});
