@@ -2,10 +2,10 @@ var express = require('express');
 var router  = express.Router();
 
 //database parameters
-const host    = 'localhost';
-const user    = 'root';
-const password= 'password';
-const database= 'Website';
+var db_username="admin_fulda";
+var db_password="fuldaschool";
+var db_name="admin_fulda";
+var db_host="localhost";
 
 	
 async function dbcheck(username){

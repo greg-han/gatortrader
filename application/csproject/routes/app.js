@@ -173,16 +173,31 @@ router.post('/messages', function(req, res, next) {
 				conn.release();
 				res.json({code:1,message:'Unable to send message at this time,kindly retry'});
 			}else{
-				conn.query("SELECT * FROM `Message` WHERE (`UserID` = ? OR `SellerID` = ?)",[req.headers.userid,req.headers.userid,req.headers.itemid] , function (err, rows, fields){
+				conn.query("select UserId from Seller WHERE Itemid=?",[req.body.itemid] , function (err, rows, fields){
 					conn.release();
 					if(!!err){
 						res.json({code:1,message:'Unable to send message at this time,kindly retry'});
 					}else{
-						if(rows.affectedRows===1){
-							res.json({code:0,message:'Message Sent Successfully.'});
-						}else{
-							res.json({code:1,message:'Unable to send message at this time,kindly retry'});
-						}
+						let Seller=rows[0].UserId;
+						conn.query("INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?)",[req.body.userid,req.body.itemid] , function (err, rows, fields){
+							conn.release();
+							if(!!err){
+								res.json({code:1,message:'Unable to send message at this time,kindly retry'});
+							}else{
+								conn.query("INSERT INTO `Message` (`MessageBody`,`UserID`,`TimeStamp`,`SenderId`,`ItemId`) VALUES(?,?,CURRENT_TIMESTAMP(),?,?)",[req.body.message,req.body.userid,Seller,req.body.itemid] , function (err, rows, fields){
+									conn.release();
+									if(!!err){
+										res.json({code:1,message:'Unable to send message at this time,kindly retry'});
+									}else{
+										if(rows.affectedRows===1){
+											res.json({code:0,message:'Message Sent Successfully.'});
+										}else{
+											res.json({code:1,message:'Unable to send message at this time,kindly retry'});
+										}
+									}
+								});
+							}
+						});
 					}
 				});
 			}
