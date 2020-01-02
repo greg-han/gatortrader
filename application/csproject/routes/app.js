@@ -78,14 +78,14 @@ router.get('/products/:id', function(req, res, next) {
 	}
 });
 
-router.get('/buyorders', function(req, res, next) {
+router.get('/buyorders/:id', function(req, res, next) {
 	try{
 	   	dbCon.getConnection(function(error, conn){
 			if(!!error){
 				conn.release();
 				res.json({result:[]});
 			}else{
-				conn.query("SELECT * FROM `Buyer` WHERE (`UserId`) = ?",[req.headers.userid] , function (err, rows, fields){
+				conn.query("SELECT * FROM `Buyer` b INNER JOIN `Item` i ON b.ItemId=i.id WHERE b.`UserId` = ?",[req.params.id] , function (err, rows, fields){
 					conn.release();
 					if(!!err){
 						res.json({result:[]});
