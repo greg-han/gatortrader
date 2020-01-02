@@ -5,9 +5,9 @@ const mysql = require('mysql');
 
 let dbCon=mysql.createPool({
 	    host : 'localhost',
-		user : 'root',
-		password : 'password',
-		database : 'Website'
+		user : 'admin_fulda',
+		password : 'fuldaschool',
+		database : 'admin_fulda'
 });
 
 
