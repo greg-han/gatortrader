@@ -174,14 +174,14 @@ router.post('/messages', function(req, res, next) {
 				res.json({code:1,message:'Unable to send message at this time,kindly retry'});
 			}else{
 				conn.query("select UserId from Seller WHERE Itemid=?",[req.body.itemid] , function (err, rows, fields){
-					conn.release();
 					if(!!err){
+						conn.release();
 						res.json({code:1,message:'Unable to send message at this time,kindly retry'});
 					}else{
 						let Seller=rows[0].UserId;
 						conn.query("INSERT INTO `Buyer` (`UserId`,`ItemId`) VALUES(?,?)",[req.body.userid,req.body.itemid] , function (err, rows, fields){
-							conn.release();
 							if(!!err){
+								conn.release();
 								res.json({code:1,message:'Unable to send message at this time,kindly retry'});
 							}else{
 								conn.query("INSERT INTO `Message` (`MessageBody`,`UserID`,`TimeStamp`,`SenderId`,`ItemId`) VALUES(?,?,CURRENT_TIMESTAMP(),?,?)",[req.body.message,req.body.userid,Seller,req.body.itemid] , function (err, rows, fields){
